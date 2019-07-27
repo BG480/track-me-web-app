@@ -1,10 +1,10 @@
-<div class="container">
-    <form class="container__form">
-        <h1 class="container__header">TrackMe</h1>
-        <label class="container__label">Email</label>
-        <input type="text" class="container__input">
-        <label class="container__label">Password</label>
-        <input type="password" class="container__input">
-        <button class="container__btn">Login</button>
+<div class="form-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-container__form">
+        <h1 class="form-container__header">TrackMe</h1>
+        <label class="form-container__label">Email</label>
+        <input formControlName="email" type="text" class="form-container__input">
+        <label class="form-container__label">Password</label>
+        <input formControlName="password" type="password" class="form-container__input">
+        <button type="submit" class="form-container__btn">Login</button>
     </form>
 </div>
