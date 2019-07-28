@@ -1,10 +1,11 @@
 <div class="form-container">
+    <h1 class="form-container__header">TrackMe</h1>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-container__form">
-        <h1 class="form-container__header">TrackMe</h1>
         <label class="form-container__label">Email</label>
-        <input formControlName="email" type="text" class="form-container__input">
+        <input formControlName="Email" type="text" class="form-container__input">
         <label class="form-container__label">Password</label>
-        <input formControlName="password" type="password" class="form-container__input">
+        <input formControlName="Password" type="password" class="form-container__input">
         <button type="submit" class="form-container__btn">Login</button>
     </form>
+    <a routerLink= 'registration' roterLinkActive='active' class="form-container__link">Create new account</a>
 </div>
