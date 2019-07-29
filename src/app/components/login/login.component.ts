@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
+import {AccountService} from './../../services/account.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,13 +15,24 @@ export class LoginComponent implements OnInit {
     Password: new FormControl(''),
   })
 
-  constructor() { }
+  constructor(private accountController: AccountService, private router: Router) { }
 
   ngOnInit() {
   }
 
   onSubmit(){
-    console.warn(this.loginForm.value);
+    this.accountController.login(this.loginForm.value).subscribe(
+      (result: any) => {
+        localStorage.setItem('token', result.token);
+        //this.router.navigateByUrl()
+        console.log("OK")
+      },
+      error => {
+        console.log("ERROR")
+      }
+    );
+    
+    
   }
   
 
