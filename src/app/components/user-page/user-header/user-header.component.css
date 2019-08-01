@@ -1,0 +1,43 @@
+.user-header
+{
+    background-color: #3aafa9;
+    color: #feffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vh 2vw;
+}
+
+
+.user-header__logo
+{
+    font-size: 3vh;
+    display: block;
+    text-decoration: none;
+    color: #feffff;
+}
+
+.user-header__list
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.user-header__list-item
+{
+    margin: 1vh 1vw;
+}
+
+.user-header__link
+{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 1vh 1vw;
+}
+
