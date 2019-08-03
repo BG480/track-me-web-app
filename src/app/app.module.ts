@@ -13,6 +13,7 @@ import { UserTripsComponent } from './components/user-page/user-trips/user-trips
 import { UserAccountComponent } from './components/user-page/user-account/user-account.component';
 import { UserTripDetailsComponent } from './components/user-page/user-trip-details/user-trip-details.component';
 import { UserHeaderComponent } from './components/user-page/user-header/user-header.component';
+import { AccountService } from './services/account.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { UserHeaderComponent } from './components/user-page/user-header/user-hea
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

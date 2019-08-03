@@ -27,8 +27,11 @@ export class LoginComponent implements OnInit {
         //this.router.navigateByUrl()
         console.log("OK")
       },
-      error => {
-        console.log("ERROR")
+      err => {
+        if (err.status == 400)
+          console.log(err);
+        else
+          console.log(err);
       }
     );
     
