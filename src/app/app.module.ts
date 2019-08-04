@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import {JwtModule} from "@auth0/angular-jwt";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,11 @@ import { UserAccountComponent } from './components/user-page/user-account/user-a
 import { UserTripDetailsComponent } from './components/user-page/user-trip-details/user-trip-details.component';
 import { UserHeaderComponent } from './components/user-page/user-header/user-header.component';
 import { AccountService } from './services/account.service';
+import { AuthGuardService } from './services/auth-guard.service';
+
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 @NgModule({
   declarations: [
@@ -32,8 +38,14 @@ import { AccountService } from './services/account.service';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ["http://localhost:54277"]
+        }
+    })
   ],
-  providers: [AccountService],
+  providers: [AccountService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

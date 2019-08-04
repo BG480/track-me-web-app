@@ -24,14 +24,13 @@ export class LoginComponent implements OnInit {
     this.accountController.login(this.loginForm.value).subscribe(
       (result: any) => {
         localStorage.setItem('token', result.token);
-        //this.router.navigateByUrl()
+        debugger;
+        this.router.navigateByUrl("user");
         console.log("OK")
       },
       err => {
-        if (err.status == 400)
-          console.log(err);
-        else
-          console.log(err);
+        //if (err.status == 400)
+        console.log(err);
       }
     );
     
