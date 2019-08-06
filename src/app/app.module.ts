@@ -18,6 +18,7 @@ import { AccountService } from './services/account.service';
 import { AuthGuardService } from './services/auth-guard.service';
 
 export function tokenGetter() {
+  debugger;
   return localStorage.getItem("access_token");
 }
 
@@ -41,7 +42,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ["http://localhost:54277"]
+        whitelistedDomains: ['http://localhost:54277']
         }
     })
   ],
