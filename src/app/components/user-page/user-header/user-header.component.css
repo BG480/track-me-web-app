@@ -12,7 +12,7 @@
 
 .user-header__logo
 {
-    font-size: 3vh;
+    font-size: 3.5vh;
     display: block;
     text-decoration: none;
     color: #feffff;
@@ -40,5 +40,17 @@
     text-transform: uppercase;
     margin: 1vh 1vw;
     color: #feffff;
+    font-size: 2vh;
+}
+
+.user-header__btn
+{
+    text-transform: uppercase;
+    margin:  1vh 1vw;
+    color: #feffff;
+    background-color: #3aafa9;
+    border: none;
+    font-size: 2vh;
+    cursor: pointer;
 }
 
