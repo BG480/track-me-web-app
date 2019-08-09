@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {JwtModule} from "@auth0/angular-jwt";
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from "@auth0/angular-jwt";
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +18,7 @@ import { UserTripDetailsComponent } from './components/user-page/user-trip-detai
 import { UserHeaderComponent } from './components/user-page/user-header/user-header.component';
 import { AccountService } from './services/account.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 export function tokenGetter() {
   debugger;
@@ -46,7 +49,11 @@ export function tokenGetter() {
         }
     })
   ],
-  providers: [AccountService, AuthGuardService],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

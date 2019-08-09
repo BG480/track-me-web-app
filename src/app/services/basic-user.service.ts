@@ -14,9 +14,7 @@ export class BasicUserService {
 
   getTrips(): Observable<Trip[]>{
     debugger; 
-    return this.http.get<Trip[]>(this.controllerURL + '/GetTrips', {
-      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'))
-  });
+    return this.http.get<Trip[]>(this.controllerURL + '/GetTrips');
   }
   
 }
