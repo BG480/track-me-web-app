@@ -46,12 +46,20 @@
 
 .form-container__btn
 {
-    width: 40%;
-    height: 2.5vh;
+    text-transform: uppercase;
+    color: #feffff;
+    background-color: #2B7A78;
+    border: none;
+    font-size: 2vh;
+    cursor: pointer;
+    padding: 0.5vh 0.5vw;
+    margin: 0.5vh 0;
+
 }
 
 .form-container__link
 {
     text-decoration: none;
     color: black;
+    margin: 0.5vh 0;
 }
