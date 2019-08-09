@@ -6,7 +6,7 @@ import { Trip } from '../models/trip';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class BasicUserService {
 
   readonly controllerURL = 'http://localhost:54277/api/BasicUser';
 

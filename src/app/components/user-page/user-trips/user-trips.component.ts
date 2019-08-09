@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Trip } from 'src/app/models/trip';
-import { UserService } from 'src/app/services/user.service';
+import { BasicUserService } from 'src/app/services/basic-user.service';
 
 @Component({
   selector: 'app-user-trips',
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 export class UserTripsComponent implements OnInit {
   trips:  Trip[];
 
-  constructor(private userService: UserService) { }
+  constructor(private basicUserService: BasicUserService) { }
 
   ngOnInit() {
     debugger;
@@ -18,7 +18,7 @@ export class UserTripsComponent implements OnInit {
   }
 
   public getTrips(): void {
-    this.userService.getTrips()
+    this.basicUserService.getTrips()
     .subscribe(trips => this.trips = trips);
   }
 }
