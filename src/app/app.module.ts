@@ -20,10 +20,6 @@ import { AccountService } from './services/account.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 
-export function tokenGetter() {
-  debugger;
-  return localStorage.getItem("access_token");
-}
 
 @NgModule({
   declarations: [
@@ -43,10 +39,7 @@ export function tokenGetter() {
     ReactiveFormsModule,
     HttpClientModule,
     JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        whitelistedDomains: ['http://localhost:54277']
-        }
+      config: {}
     })
   ],
   providers: [{
