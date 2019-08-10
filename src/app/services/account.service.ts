@@ -14,4 +14,8 @@ export class AccountService {
     return this.http.post(this.controllerURL + '/Login', formData);
   }
 
+  register(formData){
+    return this.http.post(this.controllerURL + '/Register', formData);
+  }
+
 }

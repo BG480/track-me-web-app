@@ -1,6 +1,6 @@
 <div class="form-container">
     <h1 class="form-container__header">TrackMe</h1>
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="form-container__form">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-container__form">
         <label class="form-container__label">First name</label>
         <input formControlName="FirstName" type="text" class="form-container__input">
         <label class="form-container__label">Last name</label>
@@ -13,6 +13,7 @@
         <input formControlName="Password" type="password" class="form-container__input">
         <label class="form-container__label">Confirm password</label>
         <input formControlName="ConfirmPassword" type="password" class="form-container__input">
-        <button type="submit" class="form-container__btn">Register</button>
+        <button type="submit" class="form-container__btn" [disabled]="!registerForm.valid">Register</button>
     </form>
+        <button type="submit" class="form-container__btn">Login</button>
 </div>

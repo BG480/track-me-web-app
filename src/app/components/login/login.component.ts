@@ -15,13 +15,13 @@ export class LoginComponent implements OnInit {
     Password: new FormControl(''),
   })
 
-  constructor(private accountController: AccountService, private router: Router) { }
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit() {
   }
 
   onSubmit(){
-    this.accountController.login(this.loginForm.value).subscribe(
+    this.accountService.login(this.loginForm.value).subscribe(
       (result: any) => {
         localStorage.setItem('token', result.token);
         debugger;

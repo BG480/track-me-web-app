@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
+import {FormGroup, FormControl, Validators, AbstractControl} from '@angular/forms';
+import { AccountService } from 'src/app/services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -8,22 +10,43 @@ import {FormGroup, FormControl} from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
 
-  registrationForm = new FormGroup({
-    FirstName: new FormControl(''),
-    LastName: new FormControl(''),
-    PhoneNumber: new FormControl(''),
-    Email: new FormControl(''),
-    Password: new FormControl(''),
-    ConfirmPassword: new FormControl(''),
+  registerForm = new FormGroup({
+    FirstName: new FormControl('', [Validators.required]),
+    LastName: new FormControl('', [Validators.required]),
+    PhoneNumber: new FormControl('', [Validators.required]),
+    Email: new FormControl('', [Validators.required, Validators.email]),
+    Password: new FormControl('', [Validators.required]),
+    ConfirmPassword: new FormControl('', [Validators.required]),
+    
   })
 
-  constructor() { }
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit() {
   }
 
   onSubmit(){
-    console.warn(this.registrationForm.value);
+    console.warn(this.registerForm.valid);
+    console.warn(this.registerForm.get('Password').value === this.registerForm.get('ConfirmPassword').value);
+    if(this.registerForm.valid && this.registerForm.get('Password').value === this.registerForm.get('ConfirmPassword').value)
+    {
+      this.accountService.register(this.registerForm.value).subscribe(
+        (result: any) => {
+          this.router.navigateByUrl("");
+          console.log("OK")
+        },
+        err => {
+          //if (err.status == 400)
+          console.log(err.error.message);
+        }
+      );
+    }
+    
   }
+
+  
+
+  
+  
 
 }
