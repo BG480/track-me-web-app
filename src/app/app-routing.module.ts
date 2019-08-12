@@ -9,13 +9,17 @@ import { UserTripsComponent } from './components/user-page/user-trips/user-trips
 import { UserTripDetailsComponent } from './components/user-page/user-trip-details/user-trip-details.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
+import { BasicUserPageComponent } from './containers/basic-user-page/basic-user-page.component';
+import { BasicUserHomeComponent } from './components/basic-user/basic-user-home/basic-user-home.component';
+import { BasicUserAccountComponent } from './components/basic-user/basic-user-account/basic-user-account.component';
+import { BasicUserTripsListComponent } from './components/basic-user/basic-user-trips-list/basic-user-trips-list.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },
   { path: 'registration', component: RegistrationPageComponent},
   { path: 'user', 
-    component: UserPageComponent,
+    component: BasicUserPageComponent,
     canActivate: [AuthGuardService],
     data: {
       expectedRole: 'BasicUser'
@@ -28,14 +32,14 @@ const routes: Routes = [
       },
       { 
         path: 'home', 
-        component: UserHomeComponent
+        component: BasicUserHomeComponent
       },
       { path: 'account', 
-        component: UserAccountComponent
+        component: BasicUserAccountComponent
       },
       { 
         path: 'trips', 
-        component: UserTripsComponent
+        component: BasicUserTripsListComponent
       }
     ],
   }
