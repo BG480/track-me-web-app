@@ -19,6 +19,8 @@ import { UserHeaderComponent } from './components/user-page/user-header/user-hea
 import { AccountService } from './services/account.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { AdminPageComponent } from './containers/admin-page/admin-page.component';
+import { AdminHeaderComponent } from './components/admin/admin-header/admin-header.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     UserTripsComponent,
     UserAccountComponent,
     UserTripDetailsComponent,
-    UserHeaderComponent
+    UserHeaderComponent,
+    AdminPageComponent,
+    AdminHeaderComponent
   ],
   imports: [
     BrowserModule,
