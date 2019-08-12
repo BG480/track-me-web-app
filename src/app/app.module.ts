@@ -8,8 +8,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegistrationComponent } from './components/registration/registration.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { UserHomeComponent } from './components/user-page/user-home/user-home.component';
 import { UserTripsComponent } from './components/user-page/user-trips/user-trips.component';
@@ -21,13 +19,18 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { AdminPageComponent } from './containers/admin-page/admin-page.component';
 import { AdminHeaderComponent } from './components/admin/admin-header/admin-header.component';
+import { LoginPageComponent } from './containers/login-page/login-page.component';
+import { RegistrationPageComponent } from './containers/registration-page/registration-page.component';
+import { BasicUserPageComponent } from './containers/basic-user-page/basic-user-page.component';
+import { BasicUserHeaderComponent } from './components/basic-user/basic-user-header/basic-user-header.component';
+import { BasicUserTripsComponent } from './components/basic-user/basic-user-trips/basic-user-trips.component';
+import { BasicUserAccountComponent } from './components/basic-user/basic-user-account/basic-user-account.component';
+import { BasicUserTripsListComponent } from './components/basic-user/basic-user-trips-list/basic-user-trips-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegistrationComponent,
     UserPageComponent,
     UserHomeComponent,
     UserTripsComponent,
@@ -35,7 +38,14 @@ import { AdminHeaderComponent } from './components/admin/admin-header/admin-head
     UserTripDetailsComponent,
     UserHeaderComponent,
     AdminPageComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
+    LoginPageComponent,
+    RegistrationPageComponent,
+    BasicUserPageComponent,
+    BasicUserHeaderComponent,
+    BasicUserTripsComponent,
+    BasicUserAccountComponent,
+    BasicUserTripsListComponent
   ],
   imports: [
     BrowserModule,

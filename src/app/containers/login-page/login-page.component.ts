@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
-import {AccountService} from './../../services/account.service'
+import { FormGroup, FormControl } from '@angular/forms';
+import { AccountService } from 'src/app/services/account.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginPageComponent implements OnInit {
 
   loginForm = new FormGroup({
     Email: new FormControl(''),
@@ -36,6 +36,5 @@ export class LoginComponent implements OnInit {
     
     
   }
-  
 
 }

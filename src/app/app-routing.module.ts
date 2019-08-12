@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { RegistrationComponent } from './components/registration/registration.component';
+import { LoginPageComponent } from './containers/login-page/login-page.component';
+import { RegistrationPageComponent } from './containers/registration-page/registration-page.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { UserHomeComponent } from './components/user-page/user-home/user-home.component';
 import { UserAccountComponent } from './components/user-page/user-account/user-account.component';
@@ -12,8 +12,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'registration', component: RegistrationComponent},
+  { path: '', component: LoginPageComponent },
+  { path: 'registration', component: RegistrationPageComponent},
   { path: 'user', 
     component: UserPageComponent,
     canActivate: [AuthGuardService],

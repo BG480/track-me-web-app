@@ -4,11 +4,11 @@ import { AccountService } from 'src/app/services/account.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  selector: 'app-registration-page',
+  templateUrl: './registration-page.component.html',
+  styleUrls: ['./registration-page.component.css']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationPageComponent implements OnInit {
 
   registerForm = new FormGroup({
     FirstName: new FormControl('', [Validators.required]),
@@ -43,10 +43,5 @@ export class RegistrationComponent implements OnInit {
     }
     
   }
-
-  
-
-  
-  
 
 }
