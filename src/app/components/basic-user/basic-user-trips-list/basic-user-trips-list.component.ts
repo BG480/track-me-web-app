@@ -9,7 +9,7 @@ import { BasicUserService } from 'src/app/services/basic-user.service';
 })
 export class BasicUserTripsListComponent implements OnInit {
 
-  trips:  Trip[];
+  trips: Trip[];
 
   constructor(private basicUserService: BasicUserService) { }
 

@@ -1,1 +1,12 @@
-<p>admins-list works!</p>
+<div class="container">
+    <ul class="container__list">
+        <li *ngFor="let admin of admins" class="container__list-item">
+          <span class="container__text">{{admin.firstName}} {{admin.lastName}}</span>
+          <div>
+            <button class="container__btn">Details</button>
+            <button class="container__btn">Delete</button>
+          </div>
+        </li>
+    </ul>
+  </div>
+  
