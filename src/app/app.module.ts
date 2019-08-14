@@ -20,6 +20,10 @@ import { BasicUserHeaderComponent } from './components/basic-user/basic-user-hea
 import { BasicUserAccountComponent } from './components/basic-user/basic-user-account/basic-user-account.component';
 import { BasicUserTripsListComponent } from './components/basic-user/basic-user-trips-list/basic-user-trips-list.component';
 import { BasicUserHomeComponent } from './components/basic-user/basic-user-home/basic-user-home.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { AdminsListComponent } from './components/admin/admins-list/admins-list.component';
+import { BasicUsersListComponent } from './components/admin/basic-users-list/basic-users-list.component';
+import { TripsListComponent } from './components/admin/trips-list/trips-list.component';
 
 
 @NgModule({
@@ -33,7 +37,11 @@ import { BasicUserHomeComponent } from './components/basic-user/basic-user-home/
     BasicUserHeaderComponent,
     BasicUserAccountComponent,
     BasicUserTripsListComponent,
-    BasicUserHomeComponent
+    BasicUserHomeComponent,
+    AdminHomeComponent,
+    AdminsListComponent,
+    BasicUsersListComponent,
+    TripsListComponent
   ],
   imports: [
     BrowserModule,

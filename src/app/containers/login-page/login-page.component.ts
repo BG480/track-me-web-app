@@ -25,7 +25,15 @@ export class LoginPageComponent implements OnInit {
       (result: any) => {
         localStorage.setItem('token', result.token);
         debugger;
-        this.router.navigateByUrl("user/home");
+        if(result.role === 'BasicUser')
+        {
+          this.router.navigateByUrl("user/home");
+        }
+        else if(result.role === 'Admin')
+        {
+          this.router.navigateByUrl("admin/home");
+        }
+        
         console.log("OK")
       },
       err => {

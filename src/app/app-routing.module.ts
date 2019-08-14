@@ -7,6 +7,11 @@ import { BasicUserPageComponent } from './containers/basic-user-page/basic-user-
 import { BasicUserHomeComponent } from './components/basic-user/basic-user-home/basic-user-home.component';
 import { BasicUserAccountComponent } from './components/basic-user/basic-user-account/basic-user-account.component';
 import { BasicUserTripsListComponent } from './components/basic-user/basic-user-trips-list/basic-user-trips-list.component';
+import { AdminPageComponent } from './containers/admin-page/admin-page.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { AdminsListComponent } from './components/admin/admins-list/admins-list.component';
+import { BasicUsersListComponent } from './components/admin/basic-users-list/basic-users-list.component';
+import { TripsListComponent } from './components/admin/trips-list/trips-list.component';
 
 
 const routes: Routes = [
@@ -36,6 +41,36 @@ const routes: Routes = [
         component: BasicUserTripsListComponent
       }
     ],
+  },
+  {
+    path: 'admin',
+    component: AdminPageComponent,
+    canActivate: [AuthGuardService],
+    data: {
+      expectedRole: 'Admin'
+    },
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home'
+      },
+      { 
+        path: 'home', 
+        component: AdminHomeComponent
+      },
+      { path: 'admins', 
+        component: AdminsListComponent
+      },
+      { 
+        path: 'basic-users', 
+        component: BasicUsersListComponent
+      },
+      {
+        path: 'trips',
+        component:TripsListComponent
+      }
+    ]
   }
 ];
 

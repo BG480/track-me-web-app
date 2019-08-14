@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AdminHeaderComponent implements OnInit {
 
-  headerLogo: string = "TrackMe"
+  headerLogo: string = "TrackMe Admin Panel"
   constructor(private router: Router) { }
 
   ngOnInit() {
