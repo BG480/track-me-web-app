@@ -8,7 +8,7 @@ import { Trip } from '../models/trip';
 })
 export class TripsService {
 
-  readonly controllerURL = 'http://localhost:54277/api/Admins';
+  readonly controllerURL = 'http://localhost:54277/api/Trips';
 
   constructor(private http: HttpClient) { }
 

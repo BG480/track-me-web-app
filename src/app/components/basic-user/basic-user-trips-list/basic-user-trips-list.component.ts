@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Trip } from 'src/app/models/trip';
-import { BasicUserService } from 'src/app/services/basic-user.service';
+import { TripsService } from 'src/app/services/trips.service';
+
 
 @Component({
   selector: 'app-basic-user-trips-list',
@@ -11,7 +12,7 @@ export class BasicUserTripsListComponent implements OnInit {
 
   trips: Trip[];
 
-  constructor(private basicUserService: BasicUserService) { }
+  constructor(private tripsService: TripsService) { }
 
   ngOnInit() {
     debugger;
@@ -19,7 +20,7 @@ export class BasicUserTripsListComponent implements OnInit {
   }
 
   public getTrips(): void {
-    this.basicUserService.getTrips()
+    this.tripsService.getTrips()
     .subscribe(trips => this.trips = trips);
   }
 
