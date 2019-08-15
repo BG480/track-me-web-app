@@ -1,1 +1,12 @@
-<p>trips-list works!</p>
+<div class="container">
+    <ul class="container__list">
+        <li *ngFor="let trip of trips" class="container__list-item">
+          <span class="container__text">{{trip.name}} - {{trip.basicUserEmail}}</span>
+          <div>
+            <button class="container__btn">Details</button>
+            <button class="container__btn">Delete</button>
+          </div>
+        </li>
+    </ul>
+  </div>
+  
