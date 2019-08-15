@@ -38,3 +38,12 @@
     padding: 0.5vh 0.5vw;
     margin: 0 0.2vw;
 }
+
+.container__btns-wrapper
+{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    
+}

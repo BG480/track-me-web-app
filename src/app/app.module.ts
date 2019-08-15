@@ -27,6 +27,7 @@ import { BasicUsersListComponent } from './components/admin/basic-users-list/bas
 import { TripsListComponent } from './components/admin/trips-list/trips-list.component';
 import { AdminDetailsComponent } from './components/admin/admin-details/admin-details.component';
 import { BasicUserDetailsComponent } from './components/admin/basic-user-details/basic-user-details.component';
+import { CreateAdminComponent } from './components/admin/create-admin/create-admin.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { BasicUserDetailsComponent } from './components/admin/basic-user-details
     BasicUsersListComponent,
     TripsListComponent,
     AdminDetailsComponent,
-    BasicUserDetailsComponent
+    BasicUserDetailsComponent,
+    CreateAdminComponent
   ],
   imports: [
     BrowserModule,

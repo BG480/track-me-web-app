@@ -1,0 +1,18 @@
+<div class="form-container">
+    <h1 class="form-container__header">Create admin</h1>
+    <form [formGroup]="createAdminForm" (ngSubmit)="onSubmit()" class="form-container__form">
+        <label class="form-container__label">First name</label>
+        <input formControlName="FirstName" type="text" class="form-container__input">
+        <label class="form-container__label">Last name</label>
+        <input formControlName="LastName" type="text" class="form-container__input">
+        <label class="form-container__label">Email</label>
+        <input formControlName="Email" type="text" class="form-container__input">
+        <label class="form-container__label">Password</label>
+        <input formControlName="Password" type="password" class="form-container__input">
+        <label class="form-container__label">Confirm password</label>
+        <input formControlName="ConfirmPassword" type="password" class="form-container__input">
+        <button type="submit" class="form-container__btn" [disabled]="!createAdminForm.valid">Create</button>
+    </form>
+        <button class="form-container__btn" (click)='goBack()'>Back</button>
+</div>
+

@@ -19,4 +19,8 @@ export class AdminsService {
   getAdminDetails(id: string): Observable<Admin>{
     return this.http.get<Admin>(this.controllerURL + '/' + id);
   }
+
+  createAdmin(formData) {
+    return this.http.post(this.controllerURL, formData);
+  }
 }

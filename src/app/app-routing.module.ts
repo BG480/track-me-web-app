@@ -14,6 +14,7 @@ import { BasicUsersListComponent } from './components/admin/basic-users-list/bas
 import { TripsListComponent } from './components/admin/trips-list/trips-list.component';
 import { AdminDetailsComponent } from './components/admin/admin-details/admin-details.component';
 import { BasicUserDetailsComponent } from './components/admin/basic-user-details/basic-user-details.component';
+import { CreateAdminComponent } from './components/admin/create-admin/create-admin.component';
 
 
 const routes: Routes = [
@@ -79,6 +80,10 @@ const routes: Routes = [
       {
         path: 'basic-user-details/:id',
         component: BasicUserDetailsComponent
+      },
+      {
+        path: 'create-admin',
+        component: CreateAdminComponent
       }
     ]
   }

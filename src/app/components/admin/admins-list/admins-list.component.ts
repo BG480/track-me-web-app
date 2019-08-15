@@ -27,4 +27,8 @@ export class AdminsListComponent implements OnInit {
     this.router.navigateByUrl('admin/admin-details/' + admin.id);
   }
 
+  private createAdmin(): void {
+    this.router.navigateByUrl('admin/create-admin');
+  }
+
 }
