@@ -1,0 +1,8 @@
+<div class='details-container' *ngIf='admin'>
+    <label class='details-container__label'>First name: {{admin.firstName}}</label>
+    <label class='details-container__label'>Last name: {{admin.lastName}}</label>
+    <label class='details-container__label'>Email: {{admin.email}}</label>
+    <div class='details-container__btns-wrapper'>
+        <button class='details-container__btn' (click)='goBack()'>Go Back</button>
+    </div>
+</div>

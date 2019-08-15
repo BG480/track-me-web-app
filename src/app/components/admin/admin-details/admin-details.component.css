@@ -1,0 +1,38 @@
+.details-container
+{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 5vh auto;
+    padding: 2vh 2vw;
+    width: 30vw;
+}
+
+.details-container__label
+{
+    font-size: 3vh;
+    margin: 2vh 0;
+    padding: 0.5vh 0;
+    border-bottom: 2px solid #3aafa9;
+}
+
+.details-container__btn
+{
+    text-transform: uppercase;
+    color: #feffff;
+    background-color: #3aafa9;
+    border: none;
+    font-size: 2vh;
+    cursor: pointer;
+    padding: 0.5vh 0.5vw;
+    margin: 0.5vh 0;
+}
+
+.details-container__btns-wrapper
+{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    
+}

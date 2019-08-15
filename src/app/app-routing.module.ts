@@ -12,6 +12,7 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { AdminsListComponent } from './components/admin/admins-list/admins-list.component';
 import { BasicUsersListComponent } from './components/admin/basic-users-list/basic-users-list.component';
 import { TripsListComponent } from './components/admin/trips-list/trips-list.component';
+import { AdminDetailsComponent } from './components/admin/admin-details/admin-details.component';
 
 
 const routes: Routes = [
@@ -68,7 +69,11 @@ const routes: Routes = [
       },
       {
         path: 'trips',
-        component:TripsListComponent
+        component: TripsListComponent
+      },
+      {
+        path: 'admin-details/:id',
+        component: AdminDetailsComponent
       }
     ]
   }

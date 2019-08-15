@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Admin } from 'src/app/models/admin';
 import { AdminsService } from 'src/app/services/admins.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admins-list',
@@ -11,7 +12,7 @@ export class AdminsListComponent implements OnInit {
 
   admins: Admin[];
 
-  constructor(private adminsService: AdminsService) { }
+  constructor(private adminsService: AdminsService, private router: Router) { }
 
   ngOnInit() {
     this.getAdmins();
@@ -20,6 +21,10 @@ export class AdminsListComponent implements OnInit {
   private getAdmins(): void{
     this.adminsService.getAdmins()
     .subscribe(admins => this.admins = admins);
+  }
+
+  private showAdminDetails(admin: Admin): void{
+    this.router.navigateByUrl('admin/admin-details/' + admin.id);
   }
 
 }

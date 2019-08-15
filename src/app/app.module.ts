@@ -6,6 +6,7 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccountService } from './services/account.service';
@@ -24,6 +25,7 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { AdminsListComponent } from './components/admin/admins-list/admins-list.component';
 import { BasicUsersListComponent } from './components/admin/basic-users-list/basic-users-list.component';
 import { TripsListComponent } from './components/admin/trips-list/trips-list.component';
+import { AdminDetailsComponent } from './components/admin/admin-details/admin-details.component';
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import { TripsListComponent } from './components/admin/trips-list/trips-list.com
     AdminHomeComponent,
     AdminsListComponent,
     BasicUsersListComponent,
-    TripsListComponent
+    TripsListComponent,
+    AdminDetailsComponent
   ],
   imports: [
     BrowserModule,

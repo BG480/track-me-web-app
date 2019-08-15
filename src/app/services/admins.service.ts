@@ -15,4 +15,8 @@ export class AdminsService {
   getAdmins(): Observable<Admin[]>{
     return this.http.get<Admin[]>(this.controllerURL)
   }
+
+  getAdminDetails(id: string): Observable<Admin>{
+    return this.http.get<Admin>(this.controllerURL + '/' + id);
+  }
 }
