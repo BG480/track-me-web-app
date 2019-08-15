@@ -19,7 +19,7 @@ export class BasicUserTripsListComponent implements OnInit {
     this.getTrips();
   }
 
-  public getTrips(): void {
+  private getTrips(): void {
     this.tripsService.getTrips()
     .subscribe(trips => this.trips = trips);
   }

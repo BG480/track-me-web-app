@@ -17,7 +17,7 @@ export class AdminsListComponent implements OnInit {
     this.getAdmins();
   }
 
-  public getAdmins(): void{
+  private getAdmins(): void{
     this.adminsService.getAdmins()
     .subscribe(admins => this.admins = admins);
   }

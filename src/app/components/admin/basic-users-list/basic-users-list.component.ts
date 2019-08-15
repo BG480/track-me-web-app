@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BasicUser } from 'src/app/models/basic-user';
+import { BasicUsersService } from 'src/app/services/basic-users.service';
 
 @Component({
   selector: 'app-basic-users-list',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasicUsersListComponent implements OnInit {
 
-  constructor() { }
+  basicUsers: BasicUser[];
+
+  constructor(private basicUsersService: BasicUsersService) { }
 
   ngOnInit() {
+    this.getAllBasicUsers();
+  }
+
+  private getAllBasicUsers(): void{
+    this.basicUsersService.getAllBasicUsers()
+    .subscribe(basicUsers => this.basicUsers = basicUsers);
   }
 
 }
