@@ -15,4 +15,8 @@ export class BasicUsersService {
   getAllBasicUsers(): Observable<BasicUser[]>{
     return this.http.get<BasicUser[]>(this.controllerURL + '/all')
   }
+
+  getBasicUserDetails(id: string): Observable<BasicUser>{
+    return this.http.get<BasicUser>(this.controllerURL + '/' + id);
+  }
 }

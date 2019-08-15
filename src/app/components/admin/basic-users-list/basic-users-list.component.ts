@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BasicUser } from 'src/app/models/basic-user';
 import { BasicUsersService } from 'src/app/services/basic-users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-basic-users-list',
@@ -11,15 +12,21 @@ export class BasicUsersListComponent implements OnInit {
 
   basicUsers: BasicUser[];
 
-  constructor(private basicUsersService: BasicUsersService) { }
+  constructor(private basicUsersService: BasicUsersService,
+    private router: Router) { }
 
   ngOnInit() {
     this.getAllBasicUsers();
   }
 
-  private getAllBasicUsers(): void{
+  private getAllBasicUsers(): void {
     this.basicUsersService.getAllBasicUsers()
     .subscribe(basicUsers => this.basicUsers = basicUsers);
   }
+
+  private showBasicUserDetails(basicUser: BasicUser): void {
+    this.router.navigateByUrl('admin/basic-user-details/' + basicUser.id);
+  }
+  
 
 }

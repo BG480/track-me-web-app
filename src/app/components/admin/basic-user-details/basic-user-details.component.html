@@ -1,0 +1,9 @@
+<div class='details-container' *ngIf='basicUser'>
+    <label class='details-container__label'>First name: {{basicUser.firstName}}</label>
+    <label class='details-container__label'>Last name: {{basicUser.lastName}}</label>
+    <label class='details-container__label'>Email: {{basicUser.email}}</label>
+    <label class='details-container__label'>Phone number: {{basicUser.phoneNumber}}</label>
+    <div class='details-container__btns-wrapper'>
+        <button class='details-container__btn' (click)='goBack()'>Go Back</button>
+    </div>
+</div>
