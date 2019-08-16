@@ -19,4 +19,9 @@ export class BasicUsersService {
   getBasicUserDetails(id: string): Observable<BasicUser>{
     return this.http.get<BasicUser>(this.controllerURL + '/' + id);
   }
+
+  deleteBasicUser(id: number) {
+    return this.http.delete(this.controllerURL + '/' + id);
+  }
+
 }

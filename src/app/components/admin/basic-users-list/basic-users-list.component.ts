@@ -27,6 +27,20 @@ export class BasicUsersListComponent implements OnInit {
   private showBasicUserDetails(basicUser: BasicUser): void {
     this.router.navigateByUrl('admin/basic-user-details/' + basicUser.id);
   }
+
+  private deleteBasicUser(basicUser: BasicUser): void {
+
+    this.basicUsersService.deleteBasicUser(basicUser.id).subscribe(
+      (result: any) => {
+        this.getAllBasicUsers();
+        console.log("OK")
+      },
+      err => {
+        //if (err.status == 400)
+        console.log(err.error.message);
+      }
+    );
+  }
   
 
 }
