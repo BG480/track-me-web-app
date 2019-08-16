@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Admin } from 'src/app/models/admin';
 import { AdminsService } from 'src/app/services/admins.service';
 import { Router } from '@angular/router';
@@ -29,6 +29,20 @@ export class AdminsListComponent implements OnInit {
 
   private createAdmin(): void {
     this.router.navigateByUrl('admin/create-admin');
+  }
+
+  private deleteAdmin(admin: Admin): void {
+
+    this.adminsService.deleteAdmin(admin.id).subscribe(
+      (result: any) => {
+        this.getAdmins();
+        console.log("OK")
+      },
+      err => {
+        //if (err.status == 400)
+        console.log(err.error.message);
+      }
+    );
   }
 
 }

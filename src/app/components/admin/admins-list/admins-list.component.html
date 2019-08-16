@@ -4,7 +4,7 @@
           <span class="container__text">{{admin.firstName}} {{admin.lastName}}</span>
           <div>
             <button class="container__btn" (click)="showAdminDetails(admin)" >Details</button>
-            <button class="container__btn">Delete</button>
+            <button class="container__btn" (click)='deleteAdmin(admin)'>Delete</button>
           </div>
         </li>
     </ul>

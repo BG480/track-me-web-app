@@ -23,4 +23,8 @@ export class AdminsService {
   createAdmin(formData) {
     return this.http.post(this.controllerURL, formData);
   }
+
+  deleteAdmin(id: number){
+    return this.http.delete(this.controllerURL + '/' + id);
+  }
 }
