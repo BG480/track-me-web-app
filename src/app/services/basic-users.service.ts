@@ -20,8 +20,16 @@ export class BasicUsersService {
     return this.http.get<BasicUser>(this.controllerURL + '/' + id);
   }
 
+  getBasicUserAccountDetails(): Observable<BasicUser> {
+    return this.http.get<BasicUser>(this.controllerURL);
+  }
+
   deleteBasicUser(id: number) {
     return this.http.delete(this.controllerURL + '/' + id);
+  }
+
+  updateBasicUser(basicUser: BasicUser){
+    return this.http.put(this.controllerURL, basicUser);
   }
 
 }
