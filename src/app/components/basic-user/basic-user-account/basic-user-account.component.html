@@ -1,12 +1,12 @@
 <div class="container" *ngIf="basicUser">
-    <h1 class="container__header">TrackMe</h1>
+    <h1 class="container__header">Account details</h1>
         <label class="container__label">First name</label>
-        <input [(ngModel)]="basicUser.firstName" type="text">
+        <input class="container__input" [(ngModel)]="basicUser.firstName" type="text">
         <label class="container__label">Last name</label>
-        <input [(ngModel)]="basicUser.lastName" type="text">
+        <input class="container__input" [(ngModel)]="basicUser.lastName" type="text">
         <label class="container__label">Phone number</label>
-        <input [(ngModel)]="basicUser.phoneNumber" type="text">
+        <input class="container__input" [(ngModel)]="basicUser.phoneNumber" type="text">
         <label class="container__label">Email</label>
-        <input [(ngModel)]="basicUser.email" type="email">
+        <input class="container__input" [(ngModel)]="basicUser.email" type="email">
         <button (click)="updateBasicUser()" class="container__btn" >Save</button>
 </div>

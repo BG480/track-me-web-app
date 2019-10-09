@@ -2,19 +2,20 @@
 {
     margin-left: auto;
     margin-right: auto;
-    width: 12vw;
-    background-color: #3aafa9;
+    width: 20vw;
+    background-color: #def2f1;
     padding: 2vh 2vw;
     margin-top: 5vh;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: #3aafa9 2px solid;
 }
 
 .container__header
 {
-    color: #feffff;
+    color:  #17252A;
     margin-top: 1vh;
     margin-bottom: 1vh;
     font-size: 5vh;
@@ -26,13 +27,13 @@
     margin-bottom: 0.5vh;
     height: 2.5vh;
     width: 100%;
-    background-color:  #def2f1;
+    background-color:  #feffff;
     color: #17252A;
 }
 
 .container__label
 {
-    color: #feffff;
+    color: #17252A;
     margin-top: 0.5vh;
     margin-bottom: 0.5vh;
     font-size: 2vh;
