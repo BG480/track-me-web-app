@@ -28,6 +28,7 @@ import { TripsListComponent } from './components/admin/trips-list/trips-list.com
 import { AdminDetailsComponent } from './components/admin/admin-details/admin-details.component';
 import { BasicUserDetailsComponent } from './components/admin/basic-user-details/basic-user-details.component';
 import { CreateAdminComponent } from './components/admin/create-admin/create-admin.component';
+import { FormsModule } from '@angular/forms';  
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { CreateAdminComponent } from './components/admin/create-admin/create-adm
     HttpClientModule,
     JwtModule.forRoot({
       config: {}
-    })
+    }),
+    FormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
