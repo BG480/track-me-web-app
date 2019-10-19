@@ -1,7 +1,6 @@
 <div class="container">
     <ul class="container__list">
         <li *ngFor="let sensorsValue of sensorsValues" class="container__list-item">
-            <span class="container__text">Upload date: {{sensorsValue.uploadDate}}</span>
             <span class="container__text">Longitude: {{sensorsValue.latitude}}</span>  
             <span class="container__text">Latitude: {{sensorsValue.latitude}}</span>
             <span class="container__text">Accelerometer X-axis: {{sensorsValue.accelerometerX}}</span>
@@ -13,6 +12,7 @@
             <span class="container__text">Magnetic field X-axis: {{sensorsValue.magneticFieldX}}</span>
             <span class="container__text">Magnetic field Y-axis: {{sensorsValue.magneticFieldY}}</span>  
             <span class="container__text">Magnetic field Z-axis: {{sensorsValue.magneticFieldZ}}</span>
+            <span class="container__text">Upload date: {{sensorsValue.uploadDate}}</span>
         </li>
     </ul>
     <div class='container__btns-wrapper'>
