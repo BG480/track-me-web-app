@@ -15,6 +15,7 @@ import { TripsListComponent } from './components/admin/trips-list/trips-list.com
 import { AdminDetailsComponent } from './components/admin/admin-details/admin-details.component';
 import { BasicUserDetailsComponent } from './components/admin/basic-user-details/basic-user-details.component';
 import { CreateAdminComponent } from './components/admin/create-admin/create-admin.component';
+import { TripDetailsComponent } from './components/shared/trip-details/trip-details.component';
 
 
 const routes: Routes = [
@@ -84,6 +85,10 @@ const routes: Routes = [
       {
         path: 'create-admin',
         component: CreateAdminComponent
+      },
+      {
+        path: 'trip-details/:id',
+        component: TripDetailsComponent
       }
     ]
   }

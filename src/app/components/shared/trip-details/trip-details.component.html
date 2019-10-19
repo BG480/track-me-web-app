@@ -1,0 +1,21 @@
+<div class="container">
+    <ul class="container__list">
+        <li *ngFor="let sensorsValue of sensorsValues" class="container__list-item">
+            <span class="container__text">Upload date: {{sensorsValue.uploadDate}}</span>
+            <span class="container__text">Longitude: {{sensorsValue.latitude}}</span>  
+            <span class="container__text">Latitude: {{sensorsValue.latitude}}</span>
+            <span class="container__text">Accelerometer X-axis: {{sensorsValue.accelerometerX}}</span>
+            <span class="container__text">Accelerometer Y-axis: {{sensorsValue.accelerometerY}}</span>  
+            <span class="container__text">Accelerometer Z-axis: {{sensorsValue.accelerometerZ}}</span>
+            <span class="container__text">Gyroscope X-axis: {{sensorsValue.gyroscopeX}}</span>
+            <span class="container__text">Gyroscope Y-axis: {{sensorsValue.gyroscopeY}}</span>  
+            <span class="container__text">Gyroscope Z-axis: {{sensorsValue.gyroscopeZ}}</span>
+            <span class="container__text">Magnetic field X-axis: {{sensorsValue.magneticFieldX}}</span>
+            <span class="container__text">Magnetic field Y-axis: {{sensorsValue.magneticFieldY}}</span>  
+            <span class="container__text">Magnetic field Z-axis: {{sensorsValue.magneticFieldZ}}</span>
+        </li>
+    </ul>
+    <div class='container__btns-wrapper'>
+            <button class='container__btn' (click)='goBack()'>Go Back</button>
+        </div>
+  </div>

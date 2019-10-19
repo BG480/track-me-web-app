@@ -1,0 +1,49 @@
+.container
+{
+    margin: 5vh auto;
+    width: 50vw;
+    padding: 2vh 2vw;
+}
+
+.container__list
+{
+    list-style: none;
+}
+
+.container__list-item
+{
+    margin: 2vh 0;
+    padding: 0.5vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-content: space-between;
+    border-bottom: 2px solid #3aafa9;
+    
+}
+
+.container__text
+{
+    font-size: 3vh;
+}
+
+.container__btn
+{
+    text-transform: uppercase;
+    color: #feffff;
+    background-color: #3aafa9;
+    border: none;
+    font-size: 2vh;
+    cursor: pointer;
+    padding: 0.5vh 0.5vw;
+    margin: 0.5vh 0;
+}
+
+.container__btns-wrapper
+{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    
+}
