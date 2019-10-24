@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 })
 export class TripDetailsComponent implements OnInit {
 
+  tripName: string;
   sensorsValues: SensorsValues[];
 
   constructor(private tripsService: TripsService,
@@ -18,6 +19,7 @@ export class TripDetailsComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
+    this.tripName = localStorage.getItem('tripName');
     this.getTripDetails();
   }
 
@@ -27,6 +29,7 @@ export class TripDetailsComponent implements OnInit {
   }
 
   private goBack(): void{
+    localStorage.removeItem('tripName');
     this.location.back();
   }
 

@@ -25,6 +25,7 @@ export class TripsListComponent implements OnInit {
   }
 
   private showTripDetails(trip: Trip): void {
+    localStorage.setItem('tripName', trip.name);
     this.router.navigateByUrl('admin/trip-details/' + trip.id);
   }
 
