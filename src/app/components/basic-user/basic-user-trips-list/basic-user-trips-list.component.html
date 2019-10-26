@@ -3,8 +3,8 @@
         <li *ngFor="let trip of trips" class="container__list-item">
           <span class="container__text">{{trip.name}}</span>
           <div>
-            <button class="container__btn">Details</button>
-            <button class="container__btn">Delete</button>
+            <button class="container__btn" (click)='showTripDetails(trip)'>Details</button>
+            <button class="container__btn" (click)='deleteTrip(trip)'>Delete</button>
           </div>
         </li>
     </ul>

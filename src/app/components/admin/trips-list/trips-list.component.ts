@@ -29,4 +29,17 @@ export class TripsListComponent implements OnInit {
     this.router.navigateByUrl('admin/trip-details/' + trip.id);
   }
 
+  private deleteTrip(trip: Trip): void {
+    this.tripsService.deleteTrip(trip.id).subscribe(
+      (result: any) => {
+        this.getAllTrips();
+        console.log("OK")
+      },
+      err => {
+        //if (err.status == 400)
+        console.log(err.error.message);
+      }
+    );
+  }
+
 }

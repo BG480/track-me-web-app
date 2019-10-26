@@ -5,6 +5,13 @@
     padding: 2vh 2vw;
 }
 
+.container__header
+{
+    font-size: 5vh;
+    border-bottom: 5px solid #3aafa9;
+    padding-bottom: 3px;
+}
+
 .container__list
 {
     list-style: none;

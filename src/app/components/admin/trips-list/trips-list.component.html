@@ -4,7 +4,7 @@
           <span class="container__text">{{trip.name}} - {{trip.basicUserEmail}}</span>
           <div>
             <button class="container__btn" (click)='showTripDetails(trip)' >Details</button>
-            <button class="container__btn">Delete</button>
+            <button class="container__btn" (click)='deleteTrip(trip)'>Delete</button>
           </div>
         </li>
     </ul>

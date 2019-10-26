@@ -43,6 +43,10 @@ const routes: Routes = [
       { 
         path: 'trips', 
         component: BasicUserTripsListComponent
+      },
+      {
+        path: 'trip-details/:id',
+        component: TripDetailsComponent
       }
     ],
   },
