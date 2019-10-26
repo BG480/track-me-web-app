@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AccountService } from 'src/app/services/account.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-page',
@@ -15,7 +16,9 @@ export class LoginPageComponent implements OnInit {
     Password: new FormControl(''),
   })
 
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(private accountService: AccountService, 
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -39,6 +42,7 @@ export class LoginPageComponent implements OnInit {
       err => {
         //if (err.status == 400)
         console.log(err);
+        this.toastr.error("Error occured");
       }
     );
     
