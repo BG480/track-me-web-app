@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { Admin } from 'src/app/models/admin';
 import { AdminsService } from 'src/app/services/admins.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admins-list',
@@ -12,7 +13,9 @@ export class AdminsListComponent implements OnInit {
 
   admins: Admin[];
 
-  constructor(private adminsService: AdminsService, private router: Router) { }
+  constructor(private adminsService: AdminsService, 
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getAdmins();
@@ -32,15 +35,18 @@ export class AdminsListComponent implements OnInit {
   }
 
   private deleteAdmin(admin: Admin): void {
-
     this.adminsService.deleteAdmin(admin.id).subscribe(
       (result: any) => {
+        this.toastr.success("Admin deleted.")
         this.getAdmins();
-        console.log("OK")
       },
       err => {
-        //if (err.status == 400)
-        console.log(err.error.message);
+        if (err.status == 404){
+          this.toastr.error("Cannot delete admin - admin not found.");
+        }
+        else{
+          this.toastr.error("Error occurred.");
+        }
       }
     );
   }

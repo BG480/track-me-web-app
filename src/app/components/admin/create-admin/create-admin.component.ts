@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { AdminsService } from 'src/app/services/admins.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class CreateAdminComponent implements OnInit {
 
   constructor(private router: Router,
     private adminsService: AdminsService,
-    private location: Location) { }
+    private location: Location,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -34,12 +36,16 @@ export class CreateAdminComponent implements OnInit {
     {
       this.adminsService.createAdmin(this.createAdminForm.value).subscribe(
         (result: any) => {
+          this.toastr.success("Admin created.")
           this.router.navigateByUrl("admin/admins");
-          console.log("OK")
         },
         err => {
-          //if (err.status == 400)
-          console.log(err.error.message);
+          if (err.status == 409){
+            this.toastr.error("Admin with this email already exists.");
+          }
+          else{
+            this.toastr.error("Error occurred.");
+          }
         }
       );
     }

@@ -35,14 +35,15 @@ export class LoginPageComponent implements OnInit {
         else if(result.role === 'Admin')
         {
           this.router.navigateByUrl("admin/home");
-        }
-        
-        console.log("OK")
+        }       
       },
       err => {
-        //if (err.status == 400)
-        console.log(err);
-        this.toastr.error("Error occured");
+        if (err.status == 404){
+          this.toastr.error("User not found. Check your login data.");
+        }
+        else{
+          this.toastr.error("Error occurred.");
+        }       
       }
     );
     

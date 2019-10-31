@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BasicUser } from 'src/app/models/basic-user';
 import { BasicUsersService } from 'src/app/services/basic-users.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-basic-users-list',
@@ -13,7 +14,8 @@ export class BasicUsersListComponent implements OnInit {
   basicUsers: BasicUser[];
 
   constructor(private basicUsersService: BasicUsersService,
-    private router: Router) { }
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getAllBasicUsers();
@@ -32,12 +34,16 @@ export class BasicUsersListComponent implements OnInit {
 
     this.basicUsersService.deleteBasicUser(basicUser.id).subscribe(
       (result: any) => {
+        this.toastr.success("User deleted.")
         this.getAllBasicUsers();
-        console.log("OK")
       },
       err => {
-        //if (err.status == 400)
-        console.log(err.error.message);
+        if (err.status == 404){
+          this.toastr.error("Cannot delete user - user not found.");
+        }
+        else{
+          this.toastr.error("Error occurred.");
+        }
       }
     );
   }

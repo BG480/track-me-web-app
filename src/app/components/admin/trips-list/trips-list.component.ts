@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TripsService } from 'src/app/services/trips.service';
 import { Trip } from 'src/app/models/trip';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-trips-list',
@@ -13,7 +14,8 @@ export class TripsListComponent implements OnInit {
   trips: Trip[];
 
   constructor(private tripsService: TripsService,
-    private router: Router) { }
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getAllTrips();
@@ -36,8 +38,7 @@ export class TripsListComponent implements OnInit {
         console.log("OK")
       },
       err => {
-        //if (err.status == 400)
-        console.log(err.error.message);
+        this.toastr.error("Error occurred.")
       }
     );
   }

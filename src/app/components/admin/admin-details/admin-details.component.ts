@@ -3,6 +3,7 @@ import { Admin } from 'src/app/models/admin';
 import { ActivatedRoute } from '@angular/router';
 import { AdminsService } from 'src/app/services/admins.service';
 import { Location } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-details',
@@ -15,7 +16,8 @@ export class AdminDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, 
     private adminsService: AdminsService,
-    private location: Location) { }
+    private location: Location,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getAdminDetails();
@@ -23,7 +25,18 @@ export class AdminDetailsComponent implements OnInit {
 
   private getAdminDetails(): void{
     const id = this.route.snapshot.paramMap.get('id');
-    this.adminsService.getAdminDetails(id).subscribe(admin => this.admin = admin);
+    this.adminsService.getAdminDetails(id).subscribe(
+      (admin: Admin) => {
+        this.admin = admin
+      },
+      err => {
+        if (err.status == 404){
+          this.toastr.error("Admin's data not found.");
+        }
+        else{
+          this.toastr.error("Error occurred.");
+        }
+      });
 
   }
 

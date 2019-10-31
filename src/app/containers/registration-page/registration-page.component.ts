@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/services/account.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registration-page',
@@ -20,7 +21,9 @@ export class RegistrationPageComponent implements OnInit {
     
   })
 
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(private accountService: AccountService, 
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -33,11 +36,14 @@ export class RegistrationPageComponent implements OnInit {
       this.accountService.register(this.registerForm.value).subscribe(
         (result: any) => {
           this.router.navigateByUrl("");
-          console.log("OK")
         },
         err => {
-          //if (err.status == 400)
-          console.log(err.error.message);
+          if (err.status == 409){
+            this.toastr.error("User with this email already exists.");
+          }
+          else{
+            this.toastr.error("Error occurred.");
+          }
         }
       );
     }
