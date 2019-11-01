@@ -1,15 +1,15 @@
-<div class="container">
+<div class="container container--list-container">
     <ul class="container__list">
         <li *ngFor="let admin of admins" class="container__list-item">
           <span class="container__text">{{admin.firstName}} {{admin.lastName}}</span>
           <div>
-            <button class="container__btn" (click)="showAdminDetails(admin)" >Details</button>
-            <button class="container__btn" (click)='deleteAdmin(admin)'>Delete</button>
+            <button class="container__btn container__btn--list-container-btn" (click)="showAdminDetails(admin)" >Details</button>
+            <button class="container__btn container__btn--list-container-btn" (click)='deleteAdmin(admin)'>Delete</button>
           </div>
         </li>
     </ul>
     <div class='container__btns-wrapper'>
-      <button class='container__btn' (click)='createAdmin()'>Create admin</button>
+      <button class='container__btn container__btn--list-container-btn' (click)='createAdmin()'>Create admin</button>
     </div>
   </div>
   

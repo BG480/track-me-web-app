@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container container--list-container">
     <ul class="container__list">
         <li *ngFor="let basicUser of basicUsers" class="container__list-item">
           <span class="container__text">{{basicUser.firstName}} {{basicUser.lastName}}</span>
           <div>
-            <button class="container__btn" (click)='showBasicUserDetails(basicUser)'>Details</button>
-            <button class="container__btn" (click)='deleteBasicUser(basicUser)'>Delete</button>
+            <button class="container__btn container__btn--list-container-btn" (click)='showBasicUserDetails(basicUser)'>Details</button>
+            <button class="container__btn container__btn--list-container-btn" (click)='deleteBasicUser(basicUser)'>Delete</button>
           </div>
         </li>
     </ul>

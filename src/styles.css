@@ -7,7 +7,8 @@
     
 }
 
-body{
+body
+{
     background-color: #FEFFFF;
 }
 
@@ -74,7 +75,7 @@ body{
 
 .container--form-container
 {
-    width: 12vw;
+    width: 18vw;
     padding: 2vh 2vw;
     margin-top: 5vh;
     background-color: #3aafa9;
@@ -94,8 +95,25 @@ body{
 
 .container--list-container
 {
-    margin: 5vh auto;
+    margin-top: 5vh;
     width: 50vw;
+    padding: 2vh 2vw;
+}
+
+.container--details-container 
+{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 5vh;
+    padding: 2vh 2vw;
+    width: 30vw;
+}
+
+.container--trip-details-container
+{
+    margin: 5vh auto;
+    width: 25vw;
     padding: 2vh 2vw;
 }
 
@@ -117,6 +135,12 @@ body{
 .container__header--account-details-header
 {
     color:  #17252A;
+}
+
+.container__header--trip-details-header
+{
+    border-bottom: 5px solid #3aafa9;
+    padding-bottom: 3px;
 }
 
 .container__input
@@ -145,10 +169,19 @@ body{
     width: 100%;
 }
 
-.container__label--accont-details-label
+.container__label--account-details-label
 {
     color: #17252A;
 }
+
+.container__label--details-label
+{
+    color: #17252A;
+    font-size: 3vh;
+    margin: 1vh 0;
+    padding: 0.5vh 0;
+    border-bottom: 2px solid #3aafa9;
+} 
 
 .container__btn
 {
@@ -166,7 +199,22 @@ body{
 .container__btn--list-container-btn
 {
     background-color: #3aafa9;
-    margin: 0 0.2vw;
+    margin-left: 0.2vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.container__btn--details-btn
+{
+    background-color: #3aafa9;
+}
+
+.container__btns-wrapper
+{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
 }
 
 .container__link
@@ -190,8 +238,16 @@ body{
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
-    border-bottom: 2px solid #DEF2F1;
+    border-bottom: 2px solid #3aafa9;
     
+}
+
+.container__list-item--trip-details-list-item
+{
+    flex-direction: column;
+    justify-content: left;
+    align-content: space-between;
+    border-bottom: 2px solid #3aafa9;
 }
 
 .container__text
