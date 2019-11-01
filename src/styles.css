@@ -10,3 +10,191 @@
 body{
     background-color: #FEFFFF;
 }
+
+.header
+{
+    background-color: #3aafa9;
+    color: #feffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vh 2vw;
+}
+
+
+.header__logo
+{
+    font-size: 3.5vh;
+    display: block;
+    text-decoration: none;
+    color: #feffff;
+}
+
+.header__list
+{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.header__list-item
+{
+    margin: 1vh 1vw;
+}
+
+.header__link
+{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 1vh 1vw;
+    color: #feffff;
+    font-size: 2vh;
+}
+
+.header__btn
+{
+    text-transform: uppercase;
+    margin:  1vh 1vw;
+    color: #feffff;
+    background-color: #3aafa9;
+    border: none;
+    font-size: 2vh;
+    cursor: pointer;
+}
+
+.container
+{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /*?????*/
+}
+
+.container--form-container
+{
+    width: 12vw;
+    padding: 2vh 2vw;
+    margin-top: 5vh;
+    background-color: #3aafa9;
+}
+
+.container--account-details-container
+{
+    width: 20vw;
+    background-color: #def2f1;
+    padding: 2vh 2vw;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: #3aafa9 2px solid;
+}
+
+.container--list-container
+{
+    margin: 5vh auto;
+    width: 50vw;
+    padding: 2vh 2vw;
+}
+
+.container__form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container__header
+{
+    color: #feffff;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    font-size: 5vh;
+}
+
+.container__header--account-details-header
+{
+    color:  #17252A;
+}
+
+.container__input
+{
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+    height: 2.5vh;
+    width: 100%;
+    background-color:  #def2f1;
+    color: #17252A;
+}
+
+.container__input--account-details-input
+{
+    background-color:  #feffff;
+    color: #17252A;
+}
+
+.container__label
+{
+    color: #feffff;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+    font-size: 2vh;
+    text-align: left;
+    width: 100%;
+}
+
+.container__label--accont-details-label
+{
+    color: #17252A;
+}
+
+.container__btn
+{
+    text-transform: uppercase;
+    color: #feffff;
+    background-color: #2B7A78;
+    border: none;
+    font-size: 2vh;
+    cursor: pointer;
+    padding: 0.5vh 0.5vw;
+    margin: 0.5vh 0;
+
+}
+
+.container__btn--list-container-btn
+{
+    background-color: #3aafa9;
+    margin: 0 0.2vw;
+}
+
+.container__link
+{
+    text-decoration: none;
+    color: #feffff;
+    margin: 0.5vh 0;
+    font-size: 2vh;
+}
+
+.container__list
+{
+    list-style: none;   
+}
+
+.container__list-item
+{
+    margin: 2vh 0;
+    padding: 0.5vh 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    border-bottom: 2px solid #DEF2F1;
+    
+}
+
+.container__text
+{
+    font-size: 3vh;
+}

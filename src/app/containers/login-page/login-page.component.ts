@@ -39,7 +39,7 @@ export class LoginPageComponent implements OnInit {
       },
       err => {
         if (err.status == 404){
-          this.toastr.error("User not found. Check your login data.");
+          this.toastr.error(err.error.message);
         }
         else{
           this.toastr.error("Error occurred.");

@@ -1,4 +1,4 @@
-.container
+/* .container
 {
     margin: 5vh auto;
     width: 50vw;
@@ -7,7 +7,7 @@
 
 .container__list
 {
-    list-style: none;
+    list-style: none;   
 }
 
 .container__list-item
@@ -37,4 +37,4 @@
     cursor: pointer;
     padding: 0.5vh 0.5vw;
     margin: 0 0.2vw;
-}
+} */
