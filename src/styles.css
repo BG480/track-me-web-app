@@ -70,7 +70,7 @@ body
 {
     margin-left: auto;
     margin-right: auto;
-    text-align: center; /*?????*/
+    
 }
 
 .container--form-container
@@ -79,6 +79,7 @@ body
     padding: 2vh 2vw;
     margin-top: 5vh;
     background-color: #3aafa9;
+    text-align: center; /*?????*/
 }
 
 .container--account-details-container
@@ -91,6 +92,7 @@ body
     flex-direction: column;
     align-items: center;
     border: #3aafa9 2px solid;
+    text-align: center; /*?????*/
 }
 
 .container--list-container
@@ -98,6 +100,7 @@ body
     margin-top: 5vh;
     width: 50vw;
     padding: 2vh 2vw;
+    text-align: center; /*?????*/
 }
 
 .container--details-container 
@@ -108,6 +111,7 @@ body
     margin-top: 5vh;
     padding: 2vh 2vw;
     width: 30vw;
+    text-align: center; /*?????*/
 }
 
 .container--trip-details-container
@@ -141,6 +145,7 @@ body
 {
     border-bottom: 5px solid #3aafa9;
     padding-bottom: 3px;
+    color:  #17252A;
 }
 
 .container__input
