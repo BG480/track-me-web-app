@@ -70,37 +70,32 @@ body
 {
     margin-left: auto;
     margin-right: auto;
-    
+    padding: 2vh 2vw;
+    margin-top: 5vh;
 }
 
 .container--form-container
 {
-    width: 18vw;
-    padding: 2vh 2vw;
-    margin-top: 5vh;
+    width: 18vw;  
     background-color: #3aafa9;
-    text-align: center; /*?????*/
+    text-align: center;
 }
 
 .container--account-details-container
 {
     width: 20vw;
     background-color: #def2f1;
-    padding: 2vh 2vw;
-    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: #3aafa9 2px solid;
-    text-align: center; /*?????*/
+    text-align: center;
 }
 
 .container--list-container
 {
-    margin-top: 5vh;
     width: 50vw;
-    padding: 2vh 2vw;
-    text-align: center; /*?????*/
+    text-align: center;
 }
 
 .container--details-container 
@@ -108,17 +103,13 @@ body
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    margin-top: 5vh;
-    padding: 2vh 2vw;
     width: 30vw;
-    text-align: center; /*?????*/
+    text-align: center;
 }
 
 .container--trip-details-container
 {
-    margin: 5vh auto;
     width: 25vw;
-    padding: 2vh 2vw;
 }
 
 .container__form
@@ -150,8 +141,7 @@ body
 
 .container__input
 {
-    margin-top: 0.5vh;
-    margin-bottom: 0.5vh;
+    margin: 0.5vh 0;
     height: 2.5vh;
     width: 100%;
     background-color:  #def2f1;
@@ -167,8 +157,7 @@ body
 .container__label
 {
     color: #feffff;
-    margin-top: 0.5vh;
-    margin-bottom: 0.5vh;
+    margin: 0.5vh 0;
     font-size: 2vh;
     text-align: left;
     width: 100%;
@@ -201,7 +190,7 @@ body
 
 }
 
-.container__btn--list-container-btn
+.container__btn--list-btn
 {
     background-color: #3aafa9;
     margin-left: 0.2vw;
@@ -252,7 +241,6 @@ body
     flex-direction: column;
     justify-content: left;
     align-content: space-between;
-    border-bottom: 2px solid #3aafa9;
 }
 
 .container__text
