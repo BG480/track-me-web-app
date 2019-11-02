@@ -24,28 +24,32 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit(){
-    this.accountService.login(this.loginForm.value).subscribe(
-      (result: any) => {
-        localStorage.setItem('token', result.token);
-        debugger;
-        if(result.role === 'BasicUser')
-        {
-          this.router.navigateByUrl("user/home");
+    if(this.loginForm.valid) {
+      this.accountService.login(this.loginForm.value).subscribe(
+        (result: any) => {
+          localStorage.setItem('token', result.token);
+          if(result.role === 'BasicUser')
+          {
+            this.router.navigateByUrl("user/home");
+          }
+          else if(result.role === 'Admin')
+          {
+            this.router.navigateByUrl("admin/home");
+          }       
+        },
+        err => {
+          if (err.status == 404){
+            this.toastr.error(err.error.message);
+          }
+          else{
+            this.toastr.error("Error occurred.");
+          }       
         }
-        else if(result.role === 'Admin')
-        {
-          this.router.navigateByUrl("admin/home");
-        }       
-      },
-      err => {
-        if (err.status == 404){
-          this.toastr.error(err.error.message);
-        }
-        else{
-          this.toastr.error("Error occurred.");
-        }       
-      }
-    );
+      );
+    } else {
+      this.toastr.error("Invalid data.")
+    }
+    
     
     
   }

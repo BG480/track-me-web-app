@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/services/account.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-registration-page',
@@ -18,28 +19,26 @@ export class RegistrationPageComponent implements OnInit {
     Email: new FormControl('', [Validators.required, Validators.email]),
     Password: new FormControl('', [Validators.required]),
     ConfirmPassword: new FormControl('', [Validators.required]),
-    
   })
 
   constructor(private accountService: AccountService, 
     private router: Router,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private location: Location) { }
 
   ngOnInit() {
   }
 
-  onSubmit(){
-    console.warn(this.registerForm.valid);
-    console.warn(this.registerForm.get('Password').value === this.registerForm.get('ConfirmPassword').value);
-    if(this.registerForm.valid && this.registerForm.get('Password').value === this.registerForm.get('ConfirmPassword').value)
-    {
+  onSubmit() {
+    if(this.registerForm.valid && this.registerForm.get('Password').value === this.registerForm.get('ConfirmPassword').value) {
       this.accountService.register(this.registerForm.value).subscribe(
         (result: any) => {
+          this.toastr.success("Registration completed successfully.")
           this.router.navigateByUrl("");
         },
         err => {
           if (err.status == 409){
-            this.toastr.error("User with this email already exists.");
+            this.toastr.error(err.error.message);
           }
           else{
             this.toastr.error("Error occurred.");
@@ -47,7 +46,14 @@ export class RegistrationPageComponent implements OnInit {
         }
       );
     }
+    else {
+      this.toastr.error("Invalid data.")
+    }
     
+  }
+
+  private goBack(): void {
+    this.location.back();
   }
 
 }

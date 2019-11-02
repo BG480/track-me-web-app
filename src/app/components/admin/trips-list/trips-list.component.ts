@@ -34,11 +34,15 @@ export class TripsListComponent implements OnInit {
   private deleteTrip(trip: Trip): void {
     this.tripsService.deleteTrip(trip.id).subscribe(
       (result: any) => {
+        this.toastr.success("Trip successfully deleted.");
         this.getAllTrips();
-        console.log("OK")
       },
       err => {
-        this.toastr.error("Error occurred.")
+        if(err.status == 404) {
+          this.toastr.error(err.error.message);
+        } else {
+          this.toastr.error("Error occurred.");
+        }       
       }
     );
   }

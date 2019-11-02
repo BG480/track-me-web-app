@@ -31,7 +31,7 @@ export class AdminDetailsComponent implements OnInit {
       },
       err => {
         if (err.status == 404){
-          this.toastr.error("Admin's data not found.");
+          this.toastr.error(err.error.message);
         }
         else{
           this.toastr.error("Error occurred.");

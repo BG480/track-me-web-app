@@ -30,12 +30,13 @@ export class BasicUserAccountComponent implements OnInit {
   private updateBasicUser(): void {
     this.basicUsersService.updateBasicUser(this.basicUser).subscribe(
       (result: any) => {
+        this.toastr.success("Account data succesfully updated.");
         this.router.navigateByUrl("user/home");
       },
       err => {
         if(err.status == 404)
         {
-          this.toastr.error("Cannot update user's data - user not found.");
+          this.toastr.error(err.error.message);
         }
         else {
           this.toastr.error("Error occurred.");

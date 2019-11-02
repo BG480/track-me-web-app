@@ -34,12 +34,12 @@ export class BasicUsersListComponent implements OnInit {
 
     this.basicUsersService.deleteBasicUser(basicUser.id).subscribe(
       (result: any) => {
-        this.toastr.success("User deleted.")
+        this.toastr.success("User successfully deleted.");
         this.getAllBasicUsers();
       },
       err => {
         if (err.status == 404){
-          this.toastr.error("Cannot delete user - user not found.");
+          this.toastr.error(err.error.message);
         }
         else{
           this.toastr.error("Error occurred.");

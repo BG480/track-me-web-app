@@ -32,7 +32,7 @@ export class BasicUserDetailsComponent implements OnInit {
       },
       err => {
         if (err.status == 404){
-          this.toastr.error("User's data not found.");
+          this.toastr.error(err.error.message);
         }
         else{
           this.toastr.error("Error occurred.");

@@ -1,12 +1,12 @@
 <div class="container container--account-details-container" *ngIf="basicUser">
     <h1 class="container__header container__header--account-details-header">Account details</h1>
         <label class="container__label container__label--account-details-label">First name</label>
-        <input class="container__input container__input--account-details-input" [(ngModel)]="basicUser.firstName" type="text">
+        <input class="container__input container__input--account-details-input" [(ngModel)]="basicUser.firstName" placeholder="Mary" type="text">
         <label class="container__label container__label--account-details-label">Last name</label>
-        <input class="container__input container__input--account-details-input" [(ngModel)]="basicUser.lastName" type="text">
+        <input class="container__input container__input--account-details-input" [(ngModel)]="basicUser.lastName" placeholder="Jane" type="text">
         <label class="container__label container__label--account-details-label">Phone number</label>
-        <input class="container__input container__input--account-details-input" [(ngModel)]="basicUser.phoneNumber" type="text">
+        <input class="container__input container__input--account-details-input" [(ngModel)]="basicUser.phoneNumber" placeholder="123-456-789" type="text">
         <label class="container__label container__label--account-details-label">Email</label>
-        <input class="container__input container__input--account-details-input" [(ngModel)]="basicUser.email" type="email">
+        <input class="container__input container__input--account-details-input" [(ngModel)]="basicUser.email" placeholder="mary@email.com" type="email">
         <button (click)="updateBasicUser()" class="container__btn" >Save</button>
 </div>

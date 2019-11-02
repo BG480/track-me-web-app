@@ -37,12 +37,12 @@ export class AdminsListComponent implements OnInit {
   private deleteAdmin(admin: Admin): void {
     this.adminsService.deleteAdmin(admin.id).subscribe(
       (result: any) => {
-        this.toastr.success("Admin deleted.")
+        this.toastr.success("Admin successfully deleted.")
         this.getAdmins();
       },
       err => {
         if (err.status == 404){
-          this.toastr.error("Cannot delete admin - admin not found.");
+          this.toastr.error(err.error.message);
         }
         else{
           this.toastr.error("Error occurred.");

@@ -36,18 +36,21 @@ export class CreateAdminComponent implements OnInit {
     {
       this.adminsService.createAdmin(this.createAdminForm.value).subscribe(
         (result: any) => {
-          this.toastr.success("Admin created.")
+          this.toastr.success("Admin successfully created.")
           this.router.navigateByUrl("admin/admins");
         },
         err => {
           if (err.status == 409){
-            this.toastr.error("Admin with this email already exists.");
+            this.toastr.error(err.error.message);
           }
           else{
             this.toastr.error("Error occurred.");
           }
         }
       );
+    }
+    else {
+      this.toastr.error("Invalid data.")
     }
   }
 
