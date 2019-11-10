@@ -53,8 +53,8 @@ export class BasicUserAccountComponent implements OnInit {
 
   private validateBasicUserData(): boolean{
     var emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
-    var phoneNumberRegex = /\d{3}-\d{3}-\d{3}/;
-    if(this.basicUser.firtsName !== "" && this.basicUser.lastName !== "" && phoneNumberRegex.test(this.basicUser.phoneNumber) && emailRegex.test(this.basicUser.email)
+    var phoneNumberRegex = /^\d{9}/;
+    if(this.basicUser.firtsName !== "" && this.basicUser.lastName !== "" && phoneNumberRegex.test(this.basicUser.phoneNumber) && this.basicUser.phoneNumber.length == 9 && emailRegex.test(this.basicUser.email)
     )
     {
       return true;
