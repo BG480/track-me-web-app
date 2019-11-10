@@ -28,6 +28,8 @@ export class BasicUserAccountComponent implements OnInit {
   }
 
   private updateBasicUser(): void {
+    if(this.validateBasicUserData())
+    {
     this.basicUsersService.updateBasicUser(this.basicUser).subscribe(
       (result: any) => {
         this.toastr.success("Account data succesfully updated.");
@@ -44,6 +46,20 @@ export class BasicUserAccountComponent implements OnInit {
         
         }
     );
+      } else {
+        this.toastr.error("Invalid data.");
+      }
+  }
+
+  private validateBasicUserData(): boolean{
+    var emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+    var phoneNumberRegex = /\d{3}-\d{3}-\d{3}/;
+    if(this.basicUser.firtsName !== "" && this.basicUser.lastName !== "" && phoneNumberRegex.test(this.basicUser.phoneNumber) && emailRegex.test(this.basicUser.email)
+    )
+    {
+      return true;
+    }
+    return false;
   }
 
 
