@@ -23,7 +23,6 @@ body
     padding: 2vh 2vw;
 }
 
-
 .header__logo
 {
     font-size: 3.5vh;
@@ -246,4 +245,9 @@ body
 .container__text
 {
     font-size: 3vh;
+}
+
+.container__text--bold
+{
+    font-weight: bold;
 }
