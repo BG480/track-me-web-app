@@ -25,7 +25,7 @@ export class TripDetailsComponent implements OnInit {
     this.getTripDetails();
   }
 
-  private getTripDetails(){
+  getTripDetails() {
     const id = this.route.snapshot.paramMap.get('id');
     this.tripsService.getTripDetails(id).subscribe(
       (sensorsValues: SensorsValues[]) => {
@@ -37,7 +37,7 @@ export class TripDetailsComponent implements OnInit {
     );
   }
 
-  private goBack(): void{
+  goBack(): void {
     localStorage.removeItem('tripName');
     this.location.back();
   }

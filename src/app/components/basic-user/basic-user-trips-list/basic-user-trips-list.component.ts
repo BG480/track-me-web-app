@@ -19,21 +19,20 @@ export class BasicUserTripsListComponent implements OnInit {
     private toastr: ToastrService) { }
 
   ngOnInit() {
-    debugger;
     this.getTrips();
   }
 
-  private getTrips(): void {
+  getTrips(): void {
     this.tripsService.getTrips()
     .subscribe(trips => this.trips = trips);
   }
 
-  private showTripDetails(trip: Trip): void {
+  showTripDetails(trip: Trip): void {
     localStorage.setItem('tripName', trip.name);
     this.router.navigateByUrl('user/trip-details/' + trip.id);
   }
 
-  private deleteTrip(trip: Trip): void {
+  deleteTrip(trip: Trip): void {
     this.tripsService.deleteTrip(trip.id).subscribe(
       (result: any) => {
         this.toastr.success("Trip successfully deleted.");
@@ -45,8 +44,7 @@ export class BasicUserTripsListComponent implements OnInit {
         }
         else {
           this.toastr.error("Error occurred.");
-        }
-        
+        }      
       }
     );
   }

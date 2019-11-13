@@ -21,17 +21,16 @@ export class BasicUsersListComponent implements OnInit {
     this.getAllBasicUsers();
   }
 
-  private getAllBasicUsers(): void {
+  getAllBasicUsers(): void {
     this.basicUsersService.getAllBasicUsers()
     .subscribe(basicUsers => this.basicUsers = basicUsers);
   }
 
-  private showBasicUserDetails(basicUser: BasicUser): void {
+  showBasicUserDetails(basicUser: BasicUser): void {
     this.router.navigateByUrl('admin/basic-user-details/' + basicUser.id);
   }
 
-  private deleteBasicUser(basicUser: BasicUser): void {
-
+  deleteBasicUser(basicUser: BasicUser): void {
     this.basicUsersService.deleteBasicUser(basicUser.id).subscribe(
       (result: any) => {
         this.toastr.success("User successfully deleted.");
@@ -47,6 +46,4 @@ export class BasicUsersListComponent implements OnInit {
       }
     );
   }
-  
-
 }

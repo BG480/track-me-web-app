@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,11 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
 
-  login(formData){
+  login(formData): Observable<{}> {
     return this.http.post(this.controllerURL + '/Login', formData);
   }
 
-  register(formData){
+  register(formData): Observable<{}> {
     return this.http.post(this.controllerURL + '/Register', formData);
   }
 

@@ -21,17 +21,17 @@ export class TripsListComponent implements OnInit {
     this.getAllTrips();
   }
 
-  private getAllTrips(): void{
+  getAllTrips(): void {
     this.tripsService.getAllTrips()
     .subscribe(trips => this.trips = trips);
   }
 
-  private showTripDetails(trip: Trip): void {
+  showTripDetails(trip: Trip): void {
     localStorage.setItem('tripName', trip.name);
     this.router.navigateByUrl('admin/trip-details/' + trip.id);
   }
 
-  private deleteTrip(trip: Trip): void {
+  deleteTrip(trip: Trip): void {
     this.tripsService.deleteTrip(trip.id).subscribe(
       (result: any) => {
         this.toastr.success("Trip successfully deleted.");

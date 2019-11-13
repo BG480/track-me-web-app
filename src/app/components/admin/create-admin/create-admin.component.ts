@@ -27,11 +27,9 @@ export class CreateAdminComponent implements OnInit {
     private location: Location,
     private toastr: ToastrService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  private onSubmit(): void {
-
+  onSubmit(): void {
     if(this.createAdminForm.valid && this.createAdminForm.get('Password').value === this.createAdminForm.get('ConfirmPassword').value)
     {
       this.adminsService.createAdmin(this.createAdminForm.value).subscribe(
@@ -54,7 +52,7 @@ export class CreateAdminComponent implements OnInit {
     }
   }
 
-  private goBack(): void {
+  goBack(): void {
     this.location.back();
   }
 

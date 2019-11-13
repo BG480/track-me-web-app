@@ -23,7 +23,7 @@ export class AdminDetailsComponent implements OnInit {
     this.getAdminDetails();
   }
 
-  private getAdminDetails(): void{
+  getAdminDetails(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.adminsService.getAdminDetails(id).subscribe(
       (admin: Admin) => {
@@ -37,10 +37,9 @@ export class AdminDetailsComponent implements OnInit {
           this.toastr.error("Error occurred.");
         }
       });
-
   }
 
-  private goBack(): void{
+  goBack(): void{
     this.location.back();
   }
 

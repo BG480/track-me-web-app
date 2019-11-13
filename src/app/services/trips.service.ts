@@ -13,11 +13,11 @@ export class TripsService {
 
   constructor(private http: HttpClient) { }
 
-  getTrips(): Observable<Trip[]>{
+  getTrips(): Observable<Trip[]> {
     return this.http.get<Trip[]>(this.controllerURL)
   }
 
-  getAllTrips(): Observable<Trip[]>{
+  getAllTrips(): Observable<Trip[]> {
     return this.http.get<Trip[]>(this.controllerURL + '/all')
   }
 

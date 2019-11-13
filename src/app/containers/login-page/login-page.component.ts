@@ -20,10 +20,9 @@ export class LoginPageComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  onSubmit(){
+  onSubmit(): void {
     if(this.loginForm.valid) {
       this.accountService.login(this.loginForm.value).subscribe(
         (result: any) => {
@@ -49,9 +48,6 @@ export class LoginPageComponent implements OnInit {
     } else {
       this.toastr.error("Invalid data.")
     }
-    
-    
-    
   }
 
 }

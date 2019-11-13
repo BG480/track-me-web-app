@@ -26,10 +26,9 @@ export class RegistrationPageComponent implements OnInit {
     private toastr: ToastrService,
     private location: Location) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  onSubmit() {
+  onSubmit(): void {
     if(this.registerForm.valid && this.registerForm.get('Password').value === this.registerForm.get('ConfirmPassword').value) {
       this.accountService.register(this.registerForm.value).subscribe(
         (result: any) => {
@@ -49,10 +48,9 @@ export class RegistrationPageComponent implements OnInit {
     else {
       this.toastr.error("Invalid data.")
     }
-    
   }
 
-  private goBack(): void {
+  goBack(): void {
     this.location.back();
   }
 

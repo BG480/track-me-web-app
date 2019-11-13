@@ -7,13 +7,12 @@ import { CanActivate, Router, ActivatedRoute, ActivatedRouteSnapshot, RouterEven
 })
 export class AuthGuardService implements CanActivate{
 
-  constructor(private jwtHelper: JwtHelperService, private router: Router) { }
+  constructor(private jwtHelper: JwtHelperService, 
+    private router: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot){
-    
+  canActivate(route: ActivatedRouteSnapshot): boolean {
     const token = localStorage.getItem("token");
     const tokenPayload = this.jwtHelper.decodeToken(token);
-    debugger;
     if(this.jwtHelper.isTokenExpired(token) || tokenPayload["Role"] != route.data.expectedRole)
     {
       this.router.navigateByUrl('');

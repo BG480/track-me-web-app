@@ -9,16 +9,14 @@ import { Router } from '@angular/router';
 export class BasicUserHeaderComponent implements OnInit {
 
   headerLogo: string = "TrackMe"
+
   constructor(private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  logout()
-  {
+  logout(): void {
     localStorage.removeItem('token');
     this.router.navigateByUrl('');
-    
   }
 
 }

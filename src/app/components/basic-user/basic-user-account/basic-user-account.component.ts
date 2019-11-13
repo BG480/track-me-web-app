@@ -22,14 +22,13 @@ export class BasicUserAccountComponent implements OnInit {
     this.getBasicUser();
   }
 
-  private getBasicUser(): void {
+  getBasicUser(): void {
     this.basicUsersService.getBasicUserAccountDetails().subscribe(
       basicUser => this.basicUser = basicUser);
   }
 
-  private updateBasicUser(): void {
-    if(this.validateBasicUserData())
-    {
+  updateBasicUser(): void {
+    if(this.validateBasicUserData()) {
     this.basicUsersService.updateBasicUser(this.basicUser).subscribe(
       (result: any) => {
         this.toastr.success("Account data succesfully updated.");
@@ -46,22 +45,19 @@ export class BasicUserAccountComponent implements OnInit {
         
         }
     );
-      } else {
+    } else {
         this.toastr.error("Invalid data.");
-      }
+    }
   }
 
-  private validateBasicUserData(): boolean{
+  private validateBasicUserData(): boolean {
     var emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
     var phoneNumberRegex = /^\d{9}/;
-    if(this.basicUser.firtsName !== "" && this.basicUser.lastName !== "" && phoneNumberRegex.test(this.basicUser.phoneNumber) && this.basicUser.phoneNumber.length == 9 && emailRegex.test(this.basicUser.email)
-    )
-    {
+    if(this.basicUser.firtsName !== "" && this.basicUser.lastName !== "" && phoneNumberRegex.test(this.basicUser.phoneNumber) 
+       && this.basicUser.phoneNumber.length == 9 && emailRegex.test(this.basicUser.email)) {
       return true;
     }
     return false;
   }
-
-
 
 }

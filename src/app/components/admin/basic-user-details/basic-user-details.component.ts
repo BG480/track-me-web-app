@@ -24,7 +24,7 @@ export class BasicUserDetailsComponent implements OnInit {
     this.getBasicUserDetails();
   }
 
-  private getBasicUserDetails(): void{
+  getBasicUserDetails(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.basicUsersService.getBasicUserDetails(id).subscribe(
       (basicUser: BasicUser) => {
@@ -41,7 +41,7 @@ export class BasicUserDetailsComponent implements OnInit {
 
   }
 
-  private goBack(): void{
+  private goBack(): void {
     this.location.back();
   }
 

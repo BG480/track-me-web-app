@@ -21,20 +21,20 @@ export class AdminsListComponent implements OnInit {
     this.getAdmins();
   }
 
-  private getAdmins(): void{
+  getAdmins(): void {
     this.adminsService.getAdmins()
     .subscribe(admins => this.admins = admins);
   }
 
-  private showAdminDetails(admin: Admin): void{
+  showAdminDetails(admin: Admin): void {
     this.router.navigateByUrl('admin/admin-details/' + admin.id);
   }
 
-  private createAdmin(): void {
+  createAdmin(): void {
     this.router.navigateByUrl('admin/create-admin');
   }
 
-  private deleteAdmin(admin: Admin): void {
+  deleteAdmin(admin: Admin): void {
     this.adminsService.deleteAdmin(admin.id).subscribe(
       (result: any) => {
         this.toastr.success("Admin successfully deleted.")
