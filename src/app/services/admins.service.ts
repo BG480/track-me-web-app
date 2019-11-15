@@ -12,19 +12,19 @@ export class AdminsService {
 
   constructor(private http: HttpClient) { }
 
-  getAdmins(): Observable<Admin[]>{
+  getAdmins(): Observable<Admin[]> {
     return this.http.get<Admin[]>(this.controllerURL)
   }
 
-  getAdminDetails(id: string): Observable<Admin>{
+  getAdminDetails(id: string): Observable<Admin> {
     return this.http.get<Admin>(this.controllerURL + '/' + id);
   }
 
-  createAdmin(formData) {
+  createAdmin(formData): Observable<{}> {
     return this.http.post(this.controllerURL, formData);
   }
 
-  deleteAdmin(id: number){
+  deleteAdmin(id: number): Observable<{}> {
     return this.http.delete(this.controllerURL + '/' + id);
   }
 }

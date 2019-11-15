@@ -11,14 +11,12 @@ export class AuthInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
     if (localStorage.getItem('token') != null) {
-      // Logged in. Add Bearer token.
       return next.handle(
         req.clone({
           headers: req.headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'))
         })
       );
     }
-    // Not logged in. Continue without modification.
     return next.handle(req);
   }
 }

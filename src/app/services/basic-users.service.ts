@@ -24,11 +24,11 @@ export class BasicUsersService {
     return this.http.get<BasicUser>(this.controllerURL);
   }
 
-  deleteBasicUser(id: number) {
+  deleteBasicUser(id: number): Observable<{}> {
     return this.http.delete(this.controllerURL + '/' + id);
   }
 
-  updateBasicUser(basicUser: BasicUser){
+  updateBasicUser(basicUser: BasicUser): Observable<{}> {
     return this.http.put(this.controllerURL, basicUser);
   }
 

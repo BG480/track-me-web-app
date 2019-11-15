@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AccountService } from 'src/app/services/account.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-page',
@@ -15,34 +16,38 @@ export class LoginPageComponent implements OnInit {
     Password: new FormControl(''),
   })
 
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(private accountService: AccountService, 
+    private router: Router,
+    private toastr: ToastrService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  onSubmit(){
-    this.accountService.login(this.loginForm.value).subscribe(
-      (result: any) => {
-        localStorage.setItem('token', result.token);
-        debugger;
-        if(result.role === 'BasicUser')
-        {
-          this.router.navigateByUrl("user/home");
+  onSubmit(): void {
+    if(this.loginForm.valid) {
+      this.accountService.login(this.loginForm.value).subscribe(
+        (result: any) => {
+          localStorage.setItem('token', result.token);
+          if(result.role === 'BasicUser')
+          {
+            this.router.navigateByUrl("user/home");
+          }
+          else if(result.role === 'Admin')
+          {
+            this.router.navigateByUrl("admin/home");
+          }       
+        },
+        err => {
+          if (err.status == 404){
+            this.toastr.error(err.error.message);
+          }
+          else{
+            this.toastr.error("Error occurred.");
+          }       
         }
-        else if(result.role === 'Admin')
-        {
-          this.router.navigateByUrl("admin/home");
-        }
-        
-        console.log("OK")
-      },
-      err => {
-        //if (err.status == 400)
-        console.log(err);
-      }
-    );
-    
-    
+      );
+    } else {
+      this.toastr.error("Invalid data.")
+    }
   }
 
 }

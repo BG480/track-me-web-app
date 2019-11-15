@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { Admin } from 'src/app/models/admin';
 import { AdminsService } from 'src/app/services/admins.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admins-list',
@@ -12,35 +13,40 @@ export class AdminsListComponent implements OnInit {
 
   admins: Admin[];
 
-  constructor(private adminsService: AdminsService, private router: Router) { }
+  constructor(private adminsService: AdminsService, 
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getAdmins();
   }
 
-  private getAdmins(): void{
+  getAdmins(): void {
     this.adminsService.getAdmins()
     .subscribe(admins => this.admins = admins);
   }
 
-  private showAdminDetails(admin: Admin): void{
+  showAdminDetails(admin: Admin): void {
     this.router.navigateByUrl('admin/admin-details/' + admin.id);
   }
 
-  private createAdmin(): void {
+  createAdmin(): void {
     this.router.navigateByUrl('admin/create-admin');
   }
 
-  private deleteAdmin(admin: Admin): void {
-
+  deleteAdmin(admin: Admin): void {
     this.adminsService.deleteAdmin(admin.id).subscribe(
       (result: any) => {
+        this.toastr.success("Admin successfully deleted.")
         this.getAdmins();
-        console.log("OK")
       },
       err => {
-        //if (err.status == 400)
-        console.log(err.error.message);
+        if (err.status == 404){
+          this.toastr.error(err.error.message);
+        }
+        else{
+          this.toastr.error("Error occurred.");
+        }
       }
     );
   }

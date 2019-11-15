@@ -1,19 +1,19 @@
-<div class="form-container">
-    <h1 class="form-container__header">TrackMe</h1>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-container__form">
-        <label class="form-container__label">First name</label>
-        <input formControlName="FirstName" type="text" class="form-container__input">
-        <label class="form-container__label">Last name</label>
-        <input formControlName="LastName" type="text" class="form-container__input">
-        <label class="form-container__label">Phone number</label>
-        <input formControlName="PhoneNumber" type="text" class="form-container__input">
-        <label class="form-container__label">Email</label>
-        <input formControlName="Email" type="text" class="form-container__input">
-        <label class="form-container__label">Password</label>
-        <input formControlName="Password" type="password" class="form-container__input">
-        <label class="form-container__label">Confirm password</label>
-        <input formControlName="ConfirmPassword" type="password" class="form-container__input">
-        <button type="submit" class="form-container__btn" [disabled]="!registerForm.valid">Register</button>
+<div class="container container--form-container">
+    <h1 class="container__header">TrackMe</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="container__form">
+        <label class="container__label">First name</label>
+        <input formControlName="FirstName" type="text" class="container__input" placeholder="Wayne">
+        <label class="container__label">Last name</label>
+        <input formControlName="LastName" type="text" class="container__input" placeholder="Rooney">
+        <label class="container__label">Phone number</label>
+        <input formControlName="PhoneNumber" type="text" class="container__input" placeholder="123456789">
+        <label class="container__label">Email</label>
+        <input formControlName="Email" type="text" class="container__input" placeholder="email@email.com">
+        <label class="container__label">Password</label>
+        <input formControlName="Password" type="password" class="container__input">
+        <label class="container__label">Confirm password</label>
+        <input formControlName="ConfirmPassword" type="password" class="container__input">
+        <button type="submit" class="container__btn" >Register</button>
     </form>
-        <button type="submit" class="form-container__btn">Login</button>
+    <button class="container__btn" (click)='goBack()'>Go Back</button>
 </div>
