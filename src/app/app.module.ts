@@ -30,7 +30,11 @@ import { AdminDetailsComponent } from './components/admin/admin-details/admin-de
 import { BasicUserDetailsComponent } from './components/admin/basic-user-details/basic-user-details.component';
 import { CreateAdminComponent } from './components/admin/create-admin/create-admin.component';
 import { FormsModule } from '@angular/forms';
-import { TripDetailsComponent } from './components/shared/trip-details/trip-details.component';  
+import { TripDetailsComponent } from './components/shared/trip-details/trip-details.component';
+import { AdminComponent } from './app/admins/components/admin/admin.component';
+import { AdminListComponent } from './admins/views/admin-list/admin-list.component';
+import { AdminCreateComponent } from './admins/views/admin-create/admin-create.component';
+import { AdminListItemComponent } from './admins/views/admin-list/admin-list-item/admin-list-item.component';  
 
 
 @NgModule({
@@ -52,7 +56,11 @@ import { TripDetailsComponent } from './components/shared/trip-details/trip-deta
     AdminDetailsComponent,
     BasicUserDetailsComponent,
     CreateAdminComponent,
-    TripDetailsComponent
+    TripDetailsComponent,
+    AdminComponent,
+    AdminListComponent,
+    AdminCreateComponent,
+    AdminListItemComponent
   ],
   imports: [
     BrowserModule,

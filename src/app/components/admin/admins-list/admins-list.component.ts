@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { Admin } from 'src/app/models/admin';
-import { AdminsService } from 'src/app/services/admins.service';
+import { Admin } from 'src/app/admins/models/admin.model';
+import { AdminsService } from 'src/app/admins/services/admins.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 

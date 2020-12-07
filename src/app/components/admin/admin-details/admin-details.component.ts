@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Admin } from 'src/app/models/admin';
+import { Admin } from 'src/app/admins/models/admin.model';
 import { ActivatedRoute } from '@angular/router';
-import { AdminsService } from 'src/app/services/admins.service';
+import { AdminsService } from 'src/app/admins/services/admins.service';
 import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 

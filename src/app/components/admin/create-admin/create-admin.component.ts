@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { AdminsService } from 'src/app/services/admins.service';
+import { AdminsService } from 'src/app/admins/services/admins.service';
 import { ToastrService } from 'ngx-toastr';
 
 
