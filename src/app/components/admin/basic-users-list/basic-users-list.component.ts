@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BasicUser } from 'src/app/models/basic-user';
-import { BasicUsersService } from 'src/app/services/basic-users.service';
+import { BasicUser } from 'src/app/basic-users/models/basic-user.model';
+import { BasicUsersService } from 'src/app/basic-users/services/basic-user.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 

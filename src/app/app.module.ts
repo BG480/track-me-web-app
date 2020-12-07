@@ -34,7 +34,9 @@ import { TripDetailsComponent } from './components/shared/trip-details/trip-deta
 import { AdminComponent } from './app/admins/components/admin/admin.component';
 import { AdminListComponent } from './admins/views/admin-list/admin-list.component';
 import { AdminCreateComponent } from './admins/views/admin-create/admin-create.component';
-import { AdminListItemComponent } from './admins/views/admin-list/admin-list-item/admin-list-item.component';  
+import { AdminListItemComponent } from './admins/views/admin-list/admin-list-item/admin-list-item.component';
+import { BasicUserListComponent } from './basic-users/views/basic-user-list/basic-user-list.component';
+import { BasicUserListItemComponent } from './basic-users/views/basic-user-list/basic-user-list-item/basic-user-list-item.component';  
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { AdminListItemComponent } from './admins/views/admin-list/admin-list-ite
     AdminComponent,
     AdminListComponent,
     AdminCreateComponent,
-    AdminListItemComponent
+    AdminListItemComponent,
+    BasicUserListComponent,
+    BasicUserListItemComponent
   ],
   imports: [
     BrowserModule,

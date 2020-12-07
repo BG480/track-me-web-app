@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BasicUsersService } from 'src/app/services/basic-users.service';
+import { BasicUsersService } from 'src/app/basic-users/services/basic-user.service';
 import { Location } from '@angular/common';
-import { BasicUser } from 'src/app/models/basic-user';
+import { BasicUser } from 'src/app/basic-users/models/basic-user.model';
 import { ToastrService } from 'ngx-toastr';
 
 

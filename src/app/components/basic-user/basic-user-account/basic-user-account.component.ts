@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { BasicUsersService } from 'src/app/services/basic-users.service';
-import { BasicUser } from 'src/app/models/basic-user';
+import { BasicUsersService } from 'src/app/basic-users/services/basic-user.service';
+import { BasicUser } from 'src/app/basic-users/models/basic-user.model';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
