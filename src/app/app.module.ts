@@ -41,7 +41,9 @@ import { TripListComponent } from './trip/views/trip-list/trip-list.component';
 import { TripSensorDataComponent } from './trip/views/trip-sensor-data/trip-sensor-data.component';
 import { TripListItemComponent } from './trip/views/trip-list/trip-list-item/trip-list-item.component';
 import { LoginComponent } from './auth/views/login/login.component';
-import { RegisterComponent } from './auth/views/register/register.component';  
+import { RegisterComponent } from './auth/views/register/register.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';  
 
 
 @NgModule({
@@ -74,7 +76,9 @@ import { RegisterComponent } from './auth/views/register/register.component';
     TripSensorDataComponent,
     TripListItemComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
