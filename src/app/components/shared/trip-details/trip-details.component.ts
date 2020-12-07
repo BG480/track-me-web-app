@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SensorsValues } from 'src/app/models/sensors-values';
-import { TripsService } from 'src/app/services/trips.service';
+import { SensorsValues } from 'src/app/trip/models/sensor-data.model';
+import { TripsService } from 'src/app/trip/services/trip.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';

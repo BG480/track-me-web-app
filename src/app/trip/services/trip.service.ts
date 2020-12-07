@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Trip } from '../models/trip';
-import { SensorsValues } from '../models/sensors-values';
+import { Trip } from '../models/trip.model';
+import { SensorsValues } from '../models/sensor-data.model';
 
 @Injectable({
   providedIn: 'root'

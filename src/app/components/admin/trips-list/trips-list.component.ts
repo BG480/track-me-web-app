@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TripsService } from 'src/app/services/trips.service';
-import { Trip } from 'src/app/models/trip';
+import { TripsService } from 'src/app/trip/services/trip.service';
+import { Trip } from 'src/app/trip/models/trip.model';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 

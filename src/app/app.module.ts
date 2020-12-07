@@ -36,7 +36,10 @@ import { AdminListComponent } from './admins/views/admin-list/admin-list.compone
 import { AdminCreateComponent } from './admins/views/admin-create/admin-create.component';
 import { AdminListItemComponent } from './admins/views/admin-list/admin-list-item/admin-list-item.component';
 import { BasicUserListComponent } from './basic-users/views/basic-user-list/basic-user-list.component';
-import { BasicUserListItemComponent } from './basic-users/views/basic-user-list/basic-user-list-item/basic-user-list-item.component';  
+import { BasicUserListItemComponent } from './basic-users/views/basic-user-list/basic-user-list-item/basic-user-list-item.component';
+import { TripListComponent } from './trip/views/trip-list/trip-list.component';
+import { TripSensorDataComponent } from './trip/views/trip-sensor-data/trip-sensor-data.component';
+import { TripListItemComponent } from './trip/views/trip-list/trip-list-item/trip-list-item.component';  
 
 
 @NgModule({
@@ -64,7 +67,10 @@ import { BasicUserListItemComponent } from './basic-users/views/basic-user-list/
     AdminCreateComponent,
     AdminListItemComponent,
     BasicUserListComponent,
-    BasicUserListItemComponent
+    BasicUserListItemComponent,
+    TripListComponent,
+    TripSensorDataComponent,
+    TripListItemComponent
   ],
   imports: [
     BrowserModule,
