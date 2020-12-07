@@ -11,7 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccountService } from './auth/services/auth.service';
-import { AuthGuardService } from './auth/guards/auth-guard.service';
+import { AuthGuard } from './auth/guards/auth-guard';
 import { AuthInterceptorService } from './auth/interceptors/auth-interceptor.service';
 import { AdminPageComponent } from './containers/admin-page/admin-page.component';
 import { AdminHeaderComponent } from './components/admin/admin-header/admin-header.component';
