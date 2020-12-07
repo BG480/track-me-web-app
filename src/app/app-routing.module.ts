@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginPageComponent } from './containers/login-page/login-page.component';
 import { RegistrationPageComponent } from './containers/registration-page/registration-page.component';
-import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './auth/guards/auth-guard.service';
 import { BasicUserPageComponent } from './containers/basic-user-page/basic-user-page.component';
 import { BasicUserHomeComponent } from './components/basic-user/basic-user-home/basic-user-home.component';
 import { BasicUserAccountComponent } from './components/basic-user/basic-user-account/basic-user-account.component';

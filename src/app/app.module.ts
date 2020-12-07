@@ -10,9 +10,9 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AccountService } from './services/account.service';
-import { AuthGuardService } from './services/auth-guard.service';
-import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { AccountService } from './auth/services/auth.service';
+import { AuthGuardService } from './auth/guards/auth-guard.service';
+import { AuthInterceptorService } from './auth/interceptors/auth-interceptor.service';
 import { AdminPageComponent } from './containers/admin-page/admin-page.component';
 import { AdminHeaderComponent } from './components/admin/admin-header/admin-header.component';
 import { LoginPageComponent } from './containers/login-page/login-page.component';
@@ -39,7 +39,9 @@ import { BasicUserListComponent } from './basic-users/views/basic-user-list/basi
 import { BasicUserListItemComponent } from './basic-users/views/basic-user-list/basic-user-list-item/basic-user-list-item.component';
 import { TripListComponent } from './trip/views/trip-list/trip-list.component';
 import { TripSensorDataComponent } from './trip/views/trip-sensor-data/trip-sensor-data.component';
-import { TripListItemComponent } from './trip/views/trip-list/trip-list-item/trip-list-item.component';  
+import { TripListItemComponent } from './trip/views/trip-list/trip-list-item/trip-list-item.component';
+import { LoginComponent } from './auth/views/login/login.component';
+import { RegisterComponent } from './auth/views/register/register.component';  
 
 
 @NgModule({
@@ -70,7 +72,9 @@ import { TripListItemComponent } from './trip/views/trip-list/trip-list-item/tri
     BasicUserListItemComponent,
     TripListComponent,
     TripSensorDataComponent,
-    TripListItemComponent
+    TripListItemComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
