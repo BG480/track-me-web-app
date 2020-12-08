@@ -1,23 +1,25 @@
 import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { CanActivate, Router, ActivatedRoute, ActivatedRouteSnapshot, RouterEvent } from '@angular/router';
+import { CanActivate, Router, ActivatedRoute, ActivatedRouteSnapshot, RouterEvent, UrlTree, RouterStateSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map, take } from 'rxjs/operators';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate{
 
-  constructor(private jwtHelper: JwtHelperService, 
-    private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot): boolean {
-    const token = localStorage.getItem("token");
-    const tokenPayload = this.jwtHelper.decodeToken(token);
-    if(this.jwtHelper.isTokenExpired(token) || tokenPayload["Role"] != route.data.expectedRole)
-    {
-      this.router.navigateByUrl('');
-      return false;
-    }
-    return true;
+  canActivate(route: ActivatedRouteSnapshot, router: RouterStateSnapshot): boolean | UrlTree | Promise<boolean | UrlTree> | Observable<boolean | UrlTree>  {
+    return this.authService.loggedUser.pipe(
+      take(1),
+      map(user => {
+        const isAuthorized = !!user && user.role == route.data.expectedRole;
+        if (isAuthorized) {
+          return true;
+        }
+        return this.router.createUrlTree(['/auth']);
+      }));
   }
 }
