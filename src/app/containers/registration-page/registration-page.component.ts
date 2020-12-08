@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AccountService } from 'src/app/auth/services/auth.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Location } from '@angular/common';
@@ -21,7 +21,7 @@ export class RegistrationPageComponent implements OnInit {
     ConfirmPassword: new FormControl('', [Validators.required,Validators.minLength(7)]),
   })
 
-  constructor(private accountService: AccountService, 
+  constructor(private accountService: AuthService, 
     private router: Router,
     private toastr: ToastrService,
     private location: Location) { }
