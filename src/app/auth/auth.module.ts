@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
+import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
@@ -14,8 +17,7 @@ import { RegisterComponent } from './views/register/register.component';
     imports: [
       RouterModule,
       ReactiveFormsModule,
-      RecipesRoutingModule,
-      SharedModule
+      AuthRoutingModule,
     ]
   })
   export class AuthModule {}
