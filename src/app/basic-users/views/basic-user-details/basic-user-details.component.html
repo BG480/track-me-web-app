@@ -1,1 +1,9 @@
-<p>basic-user-details works!</p>
+<div class='container container--details-container' *ngIf='basicUser'>
+    <label class='container__label container__label--details-label'>First name: {{basicUser.firtsName}}</label>
+    <label class='container__label container__label--details-label'>Last name: {{basicUser.lastName}}</label>
+    <label class='container__label container__label--details-label'>Email: {{basicUser.email}}</label>
+    <label class='container__label container__label--details-label'>Phone number: {{basicUser.phoneNumber}}</label>
+    <div class='container__btns-wrapper'>
+        <button class='container__btn container__btn--details-btn' (click)='goBack()'>Go Back</button>
+    </div>
+</div>

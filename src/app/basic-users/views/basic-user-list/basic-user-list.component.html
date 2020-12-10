@@ -1,1 +1,12 @@
-<p>basic-user-list works!</p>
+<div class="container container--list-container">
+    <ul class="container__list">
+        <li *ngFor="let basicUser of basicUsers" class="container__list-item">
+          <span class="container__text">{{basicUser.firstName}} {{basicUser.lastName}}</span>
+          <div>
+            <button class="container__btn container__btn--list-btn" (click)='showBasicUserDetails(basicUser)'>Details</button>
+            <button class="container__btn container__btn--list-btn" (click)='deleteBasicUser(basicUser)'>Delete</button>
+          </div>
+        </li>
+    </ul>
+  </div>
+  
