@@ -2,29 +2,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Admin } from '../models/admin.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AdminsService {
+export class AdminService {
 
-  readonly controllerURL = 'http://localhost:54277/api/Admins';
+  private readonly controllerUrl = environment.apiUrl + '/admins';
 
   constructor(private http: HttpClient) { }
 
   getAdmins(): Observable<Admin[]> {
-    return this.http.get<Admin[]>(this.controllerURL)
+    return this.http.get<Admin[]>(this.controllerUrl)
   }
 
-  getAdminDetails(id: string): Observable<Admin> {
-    return this.http.get<Admin>(this.controllerURL + '/' + id);
+  getAdmin(id: string): Observable<Admin> {
+    return this.http.get<Admin>(this.controllerUrl + '/' + id);
   }
 
   createAdmin(formData): Observable<{}> {
-    return this.http.post(this.controllerURL, formData);
+    return this.http.post(this.controllerUrl, formData);
   }
 
   deleteAdmin(id: number): Observable<{}> {
-    return this.http.delete(this.controllerURL + '/' + id);
+    return this.http.delete(this.controllerUrl + '/' + id);
   }
 }

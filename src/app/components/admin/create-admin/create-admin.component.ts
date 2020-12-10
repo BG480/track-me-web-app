@@ -18,9 +18,8 @@ export class CreateAdminComponent implements OnInit {
     LastName: new FormControl('', [Validators.required]),
     Email: new FormControl('', [Validators.required, Validators.email]),
     Password: new FormControl('', [Validators.required,Validators.minLength(7)]),
-    ConfirmPassword: new FormControl('', [Validators.required,Validators.minLength(7)]),
-    
-  })
+    ConfirmPassword: new FormControl('', [Validators.required,Validators.minLength(7)]),    
+    });
 
   constructor(private router: Router,
     private adminsService: AdminsService,

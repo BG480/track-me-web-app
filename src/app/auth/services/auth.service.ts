@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  readonly controllerUrl = environment.apiUrl + '/Auth';
+  private readonly controllerUrl = environment.apiUrl + '/Auth';
   loggedUser = new BehaviorSubject<LoggedUser>(null);
   private tokenExpirationTimer: any;
 

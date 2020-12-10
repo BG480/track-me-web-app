@@ -1,1 +1,8 @@
-<p>admin-details works!</p>
+<div class='container container--details-container' *ngIf='admin'>
+    <label class='container__label container__label--details-label'>First name: {{admin.firstName}}</label>
+    <label class='container__label container__label--details-label'>Last name: {{admin.lastName}}</label>
+    <label class='container__label container__label--details-label'>Email: {{admin.email}}</label>
+    <div class='container__btns-wrapper'>
+        <button class='container__btn container__btn--details-btn' (click)='goBack()'>Go Back</button>
+    </div>
+</div>
