@@ -1,25 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth.component';
+import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
 
 const routes: Routes = [
     {
       path: '',
       component: AuthComponent,
-      canActivate: [AuthGuard],
       children: [
-        { path: '', component: RecipeStartComponent },
-        { path: 'new', component: RecipeEditComponent },
-        {
-          path: ':id',
-          component: RecipeDetailComponent,
-          resolve: [RecipesResolverService]
-        },
-        {
-          path: ':id/edit',
-          component: RecipeEditComponent,
-          resolve: [RecipesResolverService]
-        }
+        { path: 'login', component: LoginComponent },
+        { path: 'register', component: RegisterComponent }
       ]
     }
   ];
@@ -28,4 +19,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
   })
-  export class RecipesRoutingModule {}
+  export class AuthRoutingModule {}
