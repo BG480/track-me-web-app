@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BasicUsersService } from 'src/app/basic-users/services/basic-user.service';
+import { BasicUserService } from 'src/app/basic-users/services/basic-user.service';
 import { Location } from '@angular/common';
 import { BasicUser } from 'src/app/basic-users/models/basic-user.model';
 import { ToastrService } from 'ngx-toastr';
@@ -16,7 +16,7 @@ export class BasicUserDetailsComponent implements OnInit {
   basicUser: BasicUser;
 
   constructor(private route: ActivatedRoute,
-    private basicUsersService: BasicUsersService,
+    private basicUsersService: BasicUserService,
     private location: Location,
     private toastr: ToastrService) { }
 
@@ -26,7 +26,7 @@ export class BasicUserDetailsComponent implements OnInit {
 
   getBasicUserDetails(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.basicUsersService.getBasicUserDetails(id).subscribe(
+    this.basicUsersService.getBasicUser(id).subscribe(
       (basicUser: BasicUser) => {
         this.basicUser = basicUser
       },

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BasicUser } from 'src/app/basic-users/models/basic-user.model';
-import { BasicUsersService } from 'src/app/basic-users/services/basic-user.service';
+import { BasicUserService } from 'src/app/basic-users/services/basic-user.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -13,7 +13,7 @@ export class BasicUsersListComponent implements OnInit {
 
   basicUsers: BasicUser[];
 
-  constructor(private basicUsersService: BasicUsersService,
+  constructor(private basicUsersService: BasicUserService,
     private router: Router,
     private toastr: ToastrService) { }
 
@@ -22,7 +22,7 @@ export class BasicUsersListComponent implements OnInit {
   }
 
   getAllBasicUsers(): void {
-    this.basicUsersService.getAllBasicUsers()
+    this.basicUsersService.getBasicUsers()
     .subscribe(basicUsers => this.basicUsers = basicUsers);
   }
 

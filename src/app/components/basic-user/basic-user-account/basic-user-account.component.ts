@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { BasicUsersService } from 'src/app/basic-users/services/basic-user.service';
+import { BasicUserService } from 'src/app/basic-users/services/basic-user.service';
 import { BasicUser } from 'src/app/basic-users/models/basic-user.model';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -15,7 +15,7 @@ export class BasicUserAccountComponent implements OnInit {
   @Input() basicUser: BasicUser; 
 
   constructor(private router: Router,
-    private basicUsersService: BasicUsersService,
+    private basicUsersService: BasicUserService,
     private toastr: ToastrService) { }
 
   ngOnInit() {
