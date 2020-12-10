@@ -19,15 +19,9 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router, private jwtHelperService: JwtHelperService) { }
 
-  login(email: string, password: string) {
+  login(formData) {
     return this.http
-    .post<LoginResponse> (
-      this.controllerUrl + '/Login',
-      {
-        email: email,
-        password: password
-      }
-    )
+    .post<LoginResponse> (this.controllerUrl + '/Login', formData)
     .pipe(
       catchError(this.handleError),
       tap(responseData => {
@@ -36,25 +30,8 @@ export class AuthService {
     );
   }
 
-  register(
-    firstName: string, 
-    lastName: string, 
-    phoneNumber: string, 
-    email: string,
-    password: string,
-    confirmPassword: string) {
-      return this.http
-      .post(
-        this.controllerUrl + '/Register', 
-        {
-          firstName: firstName,
-          lastName: lastName,
-          phoneNumber: phoneNumber,
-          email: email,
-          password: password,
-          confirmPassword: confirmPassword
-        }
-      );
+  register(formData) {
+      return this.http.post(this.controllerUrl + '/Register', formData);
   }
 
   autoLogin() {

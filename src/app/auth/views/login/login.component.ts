@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     if(this.loginForm.valid) {
-      this.authService.login(this.loginForm.get('Email').value, this.loginForm.get('Password').value).subscribe(
+      this.authService.login(this.loginForm.value).subscribe(
         (result: any) => {
           this.router.navigateByUrl("user/home");
         },
