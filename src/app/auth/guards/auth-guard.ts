@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, ActivatedRoute, ActivatedRouteSnapshot, RouterEvent, UrlTree, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, Router, ActivatedRoute, ActivatedRouteSnapshot, RouterEvent, UrlTree, RouterStateSnapshot, CanActivateChild } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
@@ -7,7 +7,7 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate{
+export class AuthGuard implements CanActivate, CanActivateChild{
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -15,11 +15,27 @@ export class AuthGuard implements CanActivate{
     return this.authService.loggedUser.pipe(
       take(1),
       map(user => {
-        const isAuthorized = !!user && user.role == route.data.expectedRole;
+        const isAuthorized = !!user;
         if (isAuthorized) {
-          return true;
+          return this.isExpectedRoleCorrect(user.role, route.data.expectedRoles);
         }
         return this.router.createUrlTree(['/auth']);
       }));
+  }
+
+  canActivateChild(route: ActivatedRouteSnapshot, router: RouterStateSnapshot): boolean | UrlTree | Promise<boolean | UrlTree> | Observable<boolean | UrlTree>  {
+    return this.authService.loggedUser.pipe(
+      take(1),
+      map(user => {
+        const isAuthorized = !!user;
+        if (isAuthorized) {
+          this.isExpectedRoleCorrect(user.role, route.data.expectedRoles);
+        }
+        return this.router.createUrlTree(['/auth']);
+      }));
+  }
+
+  private isExpectedRoleCorrect(role: string, expectedRoles: string[]) {
+    return expectedRoles.includes(role);
   }
 }

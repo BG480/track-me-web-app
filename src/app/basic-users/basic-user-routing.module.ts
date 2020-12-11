@@ -11,7 +11,7 @@ const routes: Routes = [
       component: BasicUserComponent,
       canActivate: [AuthGuard],
       data: {
-      expectedRole: 'Admin'
+        expectedRoles: ['Admin']
       },
       children: [
         { path: 'list', component: BasicUserListComponent },

@@ -10,15 +10,11 @@ const routes: Routes = [
     {
       path: '',
       component: TripsComponent,
-      canActivate: [AuthGuard],
       canActivateChild: [AuthGuard],
-      data: {
-        expectedRole: 'Admin'
-      },
       children: [
-        { path: 'all', component: AllTripsListComponent, data: {expectedRole: 'Admin'} },
-        { path: 'list', component: BasicUserTripsListComponent, data: {expectedRole: 'Admin'} },
-        { path: ':id/sensor-data', component: TripSensorDataComponent, data: {expectedRole: 'Admin, BasicUser'} }
+        { path: 'all', component: AllTripsListComponent, data: { expectedRoles: ['Admin']} },
+        { path: 'list', component: BasicUserTripsListComponent, data: { expectedRoles: ['Admin'] } },
+        { path: ':id/sensor-data', component: TripSensorDataComponent, data: { expectedRoles: ['Admin', 'BasicUser'] } }
       ]
     }
   ];

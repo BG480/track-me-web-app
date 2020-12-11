@@ -11,7 +11,7 @@ const routes: Routes = [
       component: AccountComponent,
       canActivate: [AuthGuard],
       data: {
-      expectedRole: 'BasicUser'
+        expectedRoles: ['BasicUser']
       },
       children: [
         { path: 'account-data', component: AccountDataComponent },

@@ -12,7 +12,7 @@ const routes: Routes = [
       component: AdminComponent,
       canActivate: [AuthGuard],
       data: {
-      expectedRole: 'Admin'
+        expectedRoles: ['Admin']
       },
       children: [
         { path: 'create', component: AdminCreateComponent },
