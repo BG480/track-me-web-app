@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SensorsValues } from 'src/app/trip/models/sensor-data.model';
+import { SensorData } from 'src/app/trip/models/sensor-data.model';
 import { TripsService } from 'src/app/trip/services/trip.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class TripDetailsComponent implements OnInit {
 
   tripName: string;
-  sensorsValues: SensorsValues[];
+  sensorsValues: SensorData[];
 
   constructor(private tripsService: TripsService,
     private route: ActivatedRoute,
@@ -28,7 +28,7 @@ export class TripDetailsComponent implements OnInit {
   getTripDetails() {
     const id = this.route.snapshot.paramMap.get('id');
     this.tripsService.getTripDetails(id).subscribe(
-      (sensorsValues: SensorsValues[]) => {
+      (sensorsValues: SensorData[]) => {
         this.sensorsValues = sensorsValues;
       },
       err => {

@@ -37,9 +37,9 @@ import { AdminCreateComponent } from './admins/views/admin-create/admin-create.c
 import { AdminListItemComponent } from './admins/views/admin-list/admin-list-item/admin-list-item.component';
 import { BasicUserListComponent } from './basic-users/views/basic-user-list/basic-user-list.component';
 import { BasicUserListItemComponent } from './basic-users/views/basic-user-list/basic-user-list-item/basic-user-list-item.component';
-import { TripListComponent } from './trip/views/trip-list/trip-list.component';
+import { BasicUserTripsListComponent } from './trip/views/basic-user-trips-list/basic-user-trips-list.component';
 import { TripSensorDataComponent } from './trip/views/trip-sensor-data/trip-sensor-data.component';
-import { TripListItemComponent } from './trip/views/trip-list/trip-list-item/trip-list-item.component';
+import { BasicUserTripsListItemComponent } from './trip/views/basic-user-trips-list/basic-user-trips-list-item/basic-user-trips-list-item.component';
 import { LoginComponent } from './auth/views/login/login.component';
 import { RegisterComponent } from './auth/views/register/register.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -47,8 +47,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { AccountDataComponent } from './account/views/account-data/account-data.component';
 import { ChangePasswordComponent } from './account/views/change-password/change-password.component';
 import { AccountComponent } from './account/account/account.component';
-import { AllTripsListComponent } from './trip/views/all-trips-list/all-trips-list.component';
-import { AllTripsListItemComponent } from './trip/views/all-trips-list/all-trips-list-item/all-trips-list-item.component';  
+import { AllTripsListComponent } from './trip/views/all-trips-list/all-trips-list.component';  
 
 
 @NgModule({
@@ -77,9 +76,9 @@ import { AllTripsListItemComponent } from './trip/views/all-trips-list/all-trips
     AdminListItemComponent,
     BasicUserListComponent,
     BasicUserListItemComponent,
-    TripListComponent,
+    BasicUserTripsListComponent,
     TripSensorDataComponent,
-    TripListItemComponent,
+    BasicUserTripsListItemComponent,
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
@@ -87,8 +86,7 @@ import { AllTripsListItemComponent } from './trip/views/all-trips-list/all-trips
     AccountDataComponent,
     ChangePasswordComponent,
     AccountComponent,
-    AllTripsListComponent,
-    AllTripsListItemComponent
+    AllTripsListComponent
   ],
   imports: [
     BrowserModule,

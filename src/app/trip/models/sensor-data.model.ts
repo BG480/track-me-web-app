@@ -1,4 +1,4 @@
-export class SensorsValues {
+export class SensorData {
         tripId: number;
         uploadDate: string;
         latitude: number;
