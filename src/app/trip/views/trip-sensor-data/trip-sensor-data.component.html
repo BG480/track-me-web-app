@@ -1,1 +1,22 @@
-<p>trip-sensor-data works!</p>
+<div class="container container--trip-details-container">
+    <h1 class="container__header container__header--trip-details-header">{{tripName}}</h1>
+    <ul class="container__list">
+        <li *ngFor="let sensorsValue of sensorsValues" class="container__list-item container__list-item--trip-details-list-item">
+            <span class="container__text"><span class="container__text--bold">Longitude:</span> {{sensorsValue.latitude}}</span>  
+            <span class="container__text"><span class="container__text--bold">Latitude:</span> {{sensorsValue.latitude}}</span>
+            <span class="container__text"><span class="container__text--bold">Accelerometer X-axis:</span> {{sensorsValue.accelerometerX}}</span>
+            <span class="container__text"><span class="container__text--bold">Accelerometer Y-axis:</span> {{sensorsValue.accelerometerY}}</span>  
+            <span class="container__text"><span class="container__text--bold">Accelerometer Z-axis:</span> {{sensorsValue.accelerometerZ}}</span>
+            <span class="container__text"><span class="container__text--bold">Gyroscope X-axis:</span> {{sensorsValue.gyroscopeX}}</span>
+            <span class="container__text"><span class="container__text--bold">Gyroscope Y-axis:</span> {{sensorsValue.gyroscopeY}}</span>  
+            <span class="container__text"><span class="container__text--bold">Gyroscope Z-axis:</span> {{sensorsValue.gyroscopeZ}}</span>
+            <span class="container__text"><span class="container__text--bold">Magnetic field X-axis:</span> {{sensorsValue.magneticFieldX}}</span>
+            <span class="container__text"><span class="container__text--bold">Magnetic field Y-axis:</span> {{sensorsValue.magneticFieldY}}</span>  
+            <span class="container__text"><span class="container__text--bold">Magnetic field Z-axis:</span> {{sensorsValue.magneticFieldZ}}</span>
+            <span class="container__text"><span class="container__text--bold">Upload date:</span> {{sensorsValue.uploadDate}}</span>
+        </li>
+    </ul>
+    <div class='container__btns-wrapper'>
+        <button class='container__btn' (click)='goBack()'>Go Back</button>
+    </div>
+  </div>
