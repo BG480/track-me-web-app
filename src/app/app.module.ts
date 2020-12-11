@@ -46,7 +46,9 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { AccountDataComponent } from './account/views/account-data/account-data.component';
 import { ChangePasswordComponent } from './account/views/change-password/change-password.component';
-import { AccountComponent } from './account/account/account.component';  
+import { AccountComponent } from './account/account/account.component';
+import { AllTripsListComponent } from './trip/views/all-trips-list/all-trips-list.component';
+import { AllTripsListItemComponent } from './trip/views/all-trips-list/all-trips-list-item/all-trips-list-item.component';  
 
 
 @NgModule({
@@ -84,7 +86,9 @@ import { AccountComponent } from './account/account/account.component';
     FooterComponent,
     AccountDataComponent,
     ChangePasswordComponent,
-    AccountComponent
+    AccountComponent,
+    AllTripsListComponent,
+    AllTripsListItemComponent
   ],
   imports: [
     BrowserModule,
