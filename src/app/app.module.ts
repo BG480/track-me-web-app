@@ -45,7 +45,8 @@ import { RegisterComponent } from './auth/views/register/register.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { AccountDataComponent } from './account/views/account-data/account-data.component';
-import { ChangePasswordComponent } from './account/views/change-password/change-password.component';  
+import { ChangePasswordComponent } from './account/views/change-password/change-password.component';
+import { AccountComponent } from './account/account/account.component';  
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { ChangePasswordComponent } from './account/views/change-password/change-
     HeaderComponent,
     FooterComponent,
     AccountDataComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
