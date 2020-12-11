@@ -43,7 +43,9 @@ import { TripListItemComponent } from './trip/views/trip-list/trip-list-item/tri
 import { LoginComponent } from './auth/views/login/login.component';
 import { RegisterComponent } from './auth/views/register/register.component';
 import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';  
+import { FooterComponent } from './layout/footer/footer.component';
+import { AccountDataComponent } from './account/views/account-data/account-data.component';
+import { ChangePasswordComponent } from './account/views/change-password/change-password.component';  
 
 
 @NgModule({
@@ -78,7 +80,9 @@ import { FooterComponent } from './layout/footer/footer.component';
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AccountDataComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
