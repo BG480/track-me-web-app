@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class TripsService {
+export class TripService {
 
   readonly controllerUrl = environment.apiUrl + '/trips';
 

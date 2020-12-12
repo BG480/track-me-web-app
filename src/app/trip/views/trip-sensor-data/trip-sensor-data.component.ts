@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SensorData } from '../../models/sensor-data.model';
-import { TripsService } from '../../services/trip.service';
+import { TripService } from '../../services/trip.service';
 
 @Component({
   selector: 'app-trip-sensor-data',
@@ -13,7 +13,7 @@ export class TripSensorDataComponent implements OnInit {
 
   sensorsValues: SensorData[];
 
-  constructor(private tripsService: TripsService,
+  constructor(private tripsService: TripService,
     private route: ActivatedRoute,
     private location: Location) { }
 
