@@ -4,9 +4,9 @@ import { Trip } from '../../models/trip.model';
 import { TripService } from '../../services/trip.service';
 
 @Component({
-  selector: 'app-basic-users-trip-list',
-  templateUrl: './basic-users-trip-list.component.html',
-  styleUrls: ['./basic-users-trip-list.component.css']
+  selector: 'app-basic-user-trip-list',
+  templateUrl: './basic-user-trip-list.component.html',
+  styleUrls: ['./basic-user-trip-list.component.css']
 })
 export class BasicUserTripListComponent implements OnInit {
 
@@ -26,11 +26,11 @@ export class BasicUserTripListComponent implements OnInit {
 
   showTripDetails(trip: Trip): void {
     localStorage.setItem('tripName', trip.name);
-    this.router.navigateByUrl('user/trip-details/' + trip.id);
+    this.router.navigateByUrl('user/trip-details/' + trip.tripId);
   }
 
   deleteTrip(trip: Trip): void {
-    this.tripsService.deleteTrip(trip.id).subscribe(
+    this.tripsService.deleteTrip(trip.tripId).subscribe(
       (result: any) => {
         // this.toastr.success("Trip successfully deleted."); TODO TOASTR
         this.getTrips();

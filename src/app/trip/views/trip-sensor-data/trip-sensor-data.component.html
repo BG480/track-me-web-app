@@ -1,7 +1,7 @@
 <div class="container container--trip-details-container">
-    <h1 class="container__header container__header--trip-details-header">{{tripName}}</h1>
+    <h1 class="container__header container__header--trip-details-header">{{tripSensorData.name}}</h1>
     <ul class="container__list">
-        <li *ngFor="let sensorsValue of sensorsValues" class="container__list-item container__list-item--trip-details-list-item">
+        <li *ngFor="let sensorsValue of tripSensorData.sensorData" class="container__list-item container__list-item--trip-details-list-item">
             <span class="container__text"><span class="container__text--bold">Longitude:</span> {{sensorsValue.latitude}}</span>  
             <span class="container__text"><span class="container__text--bold">Latitude:</span> {{sensorsValue.latitude}}</span>
             <span class="container__text"><span class="container__text--bold">Accelerometer X-axis:</span> {{sensorsValue.accelerometerX}}</span>

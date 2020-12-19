@@ -8,7 +8,7 @@
                 <li><a class="header__link" routerLink= '/user/trips' roterLinkActive='active' *ngIf='isAdmin'>Basic users</a></li>
                 <li><a class="header__link" routerLink= '/user/account' roterLinkActive='active' *ngIf='isBasicUser'>My trips</a></li>
                 <li><a class="header__link" routerLink= '/user/account' roterLinkActive='active' *ngIf='isBasicUser'>My account</a></li>
-                <li><button class="header__btn" (click)="logout()" *ngIf='isBasicUser || isAdmin'>Logout</button></li>
+                <li><button class="header__btn" (click)="onLogout()" *ngIf='isBasicUser || isAdmin'>Logout</button></li>
             </ul>
         </nav>
 </header>

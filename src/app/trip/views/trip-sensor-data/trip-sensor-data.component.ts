@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SensorData } from '../../models/sensor-data.model';
+import { TripSensorData } from '../../models/trip-sensor-data';
 import { TripService } from '../../services/trip.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { TripService } from '../../services/trip.service';
 })
 export class TripSensorDataComponent implements OnInit {
 
-  sensorsValues: SensorData[];
+  tripSensorData: TripSensorData;
 
   constructor(private tripsService: TripService,
     private route: ActivatedRoute,
@@ -23,9 +24,9 @@ export class TripSensorDataComponent implements OnInit {
 
   getTripDetails() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.tripsService.getTripDetails(id).subscribe(
-      (sensorsValues: SensorData[]) => {
-        this.sensorsValues = sensorsValues;
+    this.tripsService.getTripSensorData(id).subscribe(
+      (tripSensorData: TripSensorData) => {
+        this.tripSensorData = tripSensorData;
       },
       err => {
         // this.toastr.error("Error occurred - cannot load trip's details."); TODO TOASTR

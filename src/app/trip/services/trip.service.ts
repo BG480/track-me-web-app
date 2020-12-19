@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Trip } from '../models/trip.model';
 import { SensorData } from '../models/sensor-data.model';
 import { environment } from 'src/environments/environment';
+import { TripSensorData } from '../models/trip-sensor-data';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,8 @@ export class TripService {
     return this.http.get<Trip[]>(this.controllerUrl + '/all')
   }
 
-  getTripDetails(id: string): Observable<SensorData[]> {
-    return this.http.get<SensorData[]>(this.controllerUrl + '/' + id + '/details')
+  getTripSensorData(id: string): Observable<TripSensorData> {
+    return this.http.get<TripSensorData>(this.controllerUrl + '/' + id + '/details')
   }
 
   deleteTrip(id: number): Observable<{}> {

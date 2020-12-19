@@ -1,5 +1,5 @@
 export class Trip {
-    id: number;
+    tripId: number;
     name: string;
     basicUserEmail: string;
 }

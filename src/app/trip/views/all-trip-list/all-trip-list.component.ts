@@ -26,11 +26,11 @@ export class AllTripListComponent implements OnInit {
 
   showTripDetails(trip: Trip): void {
     localStorage.setItem('tripName', trip.name);
-    this.router.navigateByUrl('admin/trip-details/' + trip.id);
+    this.router.navigateByUrl('admin/trip-details/' + trip.tripId);
   }
 
   deleteTrip(trip: Trip): void {
-    this.tripsService.deleteTrip(trip.id).subscribe(
+    this.tripsService.deleteTrip(trip.tripId).subscribe(
       (result: any) => {
         // this.toastr.success("Trip successfully deleted."); TODO TOASTR
         this.getAllTrips();
