@@ -29,7 +29,7 @@ export class AuthGuard implements CanActivate, CanActivateChild{
       map(user => {
         const isAuthorized = !!user;
         if (isAuthorized) {
-          this.isExpectedRoleCorrect(user.role, route.data.expectedRoles);
+          return this.isExpectedRoleCorrect(user.role, route.data.expectedRoles);
         }
         return this.router.createUrlTree(['/auth']);
       }));
