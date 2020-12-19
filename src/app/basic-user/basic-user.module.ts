@@ -20,4 +20,4 @@ import { BasicUserListComponent } from './views/basic-user-list/basic-user-list.
       BasicUserRoutingModule,
     ]
   })
-  export class AdminModule {}
+  export class BasicUserModule {}
