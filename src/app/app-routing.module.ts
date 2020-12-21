@@ -1,101 +1,40 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginPageComponent } from './containers/login-page/login-page.component';
-import { RegistrationPageComponent } from './containers/registration-page/registration-page.component';
-import { AuthGuardService } from './services/auth-guard.service';
-import { BasicUserPageComponent } from './containers/basic-user-page/basic-user-page.component';
-import { BasicUserHomeComponent } from './components/basic-user/basic-user-home/basic-user-home.component';
-import { BasicUserAccountComponent } from './components/basic-user/basic-user-account/basic-user-account.component';
-import { BasicUserTripsListComponent } from './components/basic-user/basic-user-trips-list/basic-user-trips-list.component';
-import { AdminPageComponent } from './containers/admin-page/admin-page.component';
-import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
-import { AdminsListComponent } from './components/admin/admins-list/admins-list.component';
-import { BasicUsersListComponent } from './components/admin/basic-users-list/basic-users-list.component';
-import { TripsListComponent } from './components/admin/trips-list/trips-list.component';
-import { AdminDetailsComponent } from './components/admin/admin-details/admin-details.component';
-import { BasicUserDetailsComponent } from './components/admin/basic-user-details/basic-user-details.component';
-import { CreateAdminComponent } from './components/admin/create-admin/create-admin.component';
-import { TripDetailsComponent } from './components/shared/trip-details/trip-details.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginPageComponent },
-  { path: 'registration', component: RegistrationPageComponent},
-  { path: 'user', 
-    component: BasicUserPageComponent,
-    canActivate: [AuthGuardService],
-    data: {
-      expectedRole: 'BasicUser'
-    },
-    children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'home'
-      },
-      { 
-        path: 'home', 
-        component: BasicUserHomeComponent
-      },
-      { path: 'account', 
-        component: BasicUserAccountComponent
-      },
-      { 
-        path: 'trips', 
-        component: BasicUserTripsListComponent
-      },
-      {
-        path: 'trip-details/:id',
-        component: TripDetailsComponent
-      }
-    ],
+  { path: '', redirectTo: 'home/welcome', pathMatch: 'full'},
+  {
+    path: "account",
+    loadChildren: () =>
+      import("./account/account.module").then(m => m.AccountModule)
   },
   {
-    path: 'admin',
-    component: AdminPageComponent,
-    canActivate: [AuthGuardService],
-    data: {
-      expectedRole: 'Admin'
-    },
-    children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'home'
-      },
-      { 
-        path: 'home', 
-        component: AdminHomeComponent
-      },
-      { path: 'admins', 
-        component: AdminsListComponent
-      },
-      { 
-        path: 'basic-users', 
-        component: BasicUsersListComponent
-      },
-      {
-        path: 'trips',
-        component: TripsListComponent
-      },
-      {
-        path: 'admin-details/:id',
-        component: AdminDetailsComponent
-      },
-      {
-        path: 'basic-user-details/:id',
-        component: BasicUserDetailsComponent
-      },
-      {
-        path: 'create-admin',
-        component: CreateAdminComponent
-      },
-      {
-        path: 'trip-details/:id',
-        component: TripDetailsComponent
-      }
-    ]
+    path: "admin",
+    loadChildren: () =>
+      import("./admin/admin.module").then(m => m.AdminModule)
+  },
+  {
+    path: "auth",
+    loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)
+  },
+  {
+    path: "basic-user",
+    loadChildren: () => import("./basic-user/basic-user.module").then(m => m.BasicUserModule)
+  },
+  {
+    path: "home",
+    loadChildren: () => import("./home/home.module").then(m => m.HomeModule)
+  },
+  {
+    path: "panel",
+    loadChildren: () => import("./panel/panel.module").then(m => m.PanelModule)
+  },
+  {
+    path: "trip",
+    loadChildren: () => import("./trip/trip.module").then(m => m.TripModule)
   }
+  
 ];
 
 @NgModule({
