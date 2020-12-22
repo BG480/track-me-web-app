@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  headerLogo: string = "TrackMe"
+  isAuthenticated = false;
   isAdmin = false;
   isBasicUser = false;
   private userSub: Subscription;
@@ -37,11 +37,12 @@ export class HeaderComponent implements OnInit {
   private prepareHeaderState(loggedUser: LoggedUser) {
     switch(loggedUser.role) {
       case 'Admin': {
-        this.headerLogo = 'TrackMe Admin Panel';
+        this.isAuthenticated = true;
         this.isAdmin = true;
         break;
       }
       case 'BasicUser': {
+        this.isAuthenticated = true;
         this.isBasicUser = true;
         break;
       }

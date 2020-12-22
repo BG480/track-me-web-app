@@ -1,14 +1,39 @@
-<header class="header">
-    <a class="header__logo" routerLink= '/user/home' roterLinkActive='active' >{{headerLogo}}</a>
-        <nav class="header__navigation">
-            <ul class="header__list">
-                <li><a class="header__link" routerLink= '/user/home' roterLinkActive='active'>Home</a></li>
-                <li><a class="header__link" routerLink= '/user/trips' roterLinkActive='active' *ngIf='isAdmin'>Trips</a></li>
-                <li><a class="header__link" routerLink= '/user/trips' roterLinkActive='active' *ngIf='isAdmin'>Admins</a></li>
-                <li><a class="header__link" routerLink= '/user/trips' roterLinkActive='active' *ngIf='isAdmin'>Basic users</a></li>
-                <li><a class="header__link" routerLink= '/user/account' roterLinkActive='active' *ngIf='isBasicUser'>My trips</a></li>
-                <li><a class="header__link" routerLink= '/user/account' roterLinkActive='active' *ngIf='isBasicUser'>My account</a></li>
-                <li><button class="header__btn" (click)="onLogout()" *ngIf='isBasicUser || isAdmin'>Logout</button></li>
+<header class='header'>
+    <a class='header__logo' routerLink= '/user/home' *ngIf='!isAuthenticated'>TrackMe</a>
+    <a class='header__logo' routerLink= '/user/home' *ngIf='isAuthenticated && isAdmin'>TrackMe Admin Panel</a>
+    <a class='header__logo' routerLink= '/user/home' *ngIf='isAuthenticated && isBasicUser'>TrackMe</a>
+        <nav class='header__navigation'>
+            <ul class='header__list'>
+                <li class='header__list-item' *ngIf='!isAuthenticated'>
+                    <a class='header__link' routerLink= '/user/home' >Home</a>
+                </li>
+                <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
+                    <a class='header__link' routerLink= '/user/home'>Home</a>
+                </li>
+                <li class='header__list-item' *ngIf='isAuthenticated && isBasicUser'>
+                    <a class='header__link' routerLink= '/user/home'>Home</a>
+                </li>
+                <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
+                    <a class='header__link' routerLink= '/user/trips' >Trips</a>
+                </li>
+                <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
+                    <a class='header__link' routerLink= '/user/trips'>Admins</a>
+                </li>
+                <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
+                    <a class='header__link' routerLink= '/user/trips' >Basic users</a>
+                </li>
+                <li class='header__list-item' *ngIf='isAuthenticated && isBasicUser'>
+                    <a class='header__link' routerLink= '/user/account'>My trips</a>
+                </li>
+                <li class='header__list-item' *ngIf='isAuthenticated && isBasicUser'>
+                    <a class='header__link' routerLink= '/user/account'>My account</a>
+                </li>
+                <li class='header__list-item'>
+                    <a class='header__link' routerLink= '/user/home'>About</a>
+                </li>
+                <li class='header__list-item' *ngIf='isAuthenticated'>
+                    <button class='header__btn' (click)='onLogout()'>Logout</button>
+                </li>
             </ul>
         </nav>
 </header>
