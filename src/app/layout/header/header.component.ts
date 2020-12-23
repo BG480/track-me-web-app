@@ -35,12 +35,12 @@ export class HeaderComponent implements OnInit {
     this.isResponsiveNavigationShown = false;
   }
 
-  ngOnDestroy() {
-    this.userSub.unsubscribe();
+  onResponsiveNavigationIconClick() {
+    this.isResponsiveNavigationShown = !this.isResponsiveNavigationShown;
   }
 
-  onResponsiveNavigationOpen() {
-    this.isResponsiveNavigationShown = !this.isResponsiveNavigationShown;
+  ngOnDestroy() {
+    this.userSub.unsubscribe();
   }
 
   private prepareHeaderState(loggedUser: LoggedUser) {

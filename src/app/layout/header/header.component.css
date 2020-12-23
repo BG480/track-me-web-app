@@ -43,17 +43,9 @@
     font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
 }
 
-.header__responsive-navbar-icon {
+.header__responsive-navigation-icon {
     color: var(--white-color);
     font-size: calc(24px + (30 - 24) * ((100vw - 300px) / (1920 - 300)));
-}
-
-#responsive-navbar-checkbox {
-    display: none;
-}
-
-#responsive-navbar-checkbox:checked + .header__navigation {
-    display: block;
 }
 
 @media only screen and (min-width: 600px) {
@@ -68,16 +60,11 @@
         flex-direction: row;
     }
 
-    .header__list-item
-    {
+    .header__list-item {
         margin-right: 10px;
     }
 
-    .header__responsive-navbar-icon {
-        display: none;
-    }
-
-    #responsive-navbar-checkbox-label {
+    .header__responsive-navigation-icon {
         display: none;
     }
 }
