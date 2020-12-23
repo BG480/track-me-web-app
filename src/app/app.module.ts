@@ -13,22 +13,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MainComponent } from './layout/main/main.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MainComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {}
     }),
-    // FormsModule,
+    FormsModule,
     // BrowserAnimationsModule, 
     // ToastrModule.forRoot()
   ],

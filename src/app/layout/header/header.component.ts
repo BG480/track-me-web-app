@@ -11,9 +11,10 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  headerLogo: string = "TrackMe"
+  isAuthenticated = false;
   isAdmin = false;
   isBasicUser = false;
+  isResponsiveNavigationShown = false;
   private userSub: Subscription;
 
   constructor(private authService: AuthService) { }
@@ -24,10 +25,18 @@ export class HeaderComponent implements OnInit {
         this.prepareHeaderState(user);
       }
     });
-   }
+  }
 
   onLogout() {
     this.authService.logout();
+  }
+
+  onNavigationClick() {
+    this.isResponsiveNavigationShown = false;
+  }
+
+  onResponsiveNavigationIconClick() {
+    this.isResponsiveNavigationShown = !this.isResponsiveNavigationShown;
   }
 
   ngOnDestroy() {
@@ -37,11 +46,12 @@ export class HeaderComponent implements OnInit {
   private prepareHeaderState(loggedUser: LoggedUser) {
     switch(loggedUser.role) {
       case 'Admin': {
-        this.headerLogo = 'TrackMe Admin Panel';
+        this.isAuthenticated = true;
         this.isAdmin = true;
         break;
       }
       case 'BasicUser': {
+        this.isAuthenticated = true;
         this.isBasicUser = true;
         break;
       }
