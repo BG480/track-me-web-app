@@ -2,6 +2,7 @@
     <a class='header__logo' routerLink='/user/home' *ngIf='!isAuthenticated'>TrackMe</a>
     <a class='header__logo' routerLink='/user/home' *ngIf='isAuthenticated && isAdmin'>TrackMe Admin Panel</a>
     <a class='header__logo' routerLink='/user/home' *ngIf='isAuthenticated && isBasicUser'>TrackMe</a>
+    <input type="checkbox" id="responsive-navbar-checkbox">
     <nav class='header__navigation'>
         <ul class='header__list'>
             <li class='header__list-item' *ngIf='!isAuthenticated'>
@@ -36,4 +37,7 @@
             </li>
         </ul>
     </nav>
+    <label id="responsive-navbar-checkbox-label" for="responsive-navbar-checkbox">
+        <i class="fa fa-bars header__responsive-navbar-icon"></i>
+    </label>
 </header>
