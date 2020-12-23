@@ -16,11 +16,17 @@
 
 html, body {
     height: 100%;
-  }
+}
 
 body
 {
     background-color: #FEFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 .container
