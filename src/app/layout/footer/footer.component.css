@@ -1,8 +1,11 @@
+:host {
+    flex-shrink: 0;
+}
+
 .footer {
     background-color: var(--green-color);
     color: var(--white-color);
     padding: 10px 5px;
-    flex-shrink: 0;
 }
 
 .footer__paragraph {

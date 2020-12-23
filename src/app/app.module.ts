@@ -15,13 +15,15 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MainComponent } from './layout/main/main.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MainComponent
   ],
   imports: [
     CommonModule,
