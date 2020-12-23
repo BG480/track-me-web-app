@@ -1,5 +1,4 @@
-.header
-{
+.header {
     background-color: var(--green-color);
     display: flex;
     flex-direction: row;
@@ -9,8 +8,7 @@
     height: 70px;
 }
 
-.header__logo
-{
+.header__logo {
     font-size: calc(24px + (40 - 24) * ((100vw - 300px) / (1920 - 300)));
     text-decoration: none;
     color: var(--white-color);
@@ -25,20 +23,13 @@
     background-color: var(--green-color);
 }
 
-.header__list
-{
+.header__list {
     list-style: none;
     display: flex;
     flex-direction: column;
 }
 
-.header__list-item
-{
-    /* margin-right: 10px; */
-}
-
-.header__link
-{
+.header__link {
     color: var(--white-color);
     text-decoration: none;
     display: block;
@@ -62,11 +53,6 @@
 }
 
 @media only screen and (min-width: 600px) {
-
-    .header__responsive-navbar-icon {
-        display: none;
-    }
-
     .header__navigation {
         position: static;
         background-color: transparent;
