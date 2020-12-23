@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~font-awesome/css/font-awesome.min.css";
 
-*{
+* {
     padding: 0;
     margin: 0;
     font-family: 'Ubuntu Condensed', sans-serif;
@@ -13,6 +13,10 @@
     --white-color: #FEFFFF;
     --black-color: #17252A;
 }
+
+html, body {
+    height: 100%;
+  }
 
 body
 {

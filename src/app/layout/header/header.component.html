@@ -2,11 +2,11 @@
     <a class='header__logo' routerLink='/user/home' *ngIf='!isAuthenticated'>TrackMe</a>
     <a class='header__logo' routerLink='/user/home' *ngIf='isAuthenticated && isAdmin'>TrackMe Admin Panel</a>
     <a class='header__logo' routerLink='/user/home' *ngIf='isAuthenticated && isBasicUser'>TrackMe</a>
-    <input type="checkbox" id="responsive-navbar-checkbox">
-    <nav class='header__navigation'>
+    <input type="checkbox" id="responsive-navbar-checkbox" [(ngModel)]='isResponsiveNavigationShown'>
+    <nav class='header__navigation' (click)='onNavigationClick()'>
         <ul class='header__list'>
             <li class='header__list-item' *ngIf='!isAuthenticated'>
-                <a class='header__link' routerLink='/user/home'>Home</a>
+                <a class='header__link' routerLink='/home'>Home</a>
             </li>
             <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
                 <a class='header__link' routerLink='/user/home'>Home</a>
@@ -30,7 +30,7 @@
                 <a class='header__link' routerLink='/user/account'>My account</a>
             </li>
             <li class='header__list-item'>
-                <a class='header__link' routerLink='/user/home'>About</a>
+                <a class='header__link' routerLink='/auth'>About</a>
             </li>
             <li class='header__list-item' *ngIf='isAuthenticated'>
                 <button class='header__link' (click)='onLogout()'>Logout</button>

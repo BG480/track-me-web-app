@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   isAuthenticated = false;
   isAdmin = false;
   isBasicUser = false;
+  isResponsiveNavigationShown = false;
   private userSub: Subscription;
 
   constructor(private authService: AuthService) { }
@@ -28,6 +29,10 @@ export class HeaderComponent implements OnInit {
 
   onLogout() {
     this.authService.logout();
+  }
+
+  onNavigationClick() {
+    this.isResponsiveNavigationShown = false;
   }
 
   ngOnDestroy() {
