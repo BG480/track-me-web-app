@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
         this.prepareHeaderState(user);
       }
     });
-   }
+  }
 
   onLogout() {
     this.authService.logout();
@@ -37,6 +37,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnDestroy() {
     this.userSub.unsubscribe();
+  }
+
+  onResponsiveNavigationOpen() {
+    this.isResponsiveNavigationShown = !this.isResponsiveNavigationShown;
   }
 
   private prepareHeaderState(loggedUser: LoggedUser) {

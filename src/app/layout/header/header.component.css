@@ -23,6 +23,10 @@
     background-color: var(--green-color);
 }
 
+.header__navigation--responsive-navigation-visible {
+    display: block;
+}
+
 .header__list {
     list-style: none;
     display: flex;
@@ -67,6 +71,10 @@
     .header__list-item
     {
         margin-right: 10px;
+    }
+
+    .header__responsive-navbar-icon {
+        display: none;
     }
 
     #responsive-navbar-checkbox-label {
