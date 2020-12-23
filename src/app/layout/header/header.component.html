@@ -32,7 +32,7 @@
                     <a class='header__link' routerLink= '/user/home'>About</a>
                 </li>
                 <li class='header__list-item' *ngIf='isAuthenticated'>
-                    <button class='header__btn' (click)='onLogout()'>Logout</button>
+                    <button class='header__link' (click)='onLogout()'>Logout</button>
                 </li>
             </ul>
         </nav>
