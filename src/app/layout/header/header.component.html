@@ -13,6 +13,12 @@
             <li class='header__list-item' *ngIf='isAuthenticated && isBasicUser'>
                 <a class='header__link' routerLink='/user/home'>Home</a>
             </li>
+            <li class='header__list-item' *ngIf='!isAuthenticated'>
+                <a class='header__link' routerLink='/auth/login'>Login</a>
+            </li>
+            <li class='header__list-item' *ngIf='!isAuthenticated'>
+                <a class='header__link' routerLink='/auth/register'>Register</a>
+            </li>
             <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
                 <a class='header__link' routerLink='/user/trips'>Trips</a>
             </li>
