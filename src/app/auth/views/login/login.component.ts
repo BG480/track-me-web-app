@@ -31,7 +31,23 @@ export class LoginComponent implements OnInit {
         }
       );
     } else {
-      // this.toastr.error("Invalid data.") TODO: wyświetlić powiadomienie z serwisu do powadomień
+      this.handleInvalidForm();
+    }
+  }
+
+  private handleInvalidForm() {
+    debugger; 
+    let formErrorMessage = this.getFormErrorMessage();
+    // this.toastr.error(formErrorMessage); TODO: wyświetlić powiadomienie z serwisu do powadomień    
+  }
+
+  private getFormErrorMessage(){
+    if(this.loginForm.controls['Email'].errors?.required) {
+      return 'Email is required.';
+    } else if (this.loginForm.controls['Password'].errors?.required) {
+      return 'Password is required.';
+    } else {
+      return 'Invalid form data.';
     }
   }
 
