@@ -26,13 +26,8 @@ export class LoginComponent implements OnInit {
         (result: any) => {
           this.router.navigateByUrl("user/home");
         },
-        err => {
-          if (err.status == 404){
-            // this.toastr.error(err.error.message); TODO: wyświetlić powiadomienie z serwisu do powadomień
-          }
-          else{
-            // this.toastr.error("Error occurred."); TODO: wyświetlić powiadomienie z serwisu do powadomień
-          }       
+        (err: string) => {
+          // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień    
         }
       );
     } else {
