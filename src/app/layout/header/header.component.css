@@ -12,6 +12,7 @@
     font-size: calc(24px + (40 - 24) * ((100vw - 300px) / (1920 - 300)));
     text-decoration: none;
     color: var(--white-color);
+    font-weight: bold;
 }
 
 .header__navigation {
