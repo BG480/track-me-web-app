@@ -18,12 +18,12 @@ export class AdminListItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showAdminDetails(): void {
+  onAdminDetails(): void {
     this.router.navigateByUrl('admin/' + this.index);
   }
 
-  deleteAdmin(): void {
-    this.adminsService.deleteAdmin(this.index).subscribe(
+  onDeleteAdmin(): void {
+    this.adminsService.deleteAdmin(this.admin.id).subscribe(
       (result: any) => {
         //this.toastr.success("Admin successfully deleted.")
         this.router.navigateByUrl('list');

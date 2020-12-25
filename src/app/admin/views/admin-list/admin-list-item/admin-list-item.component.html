@@ -1,7 +1,7 @@
 <div class='admin-list-item'>
-    <span class='admin-list-item__text'>{{admin.firstName}} {{admin.lastName}}</span>
+    <h4 class='admin-list-item__heading'>{{admin.firstName}} {{admin.lastName}}</h4>
     <div class='admin-list-item__btns-wrapper'>
-      <button class='admin-list-item__btns-wrapper' (click)='showAdminDetails(admin)'>Details</button>
-      <button class='admin-list-item__btns-wrapper' (click)='deleteAdmin(admin)'>Delete</button>
+      <button class='admin-list-item__btn' (click)='onAdminDetails()'>Details</button>
+      <button class='admin-list-item__btn' (click)='onDeleteAdmin()'>Delete</button>
     </div>
 </div>

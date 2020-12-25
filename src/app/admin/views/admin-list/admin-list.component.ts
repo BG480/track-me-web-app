@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Admin } from '../../models/admin.model';
 import { AdminService } from '../../services/admin.service';
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'app-admin-list',
