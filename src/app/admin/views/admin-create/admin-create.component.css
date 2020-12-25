@@ -38,6 +38,7 @@
 }
 
 .create-admin-form-container__btn {
+    width: 100%;
     text-transform: uppercase;
     color: var(--white-color);
     background-color: var(--dark-green-color);
@@ -48,6 +49,7 @@
 }
 
 .create-admin-form-container__link {
+    width: 100%;
     text-decoration: none;
     color: var(--white-color);
     font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));

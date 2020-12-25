@@ -1,3 +1,7 @@
+:host {
+    width: 100%;
+}
+
 .admin-list-container {
     width: 100%;
 }

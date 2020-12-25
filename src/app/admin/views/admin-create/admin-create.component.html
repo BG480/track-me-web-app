@@ -1,6 +1,6 @@
 <div class='create-admin-form-container'>
     <h1 class='create-admin-form-container__heading'>Create admin</h1>
-    <form [formGroup]='createAdminFor' (ngSubmit)="onSubmit()" class='create-admin-form-container__form'>
+    <form [formGroup]='createAdminForm' (ngSubmit)="onSubmit()" class='create-admin-form-container__form'>
         <label class="create-admin-form-container__label">First name</label>
         <input formControlName="FirstName" type="text" class="create-admin-form-container__input" placeholder="Wayne">
         <label class="create-admin-form-container__label">Last name</label>
