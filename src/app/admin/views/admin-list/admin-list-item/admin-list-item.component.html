@@ -1,1 +1,7 @@
-<p>admin-list-item works!</p>
+<div class='admin-list-item'>
+    <span class='admin-list-item__text'>{{admin.firstName}} {{admin.lastName}}</span>
+    <div class='admin-list-item__btns-wrapper'>
+      <button class='admin-list-item__btns-wrapper' (click)='showAdminDetails(admin)'>Details</button>
+      <button class='admin-list-item__btns-wrapper' (click)='deleteAdmin(admin)'>Delete</button>
+    </div>
+</div>
