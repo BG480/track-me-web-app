@@ -1,15 +1,8 @@
-<div class="container container--list-container">
-    <ul class="container__list">
-        <li *ngFor="let admin of admins" class="container__list-item">
-          <span class="container__text">{{admin.firstName}} {{admin.lastName}}</span>
-          <div>
-            <button class="container__btn container__btn--list-btn" (click)="showAdminDetails(admin)" >Details</button>
-            <button class="container__btn container__btn--list-btn" (click)='deleteAdmin(admin)'>Delete</button>
-          </div>
-        </li>
-    </ul>
-    <div class='container__btns-wrapper'>
-      <button class='container__btn container__btn--list-btn' (click)='createAdmin()'>Create admin</button>
-    </div>
+<div class='admin-list-container'>
+  <div class='admin-list-container__header'>
+    <h1 class='admin-list-container__heading'>Admins</h1>
+    <button class='container__btn container__btn--list-btn' (click)='onCreateAdmin()'>Create admin</button>
+  </div>
+    It works somehow :)
   </div>
   
