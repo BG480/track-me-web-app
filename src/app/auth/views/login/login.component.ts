@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         (result: any) => {
           this.router.navigateByUrl("home");
         },
-        (err: string) => {
+        (error: string) => {
           // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień    
         }
       );

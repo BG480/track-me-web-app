@@ -16,37 +16,22 @@ export class AdminListComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.adminService.getAdmins();
+    this.getAdmins();
   }
 
   getAdmins(): void {
-    this.adminService.getAdmins()
-    .subscribe(admins => this.admins = admins);
-  }
-
-  showAdminDetails(admin: Admin): void {
-    this.router.navigateByUrl('admin/admin-details/' + admin.id);
-  }
-
-  createAdmin(): void {
-    this.router.navigateByUrl('admin/create-admin');
-  }
-
-  deleteAdmin(admin: Admin): void {
-    this.adminService.deleteAdmin(admin.id).subscribe(
-      (result: any) => {
-        // this.toastr.success("Admin successfully deleted.") TODO Toastr
-        this.getAdmins();
+    this.adminService.getAdmins().subscribe
+    (
+      (admins: Admin[]) => {
+        this.admins = admins;
       },
-      err => {
-        if (err.status == 404){
-          // this.toastr.error(err.error.message); // TODO: toastr
-        }
-        else{
-          // this.toastr.error("Error occurred."); // TODO Toastr
-        }
+      (error: string) => {
+        // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień
       }
     );
   }
 
+  onCreateAdmin(): void {
+    this.router.navigateByUrl('admin/create-admin');
+  }
 }
