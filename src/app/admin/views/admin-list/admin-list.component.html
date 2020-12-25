@@ -1,7 +1,7 @@
 <div class='admin-list-container'>
   <div class='admin-list-container__header'>
     <h1 class='admin-list-container__heading'>Admins</h1>
-    <button class='container__btn container__btn--list-btn' (click)='onCreateAdmin()'>Create admin</button>
+    <button class='admin-list-container__btn' (click)='onCreateAdmin()'>Create</button>
   </div>
   <div class='admin-list-container__list'>
     <app-admin-list-item *ngFor="let admin of admins; let i = index" [admin]="admin" [index]="i">
