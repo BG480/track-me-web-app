@@ -24,19 +24,30 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe(
         (result: any) => {
-          this.router.navigateByUrl("user/home");
+          this.router.navigateByUrl("home");
         },
-        err => {
-          if (err.status == 404){
-            // this.toastr.error(err.error.message); TODO: wyświetlić powiadomienie z serwisu do powadomień
-          }
-          else{
-            // this.toastr.error("Error occurred."); TODO: wyświetlić powiadomienie z serwisu do powadomień
-          }       
+        (err: string) => {
+          // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień    
         }
       );
     } else {
-      // this.toastr.error("Invalid data.") TODO: wyświetlić powiadomienie z serwisu do powadomień
+      this.handleInvalidForm();
+    }
+  }
+
+  private handleInvalidForm() {
+    debugger; 
+    let formErrorMessage = this.getFormErrorMessage();
+    // this.toastr.error(formErrorMessage); TODO: wyświetlić powiadomienie z serwisu do powadomień    
+  }
+
+  private getFormErrorMessage(){
+    if(this.loginForm.controls['Email'].errors?.required) {
+      return 'Email is required.';
+    } else if (this.loginForm.controls['Password'].errors?.required) {
+      return 'Password is required.';
+    } else {
+      return 'Invalid form data.';
     }
   }
 

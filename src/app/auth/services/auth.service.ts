@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private readonly controllerUrl = environment.apiUrl + '/Auth';
+  private readonly controllerUrl = environment.apiUrl + '/auth';
   loggedUser = new BehaviorSubject<LoggedUser>(null);
   private tokenExpirationTimer: any;
 
@@ -21,7 +21,7 @@ export class AuthService {
 
   login(formData) {
     return this.http
-    .post<LoginResponse> (this.controllerUrl + '/Login', formData)
+    .post<LoginResponse> (this.controllerUrl + '/login', formData)
     .pipe(
       catchError(this.handleError),
       tap(responseData => {
@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   register(formData) {
-      return this.http.post(this.controllerUrl + '/Register', formData);
+      return this.http.post(this.controllerUrl + '/register', formData);
   }
 
   autoLogin() {
@@ -62,7 +62,7 @@ export class AuthService {
   logout() {
     this.loggedUser.next(null);
     this.router.navigate(['/auth']);
-    localStorage.removeItem('userData');
+    localStorage.removeItem('loggedUserData');
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
     }
@@ -86,8 +86,9 @@ export class AuthService {
   }
 
   private handleError(errorResponse: HttpErrorResponse) {
-    let errorMessage = 'An unknown error occurred!';
-    return throwError(errorMessage);
+    if(!errorResponse.error || !errorResponse.error.error) {
+      return throwError('An error occurred! Try again later of contact with the support.');
+    }
+    return throwError(errorResponse.error.error);
   }
-
 }
