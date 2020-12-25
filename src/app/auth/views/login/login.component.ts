@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe(
         (result: any) => {
-          this.router.navigateByUrl("user/home");
+          this.router.navigateByUrl("home");
         },
         (err: string) => {
           // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień    

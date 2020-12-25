@@ -44,6 +44,17 @@
     font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
 }
 
+.header__btn {
+    outline: none;
+    border: none;
+    color: var(--white-color);
+    background-color: var(--green-color);
+    text-transform: uppercase;
+    padding: 5px 0;
+    font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
+    cursor: pointer;
+}
+
 .header__responsive-navigation-icon {
     color: var(--white-color);
     font-size: calc(24px + (30 - 24) * ((100vw - 300px) / (1920 - 300)));

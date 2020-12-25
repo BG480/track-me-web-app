@@ -23,6 +23,8 @@ export class HeaderComponent implements OnInit {
     this.userSub = this.authService.loggedUser.subscribe(user => {
       if(!!user) {
         this.prepareHeaderState(user);
+      } else {
+        this.resetHeaderState();
       }
     });
   }
@@ -56,6 +58,12 @@ export class HeaderComponent implements OnInit {
         break;
       }
     }
+  }
+
+  private resetHeaderState() {
+    this.isAuthenticated = false;
+    this.isAdmin = false;
+    this.isBasicUser = false;
   }
 
 }
