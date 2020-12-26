@@ -2,37 +2,44 @@
     <a class='header__logo' routerLink='/user/home' *ngIf='!isAuthenticated'>TrackMe</a>
     <a class='header__logo' routerLink='/user/home' *ngIf='isAuthenticated && isAdmin'>TrackMe Admin Panel</a>
     <a class='header__logo' routerLink='/user/home' *ngIf='isAuthenticated && isBasicUser'>TrackMe</a>
-    <nav class='header__navigation' [ngClass]="{'header__navigation--responsive-navigation-visible': isResponsiveNavigationShown}" (click)='onNavigationClick()'>
+    <nav class='header__navigation' [ngClass]="{'header__navigation--responsive-navigation-visible': isResponsiveNavigationShown}">
         <ul class='header__list'>
             <li class='header__list-item' *ngIf='!isAuthenticated'>
-                <a class='header__link' routerLink='/home'>Home</a>
+                <a class='header__link' routerLink='/home' (click)='onNavigationClick()'>Home</a>
             </li>
             <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
-                <a class='header__link' routerLink='/user/home'>Home</a>
+                <a class='header__link' routerLink='/user/home' (click)='onNavigationClick()'>Home</a>
             </li>
             <li class='header__list-item' *ngIf='isAuthenticated && isBasicUser'>
-                <a class='header__link' routerLink='/user/home'>Home</a>
+                <a class='header__link' routerLink='/user/home' (click)='onNavigationClick()'>Home</a>
             </li>
             <li class='header__list-item' *ngIf='!isAuthenticated'>
-                <a class='header__link' routerLink='/auth/login'>Login</a>
+                <a class='header__link' routerLink='/auth/login' (click)='onNavigationClick()'>Login</a>
             </li>
             <li class='header__list-item' *ngIf='!isAuthenticated'>
-                <a class='header__link' routerLink='/auth/register'>Register</a>
+                <a class='header__link' routerLink='/auth/register' (click)='onNavigationClick()'>Register</a>
             </li>
             <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
-                <a class='header__link' routerLink='/user/trips'>Trips</a>
+                <a class='header__link' routerLink='/user/trips' (click)='onNavigationClick()'>Trips</a>
             </li>
             <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
-                <a class='header__link' routerLink='/user/trips'>Admins</a>
+                <a class='header__link' routerLink='/user/trips' (click)='onNavigationClick()'>Admins</a>
             </li>
             <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
-                <a class='header__link' routerLink='/user/trips'>Basic users</a>
+                <a class='header__link' routerLink='/user/trips' (click)='onNavigationClick()'>Basic users</a>
             </li>
             <li class='header__list-item' *ngIf='isAuthenticated && isBasicUser'>
-                <a class='header__link' routerLink='/user/account'>My trips</a>
+                <a class='header__link' routerLink='/user/account' (click)='onNavigationClick()'>My trips</a>
             </li>
-            <li class='header__list-item' *ngIf='isAuthenticated && isBasicUser'>
-                <a class='header__link' routerLink='/user/account'>My account</a>
+            <li class='header__list-item'>
+                <!-- <a class='header__link' routerLink='/user/account'>My account</a> -->
+                <div class="header__dropdown">
+                    <button class="header__dropdown-btn">My account</button>
+                    <div class="header__dropdown-content">
+                        <a class='header__dropdown-link' routerLink='/user/account' (click)='onNavigationClick()'>Change password</a>
+                        <a class='header__dropdown-link' routerLink='/user/account' (click)='onNavigationClick()'>Change account data</a>
+                    </div>
+                </div>
             </li>
             <li class='header__list-item'>
                 <a class='header__link' routerLink='/auth'>About</a>
