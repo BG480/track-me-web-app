@@ -1,0 +1,64 @@
+.create-admin-form-container {
+    background-color: var(--green-color);
+    width: 400px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 7px;
+}
+
+.create-admin-form-container__heading {
+    font-size: calc(24px + (34 - 24) * ((100vw - 300px) / (1920 - 300)));
+    text-align: center;
+    color: var(--white-color);
+}
+
+.create-admin-form-container__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.create-admin-form-container__label {
+    width: 100%;
+    color: var(--white-color);
+    font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
+}
+
+.create-admin-form-container__input {
+    font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
+    background-color:  var(--light-grey-color);
+    color: var(--black-color);
+    outline: none;
+    width: 100%;
+    border: none;
+    padding: 2px 2px;
+}
+
+.create-admin-form-container__btn {
+    width: 100%;
+    text-transform: uppercase;
+    color: var(--white-color);
+    background-color: var(--dark-green-color);
+    border: none;
+    font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
+    cursor: pointer;
+    padding: 5px 5px;
+}
+
+.create-admin-form-container__link {
+    width: 100%;
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
+    display: block;
+    text-align: center;
+} 
+
+@media only screen and (max-width: 600px) {
+    .create-admin-form-container {
+      width: 250px;
+    }
+  }

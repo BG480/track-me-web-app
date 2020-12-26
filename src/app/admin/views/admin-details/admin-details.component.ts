@@ -13,31 +13,26 @@ export class AdminDetailsComponent implements OnInit {
 
   admin: Admin;
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
     private adminService: AdminService,
     private location: Location) { }
 
   ngOnInit(): void {
-    this.getAdminDetails();
+    this.getAdmin();
   }
 
-  getAdminDetails(): void {
+  getAdmin(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.adminService.getAdmin(id).subscribe(
       (admin: Admin) => {
         this.admin = admin
       },
-      err => {
-        if (err.status == 404){
-          // this.toastr.error(err.error.message); TODO TOASTR
-        }
-        else{
-          // this.toastr.error("Error occurred."); TODO TOASTR
-        }
+      (err: string) => {
+        // this.toastr.error("Error occurred."); TODO TOASTR
       });
   }
 
-  goBack(): void{
+  onBack(): void {
     this.location.back();
   }
 
