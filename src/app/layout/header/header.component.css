@@ -111,4 +111,14 @@
     .header__responsive-navigation-icon {
         display: none;
     }
+
+    .header__dropdown-content {
+        position: absolute;
+        background-color: var(--green-color);
+    }
+
+    .header__dropdown-link {
+        padding: 5px 10px;
+        text-align: left;
+    }
 }
