@@ -115,6 +115,7 @@
     .header__dropdown-content {
         position: absolute;
         background-color: var(--green-color);
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     }
 
     .header__dropdown-link {
