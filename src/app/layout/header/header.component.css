@@ -54,6 +54,7 @@
     padding: 5px 0;
     font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
     cursor: pointer;
+    width: 100%;
 }
 
 .header__responsive-navigation-icon {
