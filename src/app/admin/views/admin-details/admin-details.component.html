@@ -1,8 +1,13 @@
-<div class='container container--details-container' *ngIf='admin'>
-    <label class='container__label container__label--details-label'>First name: {{admin.firstName}}</label>
-    <label class='container__label container__label--details-label'>Last name: {{admin.lastName}}</label>
-    <label class='container__label container__label--details-label'>Email: {{admin.email}}</label>
-    <div class='container__btns-wrapper'>
-        <button class='container__btn container__btn--details-btn' (click)='goBack()'>Go Back</button>
+<div class='admin-details-container'>
+    <div class='admin-details-container__header'>
+        <h1 class='admin-details-container__heading'>Admin details</h1>
+    </div>
+    <div class='admin-details-container__details'>
+        <span class='admin-details-container__text'><span class='admin-details-container__property'>First name:</span> {{admin.firstName}}</span>
+        <span class='admin-details-container__text'><span class='admin-details-container__property'>Last name:</span> {{admin.lastName}}</span>
+        <span class='admin-details-container__text'><span class='admin-details-container__property'>Email:</span> {{admin.email}}</span>
+    </div>
+    <div class='admin-details-container__btns-wrapper'>
+        <button class='admin-details-container__btn' (click)='onBack()'>Back</button>
     </div>
 </div>
