@@ -31,9 +31,10 @@ export class HeaderComponent implements OnInit {
 
   onLogout() {
     this.authService.logout();
+    this.onNavigationLinkClick();
   }
 
-  onNavigationClick() {
+  onNavigationLinkClick() {
     this.isResponsiveNavigationShown = false;
   }
 
