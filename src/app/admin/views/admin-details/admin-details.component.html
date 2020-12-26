@@ -3,9 +3,9 @@
         <h1 class='admin-details-container__heading'>Admin details</h1>
     </div>
     <div class='admin-details-container__details'>
-        <span class='admin-details-container__text'><span class='admin-details-container__property'>First name:</span> {{admin.firstName}}</span>
-        <span class='admin-details-container__text'><span class='admin-details-container__property'>Last name:</span> {{admin.lastName}}</span>
-        <span class='admin-details-container__text'><span class='admin-details-container__property'>Email:</span> {{admin.email}}</span>
+        <div class='admin-details-container__detail-text'><span class='admin-details-container__property-name'>First name:</span> {{admin.firstName}}</div>
+        <div class='admin-details-container__detail-text'><span class='admin-details-container__property-name'>Last name:</span> {{admin.lastName}}</div>
+        <div class='admin-details-container__detail-text'><span class='admin-details-container__property-name'>Email:</span> {{admin.email}}</div>
     </div>
     <div class='admin-details-container__btns-wrapper'>
         <button class='admin-details-container__btn' (click)='onBack()'>Back</button>

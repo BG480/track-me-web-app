@@ -26,18 +26,19 @@
     padding-top: 10px;
 }
 
-.admin-details-container__text {
+.admin-details-container__detail-text {
     padding: 5px 2px;
     border-bottom: 2px var(--light-grey-color) solid;
     font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
     color: var(--black-color);
 }
 
-.admin-details-container__property {
+.admin-details-container__property-name {
     font-weight: bold;
 }
 
-.container__btns-wrapper {
+.admin-details-container__btns-wrapper {
+    padding: 10px 0;
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
