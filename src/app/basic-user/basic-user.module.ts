@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -18,7 +19,7 @@ import { BasicUserListComponent } from './views/basic-user-list/basic-user-list.
     ],
     imports: [
       RouterModule,
-      ReactiveFormsModule,
+      CommonModule,
       BasicUserRoutingModule,
     ]
   })
