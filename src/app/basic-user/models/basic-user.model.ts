@@ -1,5 +1,5 @@
 export class BasicUser {
-    id: number;
+    basicUserId: number;
     firtsName: string;
     lastName: string;
     phoneNumber: string;
