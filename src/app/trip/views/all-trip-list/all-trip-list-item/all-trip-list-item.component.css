@@ -1,4 +1,4 @@
-.admin-list-item {
+.all-trip-list-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6,17 +6,17 @@
     border-bottom: 2px var(--light-grey-color) solid;
 }
 
-.admin-list-item__heading {
+.all-trip-list-item__heading {
     font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
     color: var(--black-color);
 }
 
-.admin-list-item__btns-wrapper {
+.all-trip-list-item__btns-wrapper {
     display: flex;
     gap: 5px;
 }
 
-.admin-list-item__btn {
+.all-trip-list-item__btn {
     text-transform: uppercase;
     color: var(--white-color);
     background-color: var(--green-color);
