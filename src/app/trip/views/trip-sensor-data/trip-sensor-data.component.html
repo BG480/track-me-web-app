@@ -3,7 +3,7 @@
       <h1 class='trip-sensor-data-container__heading'>My trips</h1>
     </div>
     <div class='trip-sensor-data-container__list'>
-      <app-basic-user-trip-list-item *ngFor="let sensorData of tripSensorData.sensorData; let i = index" [sensorData]="sensorData" [index]="i">
-      </app-basic-user-trip-list-item>
+      <app-trip-sensor-data-item *ngFor="let sensorData of tripSensorData.sensorData; let i = index" [sensorData]="sensorData" [index]="i">
+      </app-trip-sensor-data-item>
     </div>
   </div>
