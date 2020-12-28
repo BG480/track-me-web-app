@@ -1,6 +1,6 @@
 export class BasicUser {
-    id: number;
-    firtsName: string;
+    basicUserId: number;
+    firstName: string;
     lastName: string;
     phoneNumber: string;
     email: string;

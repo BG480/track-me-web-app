@@ -17,29 +17,24 @@ export class BasicUserDetailsComponent implements OnInit {
     private basicUserService: BasicUserService,
     private location: Location) { }
 
-    ngOnInit() {
-      this.getBasicUserDetails();
-    }
-  
-    getBasicUserDetails(): void {
-      const id = this.route.snapshot.paramMap.get('id');
-      this.basicUserService.getBasicUser(id).subscribe(
-        (basicUser: BasicUser) => {
-          this.basicUser = basicUser
-        },
-        err => {
-          if (err.status == 404){
-            // this.toastr.error(err.error.message); TODO TOASTR
-          }
-          else{
-            // this.toastr.error("Error occurred."); TODO TASTR
-          }
-        });
-  
-    }
-  
-    public goBack(): void {
-      this.location.back();
-    }
+  ngOnInit() {
+    this.getBasicUser();
+  }
+
+  getBasicUser(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.basicUserService.getBasicUser(id).subscribe(
+      (basicUser: BasicUser) => {
+        this.basicUser = basicUser
+      },
+      (error: string) => {
+        // this.toastr.error("Error occurred."); TODO TOASTR
+      });
+
+  }
+
+  public onBack(): void {
+    this.location.back();
+  }
 
 }

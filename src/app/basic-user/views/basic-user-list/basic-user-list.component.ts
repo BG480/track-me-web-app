@@ -20,29 +20,14 @@ export class BasicUserListComponent implements OnInit {
   }
 
   getBasicUsers(): void {
-    this.basicUserService.getBasicUsers()
-    .subscribe(basicUsers => this.basicUsers = basicUsers);
-  }
-
-  showBasicUserDetails(basicUser: BasicUser): void {
-    this.router.navigateByUrl('admin/basic-user-details/' + basicUser.id);
-  }
-
-  deleteBasicUser(basicUser: BasicUser): void {
-    this.basicUserService.deleteBasicUser(basicUser.id).subscribe(
-      (result: any) => {
-        // this.toastr.success("User successfully deleted."); // TODO TOASTR
-        this.getBasicUsers();
+    this.basicUserService.getBasicUsers().subscribe
+    (
+      (basicUsers: BasicUser[]) => {
+        this.basicUsers = basicUsers;
       },
-      err => {
-        if (err.status == 404){
-          // this.toastr.error(err.error.message); // TODO TOASTR
-        }
-        else{
-          // this.toastr.error("Error occurred."); // TODO TOASTR 
-        }
+      (error: string) => {
+        // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień
       }
     );
   }
-
 }

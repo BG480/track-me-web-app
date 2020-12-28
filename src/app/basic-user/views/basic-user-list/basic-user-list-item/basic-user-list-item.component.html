@@ -1,1 +1,7 @@
-<p>basic-user-list-item works!</p>
+<div class='basic-user-list-item'>
+    <h4 class='basic-user-list-item__heading'>{{basicUser.firstName}} {{basicUser.lastName}}</h4>
+    <div class='basic-user-list-item__btns-wrapper'>
+      <button class='basic-user-list-item__btn' (click)='onBasicUserDetails()'>Details</button>
+      <button class='basic-user-list-item__btn' (click)='onDeleteBasicUser()'>Delete</button>
+    </div>
+</div>

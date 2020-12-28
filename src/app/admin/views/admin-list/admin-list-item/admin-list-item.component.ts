@@ -12,7 +12,7 @@ export class AdminListItemComponent implements OnInit {
   @Input() admin: Admin;
   @Input() index: number;
 
-  constructor(private adminsService: AdminService, 
+  constructor(private adminsService: AdminService,
     private router: Router) { }
 
   ngOnInit(): void {

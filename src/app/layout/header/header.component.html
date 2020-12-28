@@ -23,10 +23,10 @@
                 <a class='header__link' routerLink='/user/trips' (click)='onNavigationLinkClick()'>Trips</a>
             </li>
             <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
-                <a class='header__link' routerLink='/user/trips' (click)='onNavigationLinkClick()'>Admins</a>
+                <a class='header__link' routerLink='/admin/list' (click)='onNavigationLinkClick()'>Admins</a>
             </li>
             <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
-                <a class='header__link' routerLink='/user/trips' (click)='onNavigationLinkClick()'>Basic users</a>
+                <a class='header__link' routerLink='/basic-user/list' (click)='onNavigationLinkClick()'>Basic users</a>
             </li>
             <li class='header__list-item' *ngIf='isAuthenticated && isBasicUser'>
                 <a class='header__link' routerLink='/user/account' (click)='onNavigationLinkClick()'>My trips</a>

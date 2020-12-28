@@ -1,9 +1,14 @@
-<div class='container container--details-container' *ngIf='basicUser'>
-    <label class='container__label container__label--details-label'>First name: {{basicUser.firtsName}}</label>
-    <label class='container__label container__label--details-label'>Last name: {{basicUser.lastName}}</label>
-    <label class='container__label container__label--details-label'>Email: {{basicUser.email}}</label>
-    <label class='container__label container__label--details-label'>Phone number: {{basicUser.phoneNumber}}</label>
-    <div class='container__btns-wrapper'>
-        <button class='container__btn container__btn--details-btn' (click)='goBack()'>Go Back</button>
+<div class='basic-user-details-container'>
+    <div class='basic-user-details-container__header'>
+        <h1 class='basic-user-details-container__heading'>Basic user details</h1>
+    </div>
+    <div class='basic-user-details-container__details'>
+        <div class='basic-user-details-container__detail-text'><span class='admin-details-container__property-name'>First name:</span> {{basicUser.firstName}}</div>
+        <div class='basic-user-details-container__detail-text'><span class='admin-details-container__property-name'>Last name:</span> {{basicUser.lastName}}</div>
+        <div class='basic-user-details-container__detail-text'><span class='admin-details-container__property-name'>Phone number:</span> {{basicUser.phoneNumber}}</div>
+        <div class='basic-user-details-container__detail-text'><span class='admin-details-container__property-name'>Email:</span> {{basicUser.email}}</div>
+    </div>
+    <div class='basic-user-details-container__btns-wrapper'>
+        <button class='basic-user-details-container__btn' (click)='onBack()'>Back</button>
     </div>
 </div>
