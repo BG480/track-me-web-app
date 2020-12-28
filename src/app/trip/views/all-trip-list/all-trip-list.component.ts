@@ -20,29 +20,12 @@ export class AllTripListComponent implements OnInit {
   }
 
   getAllTrips(): void {
-    this.tripsService.getAllTrips()
-    .subscribe(trips => this.trips = trips);
-  }
-
-  showTripDetails(trip: Trip): void {
-    localStorage.setItem('tripName', trip.name);
-    this.router.navigateByUrl('admin/trip-details/' + trip.tripId);
-  }
-
-  deleteTrip(trip: Trip): void {
-    this.tripsService.deleteTrip(trip.tripId).subscribe(
-      (result: any) => {
-        // this.toastr.success("Trip successfully deleted."); TODO TOASTR
-        this.getAllTrips();
+    this.tripsService.getAllTrips().subscribe(
+      (trips: Trip[]) => {
+        this.trips = trips
       },
-      err => {
-        if(err.status == 404) {
-          // this.toastr.error(err.error.message);
-        } else {
-          // this.toastr.error("Error occurred.");
-        }       
-      }
-    );
+      (error: string) => {
+        // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień
+      });
   }
-
 }
