@@ -33,7 +33,7 @@ export class BasicUserDetailsComponent implements OnInit {
 
   }
 
-  public goBack(): void {
+  public onBack(): void {
     this.location.back();
   }
 
