@@ -13,7 +13,7 @@ const routes: Routes = [
       canActivateChild: [AuthGuard],
       children: [
         { path: 'all', component: AllTripListComponent, data: { expectedRoles: ['Admin']} },
-        { path: 'list', component: BasicUserTripListComponent, data: { expectedRoles: ['Admin'] } },
+        { path: 'list', component: BasicUserTripListComponent, data: { expectedRoles: ['BasicUser'] } },
         { path: ':id/sensor-data', component: TripSensorDataComponent, data: { expectedRoles: ['Admin', 'BasicUser'] } }
       ]
     }

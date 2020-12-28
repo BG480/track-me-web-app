@@ -24,7 +24,7 @@ export class TripService {
   }
 
   getTripSensorData(id: string): Observable<TripSensorData> {
-    return this.http.get<TripSensorData>(this.controllerUrl + '/' + id + '/details')
+    return this.http.get<TripSensorData>(this.controllerUrl + '/' + id + '/sensor-data')
   }
 
   deleteTrip(id: number): Observable<{}> {
