@@ -1,1 +1,14 @@
-<p>account-data works!</p>
+<div class="account-data-form-container">
+    <h1 class="account-data-form-container__header">Update account data</h1>
+    <form [formGroup]="accountDataForm" (ngSubmit)="onSubmit()" class="account-data-form-container__form">
+        <label class="account-data-form-container__label">First name</label>
+        <input formControlName="FirstName" type="text" class="account-data-form-container__input" placeholder="Wayne">
+        <label class="account-data-form-container__label">Last name</label>
+        <input formControlName="LastName" type="text" class="account-data-form-container__input" placeholder="Rooney">
+        <label class="account-data-form-container__label">Phone number</label>
+        <input formControlName="PhoneNumber" type="text" class="account-data-form-container__input" placeholder="123-456-789">
+        <label class="account-data-form-container__label">Email</label>
+        <input formControlName="Email" type="text" class="account-data-form-container__input" placeholder="email@email.com">
+        <button type="submit" class="account-data-form-container__btn" >Update</button>
+    </form>
+</div>
