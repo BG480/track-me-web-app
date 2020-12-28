@@ -1,0 +1,28 @@
+.basic-user-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 2px;
+    border-bottom: 2px var(--light-grey-color) solid;
+}
+
+.basic-user-list-item__heading {
+    font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
+    color: var(--black-color);
+}
+
+.basic-user-list-item__btns-wrapper {
+    display: flex;
+    gap: 5px;
+}
+
+.basic-user-list-item__btn {
+    text-transform: uppercase;
+    color: var(--white-color);
+    background-color: var(--green-color);
+    border: none;
+    outline: none;
+    font-size: calc(16px + (18 - 16) * ((100vw - 300px) / (1920 - 300)));
+    cursor: pointer;
+    padding: 5px 5px;
+}
