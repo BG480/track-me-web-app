@@ -11,7 +11,12 @@ import { AccountService } from '../../services/account-service.service';
 })
 export class AccountDataComponent implements OnInit {
 
-  accountDataForm: FormGroup;
+  accountDataForm = new FormGroup({
+    FirstName: new FormControl('', [Validators.required]),
+    LastName: new FormControl('', [Validators.required]),
+    PhoneNumber: new FormControl('', [Validators.required,Validators.pattern(/^\d{9}/)]),
+    Email: new FormControl('', [Validators.required, Validators.email])
+  });
 
   constructor(private accountService: AccountService, private router: Router) { }
 
@@ -31,12 +36,10 @@ export class AccountDataComponent implements OnInit {
   }
 
   initForm(accountData: AccountData): void {
-    this.accountDataForm = new FormGroup({
-      FirstName: new FormControl(accountData.firstName, [Validators.required]),
-      LastName: new FormControl(accountData.lastName, [Validators.required]),
-      PhoneNumber: new FormControl(accountData.phoneNumber, [Validators.required,Validators.pattern(/^\d{9}/)]),
-      Email: new FormControl(accountData.email, [Validators.required, Validators.email])
-    });
+    this.accountDataForm.controls['FirstName'].setValue(accountData.firstName);
+    this.accountDataForm.controls['LastName'].setValue(accountData.lastName);
+    this.accountDataForm.controls['PhoneNumber'].setValue(accountData.phoneNumber);
+    this.accountDataForm.controls['Email'].setValue(accountData.email);
   }
 
   onSubmit(): void {
