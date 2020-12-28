@@ -8,7 +8,7 @@ import { AccountData } from '../models/account-data.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AccountServiceService {
+export class AccountService {
 
   private readonly controllerUrl = environment.apiUrl + '/account';
 
