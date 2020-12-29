@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -11,11 +12,13 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
-    Email: new FormControl('', Validators.required),
-    Password: new FormControl('', Validators.required),
+    Email: new FormControl('', [Validators.required, Validators.email]),
+    Password: new FormControl('', [Validators.required]),
   })
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService,
+    private router: Router,
+    private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +30,7 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl("home");
         },
         (error: string) => {
-          // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień    
+          this.notificationService.showErrorNotification(error, 'Error');
         }
       );
     } else {
@@ -38,12 +41,14 @@ export class LoginComponent implements OnInit {
   private handleInvalidForm() {
     debugger; 
     let formErrorMessage = this.getFormErrorMessage();
-    // this.toastr.error(formErrorMessage); TODO: wyświetlić powiadomienie z serwisu do powadomień    
+    this.notificationService.showErrorNotification(formErrorMessage, 'Error');  
   }
 
   private getFormErrorMessage(){
     if(this.loginForm.controls['Email'].errors?.required) {
       return 'Email is required.';
+    } else if (this.loginForm.controls['Email'].errors?.email) {
+      return 'Invalid email.';
     } else if (this.loginForm.controls['Password'].errors?.required) {
       return 'Password is required.';
     } else {
