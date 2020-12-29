@@ -5,7 +5,7 @@
     <nav class='header__navigation' [ngClass]="{'header__navigation--responsive-navigation-visible': isResponsiveNavigationShown}">
         <ul class='header__list'>
             <li class='header__list-item' *ngIf='!isAuthenticated'>
-                <a class='header__link' routerLink='/home' (click)='onNavigationLinkClick()'>Home</a>
+                <a class='header__link' routerLink='/home/welcome' (click)='onNavigationLinkClick()'>Home</a>
             </li>
             <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
                 <a class='header__link' routerLink='/user/home' (click)='onNavigationLinkClick()'>Home</a>
