@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authService: AuthService, 
     private router: Router, 
-    private location: Location) { }
+    private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -31,11 +32,11 @@ export class RegisterComponent implements OnInit {
     if(this.registerForm.valid) {
       this.authService.register(this.registerForm.value).subscribe(
         (result: any) => {
-          //this.toastr.success("Registration completed successfully.") TODO Powiadomienie
+          this.notificationService.showSuccessNotification('Registration succeeded. Now you can login to your accoutn with email and password.', 'Success');
           this.router.navigateByUrl("");
         },
         (error: string) => {
-          //this.toastr.error(err.error.message); TODO Powiadomienie
+          this.notificationService.showErrorNotification(error, 'Error');
         }
       );
     }else {
@@ -46,7 +47,7 @@ export class RegisterComponent implements OnInit {
   private handleInvalidForm() {
     debugger; 
     let formErrorMessage = this.getFormErrorMessage();
-    // this.toastr.error(formErrorMessage); TODO: wyświetlić powiadomienie z serwisu do powadomień    
+    this.notificationService.showErrorNotification(formErrorMessage, 'Error');
   }
 
   private getFormErrorMessage(){
