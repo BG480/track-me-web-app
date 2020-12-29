@@ -5,8 +5,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from "@auth0/angular-jwt";
 // import { HTTP_INTERCEPTORS } from '@angular/common/http';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,8 +35,8 @@ import { AuthInterceptorService } from './auth/interceptors/auth-interceptor.ser
       config: {}
     }),
     FormsModule,
-    // BrowserAnimationsModule, 
-    // ToastrModule.forRoot()
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
