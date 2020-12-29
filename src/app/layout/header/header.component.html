@@ -41,9 +41,6 @@
                     </div>
                 </div>
             </li>
-            <li class='header__list-item'>
-                <a class='header__link' routerLink='/auth'>About</a>
-            </li>
             <li class='header__list-item' *ngIf='isAuthenticated'>
                 <button class='header__btn' (click)='onLogout()'>Logout</button>
             </li>

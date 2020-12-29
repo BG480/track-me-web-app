@@ -1,5 +1,13 @@
+:host {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .auth-container {
+    flex-grow: 1;
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    align-items: center;
 }
