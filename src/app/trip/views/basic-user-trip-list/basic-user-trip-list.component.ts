@@ -12,7 +12,7 @@ export class BasicUserTripListComponent implements OnInit {
 
   trips: Trip[];
 
-  constructor(private tripsService: TripService,
+  constructor(private tripService: TripService,
     private router: Router) { }
 
   ngOnInit() {
@@ -20,30 +20,13 @@ export class BasicUserTripListComponent implements OnInit {
   }
 
   getTrips(): void {
-    this.tripsService.getTrips()
-    .subscribe(trips => this.trips = trips);
-  }
-
-  showTripDetails(trip: Trip): void {
-    localStorage.setItem('tripName', trip.name);
-    this.router.navigateByUrl('user/trip-details/' + trip.tripId);
-  }
-
-  deleteTrip(trip: Trip): void {
-    this.tripsService.deleteTrip(trip.tripId).subscribe(
-      (result: any) => {
-        // this.toastr.success("Trip successfully deleted."); TODO TOASTR
-        this.getTrips();
+    this.tripService.getTrips()
+    .subscribe(
+      (trips: Trip[]) => {
+        this.trips = trips
       },
-      err => {
-        if(err.status == 404) {
-          // this.toastr.error(err.error.message);
-        }
-        else {
-          // this.toastr.error("Error occurred.");
-        }      
-      }
-    );
+      (error: string) => {
+        // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień
+      });
   }
-
 }

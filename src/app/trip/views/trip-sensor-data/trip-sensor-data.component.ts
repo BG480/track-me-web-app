@@ -19,10 +19,10 @@ export class TripSensorDataComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-    this.getTripDetails();
+    this.getTripSensorData();
   }
 
-  getTripDetails() {
+  getTripSensorData() {
     const id = this.route.snapshot.paramMap.get('id');
     this.tripsService.getTripSensorData(id).subscribe(
       (tripSensorData: TripSensorData) => {
@@ -33,10 +33,4 @@ export class TripSensorDataComponent implements OnInit {
       }
     );
   }
-
-  goBack(): void {
-    localStorage.removeItem('tripName');
-    this.location.back();
-  }
-
 }

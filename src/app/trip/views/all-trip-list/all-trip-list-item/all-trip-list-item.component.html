@@ -1,1 +1,7 @@
-<p>all-trips-list-item works!</p>
+<div class='all-trip-list-item'>
+    <h4 class='all-trip-list-item__heading'>{{trip.name}} - {{trip.basicUserEmail}}</h4>
+    <div class='all-trip-list-item__btns-wrapper'>
+      <button class='all-trip-list-item__btn' (click)='onTripSensorData()'>Sensor data</button>
+      <button class='all-trip-list-item__btn' (click)='onDeleteTrip()'>Delete</button>
+    </div>
+</div>
