@@ -12,6 +12,7 @@ import { TripService } from '../../services/trip.service';
 export class AllTripListComponent implements OnInit {
 
   trips: Trip[];
+  isLoading = false;
 
   constructor(private tripsService: TripService,
     private router: Router,
@@ -22,12 +23,15 @@ export class AllTripListComponent implements OnInit {
   }
 
   getAllTrips(): void {
+    this.isLoading = true;
     this.tripsService.getAllTrips().subscribe(
       (trips: Trip[]) => {
-        this.trips = trips
+        this.trips = trips;
+        this.isLoading = false;
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');
+        this.isLoading = false;
       });
   }
 }

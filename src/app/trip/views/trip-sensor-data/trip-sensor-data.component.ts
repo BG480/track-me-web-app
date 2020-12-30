@@ -14,6 +14,7 @@ import { TripService } from '../../services/trip.service';
 export class TripSensorDataComponent implements OnInit {
 
   tripSensorData: TripSensorData;
+  isLoading = false;
 
   constructor(private tripsService: TripService,
     private route: ActivatedRoute,
@@ -24,13 +25,16 @@ export class TripSensorDataComponent implements OnInit {
   }
 
   getTripSensorData() {
+    this.isLoading = true;
     const id = this.route.snapshot.paramMap.get('id');
     this.tripsService.getTripSensorData(id).subscribe(
       (tripSensorData: TripSensorData) => {
         this.tripSensorData = tripSensorData;
+        this.isLoading = false;
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');
+        this.isLoading = false;
       }
     );
   }
