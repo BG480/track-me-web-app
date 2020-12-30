@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { Admin } from '../../models/admin.model';
 import { AdminService } from '../../services/admin.service';
 
@@ -15,7 +16,8 @@ export class AdminDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private adminService: AdminService,
-    private location: Location) { }
+    private location: Location,
+    private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.getAdmin();
@@ -27,8 +29,8 @@ export class AdminDetailsComponent implements OnInit {
       (admin: Admin) => {
         this.admin = admin
       },
-      (err: string) => {
-        // this.toastr.error("Error occurred."); TODO TOASTR
+      (error: string) => {
+        this.notificationService.showErrorNotification(error, 'Error');
       });
   }
 
