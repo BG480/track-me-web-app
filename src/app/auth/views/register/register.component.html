@@ -1,7 +1,7 @@
 <div *ngIf='isLoading' class='loading-spinner-container'>
     <app-loading-spinner></app-loading-spinner>
 </div>
-<div class="register-form-container">
+<div class="register-form-container" *ngIf='!isLoading'>
     <h1 class="register-form-container__header">Register</h1>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form-container__form">
         <label class="register-form-container__label">First name</label>

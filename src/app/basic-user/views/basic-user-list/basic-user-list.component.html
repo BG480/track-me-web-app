@@ -1,7 +1,7 @@
 <div *ngIf='isLoading' class='loading-spinner-container'>
   <app-loading-spinner></app-loading-spinner>
 </div>
-<div class='basic-user-list-container'>
+<div class='basic-user-list-container' *ngIf='!isLoading'>
   <div class='basic-user-list-container__header'>
     <h1 class='basic-user-list-container__heading'>Basic users</h1>
   </div>

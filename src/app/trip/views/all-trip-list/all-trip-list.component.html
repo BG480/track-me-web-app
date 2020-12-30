@@ -1,7 +1,7 @@
 <div *ngIf='isLoading' class='loading-spinner-container'>
   <app-loading-spinner></app-loading-spinner>
 </div>
-<div class='all-trip-list-container'>
+<div class='all-trip-list-container' *ngIf='!isLoading'>
   <div class='all-trip-list-container__header'>
     <h1 class='all-trip-list-container__heading'>All trips</h1>
   </div>

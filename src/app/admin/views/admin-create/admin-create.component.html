@@ -1,7 +1,7 @@
 <div *ngIf='isLoading' class='loading-spinner-container'>
     <app-loading-spinner></app-loading-spinner>
 </div>
-<div class='create-admin-form-container'>
+<div class='create-admin-form-container' *ngIf='!isLoading'>
     <h1 class='create-admin-form-container__heading'>Create admin</h1>
     <form [formGroup]='createAdminForm' (ngSubmit)="onSubmit()" class='create-admin-form-container__form'>
         <label class="create-admin-form-container__label">First name</label>

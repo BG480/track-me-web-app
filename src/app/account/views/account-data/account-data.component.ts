@@ -29,12 +29,15 @@ export class AccountDataComponent implements OnInit {
   }
 
   getAccountData(): void {
+    this.isLoading = true;
     this.accountService.getAccountData().subscribe(
       (accountData: AccountData) => {
         this.initForm(accountData);
+        this.isLoading = false;
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');
+        this.isLoading = false;
       });
   }
 
