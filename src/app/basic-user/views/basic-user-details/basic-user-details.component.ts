@@ -13,6 +13,7 @@ import { BasicUserService } from '../../services/basic-user.service';
 export class BasicUserDetailsComponent implements OnInit {
 
   basicUser: BasicUser;
+  isLoading = false;
 
   constructor(private route: ActivatedRoute,
     private basicUserService: BasicUserService,
@@ -24,13 +25,16 @@ export class BasicUserDetailsComponent implements OnInit {
   }
 
   getBasicUser(): void {
+    this.isLoading = true;
     const id = this.route.snapshot.paramMap.get('id');
     this.basicUserService.getBasicUser(id).subscribe(
       (basicUser: BasicUser) => {
-        this.basicUser = basicUser
+        this.basicUser = basicUser;
+        this.isLoading = false;
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');
+        this.isLoading = false;
       });
 
   }

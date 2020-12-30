@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     Email: new FormControl('', [Validators.required, Validators.email]),
     Password: new FormControl('', [Validators.required]),
   })
+  isLoading = false;
 
   constructor(private authService: AuthService,
     private router: Router,
@@ -25,12 +26,15 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     if(this.loginForm.valid) {
+      this.isLoading = true;
       this.authService.login(this.loginForm.value).subscribe(
         (result: any) => {
           this.router.navigateByUrl("home");
+          this.isLoading = false;
         },
         (error: string) => {
           this.notificationService.showErrorNotification(error, 'Error');
+          this.isLoading = false;
         }
       );
     } else {

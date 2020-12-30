@@ -12,6 +12,7 @@ import { BasicUserService } from '../../services/basic-user.service';
 export class BasicUserListComponent implements OnInit {
 
   basicUsers: BasicUser[];
+  isLoading = false;
 
   constructor(private basicUserService: BasicUserService,
     private router: Router,
@@ -22,13 +23,16 @@ export class BasicUserListComponent implements OnInit {
   }
 
   getBasicUsers(): void {
+    this.isLoading = true;
     this.basicUserService.getBasicUsers().subscribe
     (
       (basicUsers: BasicUser[]) => {
         this.basicUsers = basicUsers;
+        this.isLoading = false;
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');
+        this.isLoading = false;
       }
     );
   }

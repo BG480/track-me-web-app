@@ -1,4 +1,5 @@
 import { Location } from '@angular/common';
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -20,6 +21,7 @@ export class RegisterComponent implements OnInit {
     Password: new FormControl('', [Validators.required,Validators.minLength(7)]),
     ConfirmPassword: new FormControl('', [Validators.required,Validators.minLength(7)]),
   })
+  isLoading = false;
 
   constructor(private authService: AuthService, 
     private router: Router, 
@@ -30,13 +32,16 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     if(this.registerForm.valid) {
+      this.isLoading = true;
       this.authService.register(this.registerForm.value).subscribe(
         (result: any) => {
           this.notificationService.showSuccessNotification('Registration succeeded. Now you can login to your accoutn with email and password.', 'Success');
           this.router.navigateByUrl("");
+          this.isLoading = false;
         },
         (error: string) => {
           this.notificationService.showErrorNotification(error, 'Error');
+          this.isLoading = false;
         }
       );
     }else {
