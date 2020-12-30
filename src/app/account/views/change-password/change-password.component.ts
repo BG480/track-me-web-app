@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { AccountService } from '../../services/account-service.service';
 
 @Component({
@@ -15,7 +16,9 @@ export class ChangePasswordComponent implements OnInit {
     ConfirmPassword: new FormControl('', Validators.required)
   });
 
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(private accountService: AccountService, 
+    private router: Router,
+    private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +30,7 @@ export class ChangePasswordComponent implements OnInit {
           this.router.navigateByUrl("home");
         },
         (error: string) => {
-          // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień    
+          this.notificationService.showErrorNotification(error, 'Error');   
         }
       );
     } else {
@@ -38,7 +41,7 @@ export class ChangePasswordComponent implements OnInit {
   private handleInvalidForm() {
     debugger; 
     let formErrorMessage = this.getFormErrorMessage();
-    // this.toastr.error(formErrorMessage); TODO: wyświetlić powiadomienie z serwisu do powadomień    
+    this.notificationService.showErrorNotification(formErrorMessage, 'Error');   
   }
 
   private getFormErrorMessage(){
