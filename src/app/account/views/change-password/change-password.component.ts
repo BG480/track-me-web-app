@@ -15,6 +15,7 @@ export class ChangePasswordComponent implements OnInit {
     NewPassword: new FormControl('', Validators.required),
     ConfirmPassword: new FormControl('', Validators.required)
   });
+  isLoading = false;
 
   constructor(private accountService: AccountService, 
     private router: Router,
@@ -25,12 +26,15 @@ export class ChangePasswordComponent implements OnInit {
 
   onSubmit(): void {
     if(this.changePasswordForm.valid) {
+      this.isLoading = true;
       this.accountService.changePassword(this.changePasswordForm.value).subscribe(
         (result: any) => {
           this.router.navigateByUrl("home");
+          this.isLoading = false;
         },
         (error: string) => {
-          this.notificationService.showErrorNotification(error, 'Error');   
+          this.notificationService.showErrorNotification(error, 'Error');
+          this.isLoading = false;
         }
       );
     } else {

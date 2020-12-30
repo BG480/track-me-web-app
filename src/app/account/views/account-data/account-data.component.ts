@@ -18,6 +18,7 @@ export class AccountDataComponent implements OnInit {
     PhoneNumber: new FormControl('', [Validators.required,Validators.pattern(/^\d{9}/)]),
     Email: new FormControl('', [Validators.required, Validators.email])
   });
+  isLoading = false;
 
   constructor(private accountService: AccountService,
     private router: Router,
@@ -46,12 +47,15 @@ export class AccountDataComponent implements OnInit {
 
   onSubmit(): void {
     if(this.accountDataForm.valid) {
+      this.isLoading = true; 
       this.accountService.updateAccountData(this.accountDataForm.value).subscribe(
         (result: any) => {
           this.router.navigateByUrl("home");
+          this.isLoading = false;
         },
         (error: string) => {
-          this.notificationService.showErrorNotification(error, 'Error');  
+          this.notificationService.showErrorNotification(error, 'Error');
+          this.isLoading = false;
         }
       );
     } else {
