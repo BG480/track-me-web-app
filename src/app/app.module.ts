@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './layout/main/main.component';
 import { AuthInterceptorService } from './auth/interceptors/auth-interceptor.service';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AuthInterceptorService } from './auth/interceptors/auth-interceptor.ser
     }),
     FormsModule,
     BrowserAnimationsModule, 
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    SharedModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

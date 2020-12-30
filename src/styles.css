@@ -21,6 +21,10 @@ html, body {
     height: 100%;
 }
 
+.loading-spinner-container {
+    text-align: center;
+}
+
 .container
 {
     margin-left: auto;
