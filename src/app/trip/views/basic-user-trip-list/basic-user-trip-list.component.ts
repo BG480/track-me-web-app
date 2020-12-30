@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { Trip } from '../../models/trip.model';
 import { TripService } from '../../services/trip.service';
 
@@ -13,7 +14,8 @@ export class BasicUserTripListComponent implements OnInit {
   trips: Trip[];
 
   constructor(private tripService: TripService,
-    private router: Router) { }
+    private router: Router,
+    private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.getTrips();
@@ -26,7 +28,7 @@ export class BasicUserTripListComponent implements OnInit {
         this.trips = trips
       },
       (error: string) => {
-        // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień
+        this.notificationService.showErrorNotification(error, 'Error');
       });
   }
 }

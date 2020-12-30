@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { SensorData } from '../../models/sensor-data.model';
 import { TripSensorData } from '../../models/trip-sensor-data';
 import { TripService } from '../../services/trip.service';
@@ -16,7 +17,7 @@ export class TripSensorDataComponent implements OnInit {
 
   constructor(private tripsService: TripService,
     private route: ActivatedRoute,
-    private location: Location) { }
+    private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.getTripSensorData();
@@ -28,8 +29,8 @@ export class TripSensorDataComponent implements OnInit {
       (tripSensorData: TripSensorData) => {
         this.tripSensorData = tripSensorData;
       },
-      err => {
-        // this.toastr.error("Error occurred - cannot load trip's details."); TODO TOASTR
+      (error: string) => {
+        this.notificationService.showErrorNotification(error, 'Error');
       }
     );
   }
