@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { BasicUser } from '../../models/basic-user.model';
 import { BasicUserService } from '../../services/basic-user.service';
 
@@ -15,7 +16,8 @@ export class BasicUserDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private basicUserService: BasicUserService,
-    private location: Location) { }
+    private location: Location,
+    private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.getBasicUser();
@@ -28,7 +30,7 @@ export class BasicUserDetailsComponent implements OnInit {
         this.basicUser = basicUser
       },
       (error: string) => {
-        // this.toastr.error("Error occurred."); TODO TOASTR
+        this.notificationService.showErrorNotification(error, 'Error');
       });
 
   }

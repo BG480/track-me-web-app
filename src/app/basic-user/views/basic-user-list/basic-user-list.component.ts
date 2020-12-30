@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { BasicUser } from '../../models/basic-user.model';
 import { BasicUserService } from '../../services/basic-user.service';
 
@@ -13,7 +14,8 @@ export class BasicUserListComponent implements OnInit {
   basicUsers: BasicUser[];
 
   constructor(private basicUserService: BasicUserService,
-    private router: Router) { }
+    private router: Router,
+    private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.getBasicUsers();
@@ -26,7 +28,7 @@ export class BasicUserListComponent implements OnInit {
         this.basicUsers = basicUsers;
       },
       (error: string) => {
-        // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień
+        this.notificationService.showErrorNotification(error, 'Error');
       }
     );
   }
