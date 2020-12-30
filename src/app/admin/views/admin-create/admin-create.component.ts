@@ -19,6 +19,7 @@ export class AdminCreateComponent implements OnInit {
     Password: new FormControl('', [Validators.required,Validators.minLength(7)]),
     ConfirmPassword: new FormControl('', [Validators.required]),    
   });
+  isLoading = false;
 
   constructor(private router: Router,
     private adminService: AdminService,
@@ -31,12 +32,15 @@ export class AdminCreateComponent implements OnInit {
   onSubmit(): void {
     if(this.createAdminForm.valid && this.createAdminForm.get('Password').value === this.createAdminForm.get('ConfirmPassword').value)
     {
+      this.isLoading = true;
       this.adminService.createAdmin(this.createAdminForm.value).subscribe(
         (result: any) => {
           this.router.navigateByUrl("admin/admins");
+          this.isLoading = false;
         },
         (error: string) => {
           this.notificationService.showErrorNotification(error, 'Error');
+          this.isLoading = false;
         }
       );
     }

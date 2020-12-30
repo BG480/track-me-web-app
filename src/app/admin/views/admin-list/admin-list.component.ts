@@ -13,6 +13,7 @@ import { NotificationService } from 'src/app/shared/services/notification.servic
 export class AdminListComponent implements OnInit {
 
   admins: Admin[];
+  isLoading = false;
   
   constructor(private adminService: AdminService, 
     private router: Router,
@@ -23,13 +24,16 @@ export class AdminListComponent implements OnInit {
   }
 
   getAdmins(): void {
+    this.isLoading = true;
     this.adminService.getAdmins().subscribe
     (
       (admins: Admin[]) => {
         this.admins = admins;
+        this.isLoading = false;
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');
+        this.isLoading = false;
       }
     );
   }

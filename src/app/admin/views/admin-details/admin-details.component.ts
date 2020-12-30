@@ -13,6 +13,7 @@ import { AdminService } from '../../services/admin.service';
 export class AdminDetailsComponent implements OnInit {
 
   admin: Admin;
+  isLoading = false;
 
   constructor(private route: ActivatedRoute,
     private adminService: AdminService,
@@ -24,13 +25,16 @@ export class AdminDetailsComponent implements OnInit {
   }
 
   getAdmin(): void {
+    this.isLoading = true;
     const id = this.route.snapshot.paramMap.get('id');
     this.adminService.getAdmin(id).subscribe(
       (admin: Admin) => {
-        this.admin = admin
+        this.admin = admin;
+        this.isLoading = false;
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');
+        this.isLoading = false;
       });
   }
 
