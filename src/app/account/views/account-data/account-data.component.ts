@@ -53,7 +53,7 @@ export class AccountDataComponent implements OnInit {
       this.isLoading = true; 
       this.accountService.updateAccountData(this.accountDataForm.value).subscribe(
         (result: any) => {
-          this.router.navigateByUrl("home");
+          this.router.navigate(['home']);
           this.isLoading = false;
         },
         (error: string) => {

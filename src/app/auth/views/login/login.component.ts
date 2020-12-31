@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       this.isLoading = true;
       this.authService.login(this.loginForm.value).subscribe(
         (result: any) => {
-          this.router.navigateByUrl("home");
+          this.router.navigate(['home']);
           this.isLoading = false;
         },
         (error: string) => {

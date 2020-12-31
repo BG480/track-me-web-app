@@ -39,12 +39,12 @@ export class AdminCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if(this.createAdminForm.valid && this.createAdminForm.get('Password').value === this.createAdminForm.get('ConfirmPassword').value)
+    if(this.createAdminForm.valid)
     {
       this.isLoading = true;
       this.adminService.createAdmin(this.createAdminForm.value).subscribe(
         (result: any) => {
-          this.router.navigateByUrl("admin/admins");
+          this.router.navigate(['admin', 'list']);
           this.isLoading = false;
         },
         (error: string) => {
