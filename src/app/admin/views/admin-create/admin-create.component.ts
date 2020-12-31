@@ -1,8 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/shared/services/notification.service';
+import { MustMatch } from 'src/app/shared/validators/must-match';
 import { AdminService } from '../../services/admin.service';
 
 @Component({
@@ -12,21 +13,29 @@ import { AdminService } from '../../services/admin.service';
 })
 export class AdminCreateComponent implements OnInit {
 
-  createAdminForm = new FormGroup({
-    FirstName: new FormControl('', [Validators.required]),
-    LastName: new FormControl('', [Validators.required]),
-    Email: new FormControl('', [Validators.required, Validators.email]),
-    Password: new FormControl('', [Validators.required,Validators.minLength(7)]),
-    ConfirmPassword: new FormControl('', [Validators.required]),    
-  });
+  createAdminForm: FormGroup;
   isLoading = false;
 
   constructor(private router: Router,
     private adminService: AdminService,
     private location: Location,
-    private notificationService: NotificationService) { }
+    private notificationService: NotificationService,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.initForm();
+  }
+
+  initForm() {
+    this.createAdminForm = this.formBuilder.group({
+      FirstName: new FormControl('', [Validators.required]),
+      LastName: new FormControl('', [Validators.required]),
+      Email: new FormControl('', [Validators.required, Validators.email]),
+      Password: new FormControl('', [Validators.required,Validators.minLength(7)]),
+      ConfirmPassword: new FormControl('', [Validators.required]),    
+    }, {
+      validators: [MustMatch('Password', 'ConfirmPassword')]
+    });
   }
 
   onSubmit(): void {
@@ -74,6 +83,8 @@ export class AdminCreateComponent implements OnInit {
       return 'Password has to contains at least 7 characters.';
     } else if (this.createAdminForm.controls['ConfirmPassword'].errors?.required) {
       return 'You need to confirm your password.';
+    } else if (this.createAdminForm.controls['ConfirmPassword'].errors?.mustMatch) {
+      return 'Your password and confirmation password do not match.';
     } else {
       return 'Invalid form data.';
     }

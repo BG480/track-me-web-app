@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/shared/services/notification.service';
+import { MustMatch } from 'src/app/shared/validators/must-match';
 import { AccountService } from '../../services/account-service.service';
 
 @Component({
@@ -10,18 +11,26 @@ import { AccountService } from '../../services/account-service.service';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent implements OnInit {
-  changePasswordForm = new FormGroup({
-    OldPassword: new FormControl('', Validators.required),
-    NewPassword: new FormControl('', Validators.required),
-    ConfirmPassword: new FormControl('', Validators.required)
-  });
+  changePasswordForm: FormGroup;
   isLoading = false;
 
   constructor(private accountService: AccountService, 
     private router: Router,
-    private notificationService: NotificationService) { }
+    private notificationService: NotificationService,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.initForm();
+  }
+
+  initForm() {
+    this.changePasswordForm= this.formBuilder.group({
+      OldPassword: new FormControl('', Validators.required),
+      NewPassword: new FormControl('', Validators.required),
+      ConfirmPassword: new FormControl('', Validators.required)
+    }, {
+      validators: [MustMatch('NewPassword', 'ConfirmPassword')]
+    });
   }
 
   onSubmit(): void {
@@ -55,6 +64,8 @@ export class ChangePasswordComponent implements OnInit {
       return 'New password is required.';
     } else if (this.changePasswordForm.controls['ConfirmPassword'].errors?.required) {
       return 'You need to confirm new password.';
+    } else if (this.changePasswordForm.controls['ConfirmPassword'].errors?.mustMatch) {
+      return 'Your password and confirmation password do not match.';
     } else {
       return 'Invalid form data.';
     }
