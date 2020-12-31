@@ -21,7 +21,7 @@ export class AdminListItemComponent implements OnInit {
   }
 
   onAdminDetails(): void {
-    this.router.navigate(['admin', this.admin.adminId], { relativeTo: this.route});
+    this.router.navigate(['admin', this.admin.adminId]);
   }
 
   onDeleteAdmin(): void {

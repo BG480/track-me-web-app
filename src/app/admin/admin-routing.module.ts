@@ -10,19 +10,16 @@ const routes: Routes = [
     {
       path: '',
       component: AdminComponent,
-      canActivate: [RoleGuard],
-      data: {
-        expectedRoles: ['Admin']
-      },
+      canActivateChild: [RoleGuard],
       children: [
         {
           path: '',
           pathMatch: 'full',
           redirectTo: 'list',
         },
-        { path: 'create', component: AdminCreateComponent },
-        { path: 'list', component: AdminListComponent },
-        { path: ':id', component: AdminDetailsComponent }
+        { path: 'create', component: AdminCreateComponent, data: { expectedRoles: ['Admin']} },
+        { path: 'list', component: AdminListComponent, data: { expectedRoles: ['Admin']} },
+        { path: ':id', component: AdminDetailsComponent, data: { expectedRoles: ['Admin']} }
       ]
     }
   ];

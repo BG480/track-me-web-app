@@ -9,18 +9,15 @@ const routes: Routes = [
     {
       path: '',
       component: AccountComponent,
-      canActivate: [RoleGuard],
-      data: {
-        expectedRoles: ['BasicUser']
-      },
+      canActivateChild: [RoleGuard],
       children: [
         {
           path: '',
           pathMatch: 'full',
           redirectTo: 'account-data',
         },
-        { path: 'account-data', component: AccountDataComponent },
-        { path: 'change-password', component: ChangePasswordComponent }
+        { path: 'account-data', component: AccountDataComponent, data: { expectedRoles: ['BasicUser']} },
+        { path: 'change-password', component: ChangePasswordComponent, data: { expectedRoles: ['BasicUser']} }
       ]
     }
   ];

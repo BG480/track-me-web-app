@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
             take(1),
             map(user => {
                 const isAuthorized = !!user;
-                return isAuthorized ? true : this.router.createUrlTree(['/home']);
+                return isAuthorized ? this.router.createUrlTree(['/home']) : true; 
             }));
     }
 
@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
             take(1),
             map(user => {
                 const isAuthorized = !!user;
-                return isAuthorized ? true : this.router.createUrlTree(['/home']);
+                return isAuthorized ? this.router.createUrlTree(['/home']) : true; 
             }));
     }
 }

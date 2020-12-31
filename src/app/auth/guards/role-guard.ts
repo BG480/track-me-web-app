@@ -27,6 +27,7 @@ export class RoleGuard implements CanActivate, CanActivateChild{
     return this.authService.loggedUser.pipe(
       take(1),
       map(user => {
+        debugger;
         const isAuthorized = !!user;
         if (isAuthorized) {
           return this.isExpectedRoleCorrect(user.role, route.data.expectedRoles);
