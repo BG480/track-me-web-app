@@ -1,4 +1,7 @@
-<div class='create-admin-form-container'>
+<div *ngIf='isLoading' class='loading-spinner-container'>
+    <app-loading-spinner></app-loading-spinner>
+</div>
+<div class='create-admin-form-container' *ngIf='!isLoading'>
     <h1 class='create-admin-form-container__heading'>Create admin</h1>
     <form [formGroup]='createAdminForm' (ngSubmit)="onSubmit()" class='create-admin-form-container__form'>
         <label class="create-admin-form-container__label">First name</label>
@@ -13,6 +16,6 @@
         <input formControlName="ConfirmPassword" type="password" class="create-admin-form-container__input">
         <button type="submit" class="create-admin-form-container__btn">Create</button>
     </form>
-    <button class="create-admin-form-container__btn" (click)='goBack()'>Back</button>
+    <button class="create-admin-form-container__btn" (click)='onBack()'>Back</button>
 </div>
 

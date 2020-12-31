@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { BasicUser } from '../../models/basic-user.model';
 import { BasicUserService } from '../../services/basic-user.service';
 
@@ -11,22 +12,27 @@ import { BasicUserService } from '../../services/basic-user.service';
 export class BasicUserListComponent implements OnInit {
 
   basicUsers: BasicUser[];
+  isLoading = false;
 
   constructor(private basicUserService: BasicUserService,
-    private router: Router) { }
+    private router: Router,
+    private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.getBasicUsers();
   }
 
   getBasicUsers(): void {
+    this.isLoading = true;
     this.basicUserService.getBasicUsers().subscribe
     (
       (basicUsers: BasicUser[]) => {
         this.basicUsers = basicUsers;
+        this.isLoading = false;
       },
       (error: string) => {
-        // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień
+        this.notificationService.showErrorNotification(error, 'Error');
+        this.isLoading = false;
       }
     );
   }

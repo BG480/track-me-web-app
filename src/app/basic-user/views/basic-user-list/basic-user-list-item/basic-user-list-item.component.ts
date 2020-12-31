@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BasicUser } from 'src/app/basic-user/models/basic-user.model';
 import { BasicUserService } from 'src/app/basic-user/services/basic-user.service';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 @Component({
   selector: 'app-basic-user-list-item',
@@ -13,7 +14,8 @@ export class BasicUserListItemComponent implements OnInit {
   @Input() index: number;
 
   constructor(private basicUserService: BasicUserService, 
-    private router: Router) { }
+    private router: Router,
+    private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -25,11 +27,11 @@ export class BasicUserListItemComponent implements OnInit {
   onDeleteBasicUser(): void {
     this.basicUserService.deleteBasicUser(this.basicUser.basicUserId).subscribe(
       (result: any) => {
-        //this.toastr.success("Admin successfully deleted.")
+        this.notificationService.showSuccessNotification('Basic user successfully deleted', 'Success');
         this.router.navigateByUrl('list');
       },
       (error: string) => {
-        //this.toastr.success("Admin successfully deleted.")
+        this.notificationService.showErrorNotification(error, 'Error');
       }
     );
   }

@@ -1,4 +1,7 @@
-<div class='basic-user-details-container'>
+<div *ngIf='isLoading' class='loading-spinner-container'>
+    <app-loading-spinner></app-loading-spinner>
+</div>
+<div class='basic-user-details-container' *ngIf='!isLoading'>
     <div class='basic-user-details-container__header'>
         <h1 class='basic-user-details-container__heading'>Basic user details</h1>
     </div>

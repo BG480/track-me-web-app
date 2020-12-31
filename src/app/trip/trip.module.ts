@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 import { TripRoutingModule } from './trip-routing.module';
 import { TripComponent } from './trip.component';
 import { AllTripListItemComponent } from './views/all-trip-list/all-trip-list-item/all-trip-list-item.component';
@@ -26,6 +27,7 @@ import { TripSensorDataComponent } from './views/trip-sensor-data/trip-sensor-da
       RouterModule,
       CommonModule,
       TripRoutingModule,
+      SharedModule
     ]
   })
   export class TripModule {}

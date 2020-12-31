@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { Trip } from 'src/app/trip/models/trip.model';
 import { TripService } from 'src/app/trip/services/trip.service';
 
@@ -13,7 +14,8 @@ export class BasicUserTripListItemComponent implements OnInit {
   @Input() index: number;
   
   constructor(private tripService: TripService,
-    private router: Router) { }
+    private router: Router,
+    private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -25,11 +27,11 @@ export class BasicUserTripListItemComponent implements OnInit {
   onDeleteTrip(): void {
     this.tripService.deleteTrip(this.trip.tripId).subscribe(
       (result: any) => {
-        //this.toastr.success("Admin successfully deleted.")
+        this.notificationService.showSuccessNotification('Trip successfully deleted.', 'Success');
         this.router.navigateByUrl('list');
       },
       (error: string) => {
-        //this.toastr.success("Admin successfully deleted.")
+        this.notificationService.showErrorNotification(error, 'Error');
       }
     );
   }

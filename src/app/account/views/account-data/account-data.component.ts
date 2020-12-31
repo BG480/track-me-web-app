@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { AccountData } from '../../models/account-data.model';
 import { AccountService } from '../../services/account-service.service';
 
@@ -17,21 +18,26 @@ export class AccountDataComponent implements OnInit {
     PhoneNumber: new FormControl('', [Validators.required,Validators.pattern(/^\d{9}/)]),
     Email: new FormControl('', [Validators.required, Validators.email])
   });
+  isLoading = false;
 
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(private accountService: AccountService,
+    private router: Router,
+    private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.getAccountData();
   }
 
   getAccountData(): void {
-    //const id = this.route.snapshot.paramMap.get('id');
+    this.isLoading = true;
     this.accountService.getAccountData().subscribe(
       (accountData: AccountData) => {
         this.initForm(accountData);
+        this.isLoading = false;
       },
       (error: string) => {
-        // this.toastr.error("Error occurred."); TODO TOASTR
+        this.notificationService.showErrorNotification(error, 'Error');
+        this.isLoading = false;
       });
   }
 
@@ -44,12 +50,15 @@ export class AccountDataComponent implements OnInit {
 
   onSubmit(): void {
     if(this.accountDataForm.valid) {
+      this.isLoading = true; 
       this.accountService.updateAccountData(this.accountDataForm.value).subscribe(
         (result: any) => {
           this.router.navigateByUrl("home");
+          this.isLoading = false;
         },
         (error: string) => {
-          // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień    
+          this.notificationService.showErrorNotification(error, 'Error');
+          this.isLoading = false;
         }
       );
     } else {
@@ -60,7 +69,7 @@ export class AccountDataComponent implements OnInit {
   private handleInvalidForm() {
     debugger; 
     let formErrorMessage = this.getFormErrorMessage();
-    // this.toastr.error(formErrorMessage); TODO: wyświetlić powiadomienie z serwisu do powadomień    
+    this.notificationService.showErrorNotification(formErrorMessage, 'Error');
   }
 
   private getFormErrorMessage(){

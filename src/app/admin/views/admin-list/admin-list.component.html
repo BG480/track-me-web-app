@@ -1,4 +1,7 @@
-<div class='admin-list-container'>
+<div *ngIf='isLoading' class='loading-spinner-container'>
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class='admin-list-container' *ngIf='!isLoading'>
   <div class='admin-list-container__header'>
     <h1 class='admin-list-container__heading'>Admins</h1>
     <button class='admin-list-container__btn' (click)='onCreateAdmin()'>Create</button>

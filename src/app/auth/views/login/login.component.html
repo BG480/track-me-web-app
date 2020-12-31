@@ -1,4 +1,7 @@
-<div class="login-form-container">
+<div *ngIf='isLoading' class='loading-spinner-container'>
+    <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="login-form-container" *ngIf='!isLoading'>
     <h1 class="login-form-container__header">Login</h1>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form-container__form">
         <label class="login-form-container__label">Email</label>

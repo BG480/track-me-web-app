@@ -1,4 +1,7 @@
-<div class='admin-details-container'>
+<div *ngIf='isLoading' class='loading-spinner-container'>
+    <app-loading-spinner></app-loading-spinner>
+</div>
+<div class='admin-details-container' *ngIf='!isLoading'>
     <div class='admin-details-container__header'>
         <h1 class='admin-details-container__heading'>Admin details</h1>
     </div>

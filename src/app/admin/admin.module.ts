@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
@@ -25,7 +26,8 @@ import { AdminListComponent } from './views/admin-list/admin-list.component';
       RouterModule,
       ReactiveFormsModule,
       AdminRoutingModule,
-      CommonModule
+      CommonModule,
+      SharedModule
     ]
   })
   export class AdminModule {}

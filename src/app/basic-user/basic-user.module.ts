@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 import { BasicUserRoutingModule } from './basic-user-routing.module';
 import { BasicUserComponent } from './basic-user.component';
 
@@ -21,6 +22,7 @@ import { BasicUserListComponent } from './views/basic-user-list/basic-user-list.
       RouterModule,
       CommonModule,
       BasicUserRoutingModule,
+      SharedModule
     ]
   })
   export class BasicUserModule {}

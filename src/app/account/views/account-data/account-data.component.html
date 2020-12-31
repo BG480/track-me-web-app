@@ -1,4 +1,7 @@
-<div class="account-data-form-container">
+<div *ngIf='isLoading' class='loading-spinner-container'>
+    <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="account-data-form-container" *ngIf='!isLoading'>
     <h1 class="account-data-form-container__header">Update account data</h1>
     <form [formGroup]="accountDataForm" (ngSubmit)="onSubmit()" class="account-data-form-container__form">
         <label class="account-data-form-container__label">First name</label>

@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { BasicUser } from '../../models/basic-user.model';
 import { BasicUserService } from '../../services/basic-user.service';
 
@@ -12,23 +13,28 @@ import { BasicUserService } from '../../services/basic-user.service';
 export class BasicUserDetailsComponent implements OnInit {
 
   basicUser: BasicUser;
+  isLoading = false;
 
   constructor(private route: ActivatedRoute,
     private basicUserService: BasicUserService,
-    private location: Location) { }
+    private location: Location,
+    private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.getBasicUser();
   }
 
   getBasicUser(): void {
+    this.isLoading = true;
     const id = this.route.snapshot.paramMap.get('id');
     this.basicUserService.getBasicUser(id).subscribe(
       (basicUser: BasicUser) => {
-        this.basicUser = basicUser
+        this.basicUser = basicUser;
+        this.isLoading = false;
       },
       (error: string) => {
-        // this.toastr.error("Error occurred."); TODO TOASTR
+        this.notificationService.showErrorNotification(error, 'Error');
+        this.isLoading = false;
       });
 
   }

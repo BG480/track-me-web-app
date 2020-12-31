@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Admin } from '../../models/admin.model';
 import { AdminService } from '../../services/admin.service';
 import { CommonModule } from "@angular/common";
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 @Component({
   selector: 'app-admin-list',
@@ -12,22 +13,27 @@ import { CommonModule } from "@angular/common";
 export class AdminListComponent implements OnInit {
 
   admins: Admin[];
+  isLoading = false;
   
   constructor(private adminService: AdminService, 
-    private router: Router) { }
+    private router: Router,
+    private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.getAdmins();
   }
 
   getAdmins(): void {
+    this.isLoading = true;
     this.adminService.getAdmins().subscribe
     (
       (admins: Admin[]) => {
         this.admins = admins;
+        this.isLoading = false;
       },
       (error: string) => {
-        // this.toastr.error(err); TODO: wyświetlić powiadomienie z serwisu do powadomień
+        this.notificationService.showErrorNotification(error, 'Error');
+        this.isLoading = false;
       }
     );
   }
