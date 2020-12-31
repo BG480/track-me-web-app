@@ -14,6 +14,11 @@ const routes: Routes = [
         expectedRoles: ['BasicUser']
       },
       children: [
+        {
+          path: '',
+          pathMatch: 'full',
+          redirectTo: 'account-data',
+        },
         { path: 'account-data', component: AccountDataComponent },
         { path: 'change-password', component: ChangePasswordComponent }
       ]

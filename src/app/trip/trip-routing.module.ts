@@ -12,6 +12,11 @@ const routes: Routes = [
       component: TripComponent,
       canActivateChild: [AuthGuard],
       children: [
+        {
+          path: '',
+          pathMatch: 'full',
+          redirectTo: 'list',
+        },
         { path: 'all', component: AllTripListComponent, data: { expectedRoles: ['Admin']} },
         { path: 'list', component: BasicUserTripListComponent, data: { expectedRoles: ['BasicUser'] } },
         { path: ':id/sensor-data', component: TripSensorDataComponent, data: { expectedRoles: ['Admin', 'BasicUser'] } }

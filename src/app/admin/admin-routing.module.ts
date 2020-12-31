@@ -15,6 +15,11 @@ const routes: Routes = [
         expectedRoles: ['Admin']
       },
       children: [
+        {
+          path: '',
+          pathMatch: 'full',
+          redirectTo: 'list',
+        },
         { path: 'create', component: AdminCreateComponent },
         { path: 'list', component: AdminListComponent },
         { path: ':id', component: AdminDetailsComponent }
