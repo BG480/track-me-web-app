@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '../auth/guards/auth-guard';
+import { RoleGuard } from '../auth/guards/role-guard';
 import { AccountComponent } from './account.component';
 import { AccountDataComponent } from './views/account-data/account-data.component';
 import { ChangePasswordComponent } from './views/change-password/change-password.component';
@@ -9,7 +9,7 @@ const routes: Routes = [
     {
       path: '',
       component: AccountComponent,
-      canActivate: [AuthGuard],
+      canActivate: [RoleGuard],
       data: {
         expectedRoles: ['BasicUser']
       },
