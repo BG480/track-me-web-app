@@ -1,17 +1,9 @@
 <header class='header'>
-    <a class='header__logo' routerLink='/user/home' *ngIf='!isAuthenticated'>TrackMe</a>
-    <a class='header__logo' routerLink='/user/home' *ngIf='isAuthenticated && isAdmin'>TrackMe Admin Panel</a>
-    <a class='header__logo' routerLink='/user/home' *ngIf='isAuthenticated && isBasicUser'>TrackMe</a>
+    <a class='header__logo' routerLink='/home/welcome'>TrackMe</a>
     <nav class='header__navigation' [ngClass]="{'header__navigation--responsive-navigation-visible': isResponsiveNavigationShown}">
         <ul class='header__list'>
-            <li class='header__list-item' *ngIf='!isAuthenticated'>
+            <li class='header__list-item'>
                 <a class='header__link' routerLink='/home/welcome' (click)='onNavigationLinkClick()'>Home</a>
-            </li>
-            <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
-                <a class='header__link' routerLink='/user/home' (click)='onNavigationLinkClick()'>Home</a>
-            </li>
-            <li class='header__list-item' *ngIf='isAuthenticated && isBasicUser'>
-                <a class='header__link' routerLink='/user/home' (click)='onNavigationLinkClick()'>Home</a>
             </li>
             <li class='header__list-item' *ngIf='!isAuthenticated'>
                 <a class='header__link' routerLink='/auth/login' (click)='onNavigationLinkClick()'>Login</a>
