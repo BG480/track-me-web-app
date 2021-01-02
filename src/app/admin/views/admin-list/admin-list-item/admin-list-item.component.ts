@@ -27,8 +27,7 @@ export class AdminListItemComponent implements OnInit {
   onDeleteAdmin(): void {
     this.adminsService.deleteAdmin(this.admin.adminId).subscribe(
       (result: any) => {
-        this.notificationService.showSuccessNotification('Admin successfully deleted.', 'Success')
-        this.router.navigate(['admin', 'list']);
+        window.location.reload();
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');

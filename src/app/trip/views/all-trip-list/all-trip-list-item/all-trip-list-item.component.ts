@@ -27,8 +27,7 @@ export class AllTripListItemComponent implements OnInit {
   onDeleteTrip(): void {
     this.tripService.deleteTrip(this.trip.tripId).subscribe(
       (result: any) => {
-        this.notificationService.showSuccessNotification('Admin successfully deleted.', 'Success');
-        this.router.navigate(['trip', 'all']);
+        window.location.reload();
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');

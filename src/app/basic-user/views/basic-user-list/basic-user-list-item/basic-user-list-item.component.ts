@@ -27,8 +27,7 @@ export class BasicUserListItemComponent implements OnInit {
   onDeleteBasicUser(): void {
     this.basicUserService.deleteBasicUser(this.basicUser.basicUserId).subscribe(
       (result: any) => {
-        this.notificationService.showSuccessNotification('Basic user successfully deleted', 'Success');
-        this.router.navigate(['basic-user', 'list']);
+        window.location.reload();
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');
