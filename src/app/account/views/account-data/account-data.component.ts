@@ -54,6 +54,7 @@ export class AccountDataComponent implements OnInit {
       this.accountService.updateAccountData(this.accountDataForm.value).subscribe(
         (result: any) => {
           this.router.navigate(['home']);
+          this.notificationService.showSuccessNotification('Account data updated', 'Success');
           this.isLoading = false;
         },
         (error: string) => {
