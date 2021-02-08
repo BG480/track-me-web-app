@@ -21,14 +21,13 @@ export class BasicUserListItemComponent implements OnInit {
   }
 
   onBasicUserDetails(): void {
-    this.router.navigateByUrl('basic-user/' + this.basicUser.basicUserId);
+    this.router.navigate(['basic-user', this.basicUser.basicUserId]);
   }
 
   onDeleteBasicUser(): void {
     this.basicUserService.deleteBasicUser(this.basicUser.basicUserId).subscribe(
       (result: any) => {
-        this.notificationService.showSuccessNotification('Basic user successfully deleted', 'Success');
-        this.router.navigateByUrl('list');
+        window.location.reload();
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');

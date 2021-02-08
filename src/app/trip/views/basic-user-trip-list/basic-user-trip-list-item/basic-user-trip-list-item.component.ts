@@ -21,14 +21,13 @@ export class BasicUserTripListItemComponent implements OnInit {
   }
 
   onTripSensorData(): void {
-    this.router.navigateByUrl('trip/' + this.trip.tripId + '/sensor-data');
+    this.router.navigate(['trip', this.trip.tripId, 'sensor-data']);
   }
 
   onDeleteTrip(): void {
     this.tripService.deleteTrip(this.trip.tripId).subscribe(
       (result: any) => {
-        this.notificationService.showSuccessNotification('Trip successfully deleted.', 'Success');
-        this.router.navigateByUrl('list');
+        window.location.reload();
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');

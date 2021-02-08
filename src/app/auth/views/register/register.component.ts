@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       FirstName: new FormControl('', [Validators.required]),
       LastName: new FormControl('', [Validators.required]),
-      PhoneNumber: new FormControl('', [Validators.required, Validators.pattern(/^\d{9}/)]),
+      PhoneNumber: new FormControl('', [Validators.required, Validators.pattern(/^\d{3}-\d{3}-\d{3}$/)]),
       Email: new FormControl('', [Validators.required, Validators.email]),
       Password: new FormControl('', [Validators.required, Validators.minLength(7)]),
       ConfirmPassword: new FormControl('', [Validators.required, Validators.minLength(7)]),
@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
       this.authService.register(this.registerForm.value).subscribe(
         (result: any) => {
           this.notificationService.showSuccessNotification('Registration succeeded. Now you can login to your accoutn with email and password.', 'Success');
-          this.router.navigateByUrl("");
+          this.router.navigate(['auth', 'login']);
           this.isLoading = false;
         },
         (error: string) => {

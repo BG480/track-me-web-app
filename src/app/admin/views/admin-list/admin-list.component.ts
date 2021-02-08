@@ -39,6 +39,6 @@ export class AdminListComponent implements OnInit {
   }
 
   onCreateAdmin(): void {
-    this.router.navigateByUrl('admin/create');
+    this.router.navigate(['admin', 'create']);
   }
 }

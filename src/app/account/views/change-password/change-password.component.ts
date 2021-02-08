@@ -38,7 +38,8 @@ export class ChangePasswordComponent implements OnInit {
       this.isLoading = true;
       this.accountService.changePassword(this.changePasswordForm.value).subscribe(
         (result: any) => {
-          this.router.navigateByUrl("home");
+          this.router.navigate(['home']);
+          this.notificationService.showSuccessNotification('Password changed', 'Success');
           this.isLoading = false;
         },
         (error: string) => {

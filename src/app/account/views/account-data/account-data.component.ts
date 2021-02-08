@@ -15,7 +15,7 @@ export class AccountDataComponent implements OnInit {
   accountDataForm = new FormGroup({
     FirstName: new FormControl('', [Validators.required]),
     LastName: new FormControl('', [Validators.required]),
-    PhoneNumber: new FormControl('', [Validators.required,Validators.pattern(/^\d{9}/)]),
+    PhoneNumber: new FormControl('', [Validators.required,Validators.pattern(/^\d{3}-\d{3}-\d{3}$/)]),
     Email: new FormControl('', [Validators.required, Validators.email])
   });
   isLoading = false;
@@ -53,7 +53,8 @@ export class AccountDataComponent implements OnInit {
       this.isLoading = true; 
       this.accountService.updateAccountData(this.accountDataForm.value).subscribe(
         (result: any) => {
-          this.router.navigateByUrl("home");
+          this.router.navigate(['home']);
+          this.notificationService.showSuccessNotification('Account data updated', 'Success');
           this.isLoading = false;
         },
         (error: string) => {

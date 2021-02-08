@@ -45,6 +45,7 @@
     font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
     cursor: pointer;
     padding: 5px 5px;
+    width: 100%;
 }
 
 .login-form-container__link {

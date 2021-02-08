@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '../auth/guards/auth-guard';
+import { RoleGuard } from '../auth/guards/role-guard';
 import { BasicUserComponent } from './basic-user.component';
 import { BasicUserDetailsComponent } from './views/basic-user-details/basic-user-details.component';
 import { BasicUserListComponent } from './views/basic-user-list/basic-user-list.component';
@@ -9,13 +9,15 @@ const routes: Routes = [
     {
       path: '',
       component: BasicUserComponent,
-      canActivate: [AuthGuard],
-      data: {
-        expectedRoles: ['Admin']
-      },
+      canActivateChild: [RoleGuard],
       children: [
-        { path: 'list', component: BasicUserListComponent },
-        { path: ':id', component: BasicUserDetailsComponent }
+        {
+          path: '',
+          pathMatch: 'full',
+          redirectTo: 'list',
+        },
+        { path: 'list', component: BasicUserListComponent, data: { expectedRoles: ['Admin']} },
+        { path: ':id', component: BasicUserDetailsComponent, data: { expectedRoles: ['Admin']} }
       ]
     }
   ];

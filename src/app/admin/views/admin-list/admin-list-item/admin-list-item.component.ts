@@ -21,14 +21,13 @@ export class AdminListItemComponent implements OnInit {
   }
 
   onAdminDetails(): void {
-    this.router.navigateByUrl('admin/' + this.admin.adminId);
+    this.router.navigate(['admin', this.admin.adminId]);
   }
 
   onDeleteAdmin(): void {
     this.adminsService.deleteAdmin(this.admin.adminId).subscribe(
       (result: any) => {
-        this.notificationService.showSuccessNotification('Admin successfully deleted.', 'Success')
-        this.router.navigateByUrl('list');
+        window.location.reload();
       },
       (error: string) => {
         this.notificationService.showErrorNotification(error, 'Error');
