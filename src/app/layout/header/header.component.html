@@ -1,0 +1,41 @@
+<header class='header'>
+    <a class='header__logo' routerLink='/home/welcome'>TrackMe</a>
+    <nav class='header__navigation' [ngClass]="{'header__navigation--responsive-navigation-visible': isResponsiveNavigationShown}">
+        <ul class='header__list'>
+            <li class='header__list-item'>
+                <a class='header__link' routerLink='/home/welcome' (click)='onNavigationLinkClick()'>Home</a>
+            </li>
+            <li class='header__list-item' *ngIf='!isAuthenticated'>
+                <a class='header__link' routerLink='/auth/login' (click)='onNavigationLinkClick()'>Login</a>
+            </li>
+            <li class='header__list-item' *ngIf='!isAuthenticated'>
+                <a class='header__link' routerLink='/auth/register' (click)='onNavigationLinkClick()'>Register</a>
+            </li>
+            <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
+                <a class='header__link' routerLink='/trip/all' (click)='onNavigationLinkClick()'>Trips</a>
+            </li>
+            <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
+                <a class='header__link' routerLink='/admin/list' (click)='onNavigationLinkClick()'>Admins</a>
+            </li>
+            <li class='header__list-item' *ngIf='isAuthenticated && isAdmin'>
+                <a class='header__link' routerLink='/basic-user/list' (click)='onNavigationLinkClick()'>Basic users</a>
+            </li>
+            <li class='header__list-item' *ngIf='isAuthenticated && isBasicUser'>
+                <a class='header__link' routerLink='/trip/list' (click)='onNavigationLinkClick()'>My trips</a>
+            </li>
+            <li class='header__list-item' *ngIf='isAuthenticated && isBasicUser'>
+                <div class="header__dropdown">
+                    <button class="header__dropdown-btn">My account</button>
+                    <div class="header__dropdown-content">
+                        <a class='header__dropdown-link' routerLink='/account/change-password' (click)='onNavigationLinkClick()'>Change password</a>
+                        <a class='header__dropdown-link' routerLink='/account/account-data' (click)='onNavigationLinkClick()'>Change account data</a>
+                    </div>
+                </div>
+            </li>
+            <li class='header__list-item' *ngIf='isAuthenticated'>
+                <button class='header__btn' (click)='onLogout()'>Logout</button>
+            </li>
+        </ul>
+    </nav>
+    <i class="fa fa-bars header__responsive-navigation-icon" (click)='onResponsiveNavigationIconClick()'></i>
+</header>

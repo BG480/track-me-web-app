@@ -1,0 +1,14 @@
+<div *ngIf='isLoading' class='loading-spinner-container'>
+    <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="login-form-container" *ngIf='!isLoading'>
+    <h1 class="login-form-container__header">Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form-container__form">
+        <label class="login-form-container__label">Email</label>
+        <input formControlName="Email" type="text" class="login-form-container__input">
+        <label class="login-form-container__label">Password</label>
+        <input formControlName="Password" type="password" class="login-form-container__input">
+        <button type="submit" class="login-form-container__btn">Login</button>
+    </form>
+    <a routerLink='/auth/register' roterLinkActive='active' class="login-form-container__link">Create new account</a>
+</div>

@@ -1,0 +1,12 @@
+<div *ngIf='isLoading' class='loading-spinner-container'>
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class='basic-user-list-container' *ngIf='!isLoading'>
+  <div class='basic-user-list-container__header'>
+    <h1 class='basic-user-list-container__heading'>Basic users</h1>
+  </div>
+  <div class='basic-user-list-container__list'>
+    <app-basic-user-list-item *ngFor="let basicUser of basicUsers; let i = index" [basicUser]="basicUser" [index]="i">
+    </app-basic-user-list-item>
+  </div>
+</div>

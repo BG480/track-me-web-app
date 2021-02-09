@@ -1,0 +1,22 @@
+.trip-sensor-data-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px 2px;
+    border-bottom: 2px var(--green-color) solid;
+}
+
+.trip-sensor-data-item__sensor-value {
+    padding: 5px 2px;
+    border-bottom: 2px var(--light-grey-color) solid;
+    font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
+    color: var(--black-color);
+}
+
+.trip-sensor-data-item__sensor-value--last-sensor-value {
+    border-bottom: none;
+}
+
+.trip-sensor-data-item__property-name {
+    font-weight: bold;
+}

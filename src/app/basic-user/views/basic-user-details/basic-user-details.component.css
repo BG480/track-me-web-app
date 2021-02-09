@@ -1,0 +1,56 @@
+:host {
+    width: 100%;
+}
+
+.basic-user-details-container {
+    width: 100%;
+}
+
+.basic-user-details-container__header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    border-bottom: 2px var(--green-color) solid;
+    padding: 5px 0;
+}
+
+.basic-user-details-container__heading {
+    font-size: calc(24px + (34 - 24) * ((100vw - 300px) / (1920 - 300)));
+}
+
+.basic-user-details-container__details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 10px;
+}
+
+.basic-user-details-container__detail-text {
+    padding: 5px 2px;
+    border-bottom: 2px var(--light-grey-color) solid;
+    font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1920 - 300)));
+    color: var(--black-color);
+}
+
+.basic-user-details-container__property-name {
+    font-weight: bold;
+}
+
+.basic-user-details-container__btns-wrapper {
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+}
+
+.basic-user-details-container__btn {
+    text-transform: uppercase;
+    color: var(--white-color);
+    border: none;
+    font-size: calc(20px + (22 - 20) * ((100vw - 300px) / (1920 - 300)));
+    cursor: pointer;
+    padding: 5px 5px;
+    background-color: #3aafa9;
+}

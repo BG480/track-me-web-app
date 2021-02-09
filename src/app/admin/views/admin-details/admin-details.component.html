@@ -1,0 +1,16 @@
+<div *ngIf='isLoading' class='loading-spinner-container'>
+    <app-loading-spinner></app-loading-spinner>
+</div>
+<div class='admin-details-container' *ngIf='!isLoading'>
+    <div class='admin-details-container__header'>
+        <h1 class='admin-details-container__heading'>Admin details</h1>
+    </div>
+    <div class='admin-details-container__details'>
+        <div class='admin-details-container__detail-text'><span class='admin-details-container__property-name'>First name:</span> {{admin.firstName}}</div>
+        <div class='admin-details-container__detail-text'><span class='admin-details-container__property-name'>Last name:</span> {{admin.lastName}}</div>
+        <div class='admin-details-container__detail-text'><span class='admin-details-container__property-name'>Email:</span> {{admin.email}}</div>
+    </div>
+    <div class='admin-details-container__btns-wrapper'>
+        <button class='admin-details-container__btn' (click)='onBack()'>Back</button>
+    </div>
+</div>

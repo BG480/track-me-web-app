@@ -1,0 +1,21 @@
+<div *ngIf='isLoading' class='loading-spinner-container'>
+    <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="register-form-container" *ngIf='!isLoading'>
+    <h1 class="register-form-container__header">Register</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form-container__form">
+        <label class="register-form-container__label">First name</label>
+        <input formControlName="FirstName" type="text" class="register-form-container__input" placeholder="Wayne">
+        <label class="register-form-container__label">Last name</label>
+        <input formControlName="LastName" type="text" class="register-form-container__input" placeholder="Rooney">
+        <label class="register-form-container__label">Phone number</label>
+        <input formControlName="PhoneNumber" type="text" class="register-form-container__input" placeholder="123-456-789">
+        <label class="register-form-container__label">Email</label>
+        <input formControlName="Email" type="text" class="register-form-container__input" placeholder="email@email.com">
+        <label class="register-form-container__label">Password</label>
+        <input formControlName="Password" type="password" class="register-form-container__input">
+        <label class="register-form-container__label">Confirm password</label>
+        <input formControlName="ConfirmPassword" type="password" class="register-form-container__input">
+        <button type="submit" class="register-form-container__btn" >Register</button>
+    </form>
+</div>

@@ -1,0 +1,12 @@
+<div *ngIf='isLoading' class='loading-spinner-container'>
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class='trip-sensor-data-container' *ngIf='!isLoading'>
+    <div class='trip-sensor-data-container__header'>
+      <h1 class='trip-sensor-data-container__heading'>{{tripSensorData.name}}</h1>
+    </div>
+    <div class='trip-sensor-data-container__list'>
+      <app-trip-sensor-data-item *ngFor="let sensorData of tripSensorData.sensorData; let i = index" [sensorData]="sensorData" [index]="i">
+      </app-trip-sensor-data-item>
+    </div>
+  </div>

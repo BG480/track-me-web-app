@@ -1,0 +1,12 @@
+<div *ngIf='isLoading' class='loading-spinner-container'>
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class='all-trip-list-container' *ngIf='!isLoading'>
+  <div class='all-trip-list-container__header'>
+    <h1 class='all-trip-list-container__heading'>All trips</h1>
+  </div>
+  <div class='all-trip-list-container__list'>
+    <app-all-trip-list-item *ngFor="let trip of trips; let i = index" [trip]="trip" [index]="i">
+    </app-all-trip-list-item>
+  </div>
+</div>
